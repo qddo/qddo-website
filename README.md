@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# QDDO - Quadrado Central Hub
 
-## Getting Started
+Site da comunidade QDDO para founders. Construído com Next.js 14+, TypeScript, CSS Modules e foco em performance e acessibilidade.
 
-First, run the development server:
+## Stack Técnica
+
+- **Framework:** Next.js 16+ (App Router)
+- **Linguagem:** TypeScript (strict mode)
+- **Estilização:** CSS Modules
+- **Componentes:** Radix UI (acessibilidade) + Lucide React (ícones)
+- **Data Fetching:** React Query (TanStack) + React Server Components
+- **Validação:** Zod + React Hook Form
+- **Estado Global:** Zustand (quando necessário)
+- **Fontes:** Inter via `next/font`
+
+## Estrutura do Projeto
+
+```
+src/
+├── app/                    # App Router (Next.js)
+│   ├── layout.tsx         # Layout raiz
+│   ├── page.tsx           # Home page
+│   ├── sobre/             # Página Sobre
+│   └── comunidade/        # Página Comunidade
+├── components/
+│   ├── ui/                # Componentes primitivos (Button, Card, Input)
+│   └── features/          # Componentes compostos (Header, Footer, Hero)
+├── lib/                   # Utilitários, constantes, validações
+├── hooks/                 # Custom hooks
+├── types/                 # TypeScript types/interfaces
+└── styles/                # Estilos globais e variáveis CSS
+```
+
+## Como Executar
+
+### Desenvolvimento
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra [http://localhost:3000](http://localhost:3000) no navegador.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build de Produção
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Boas Práticas Implementadas
 
-To learn more about Next.js, take a look at the following resources:
+1. **React Server Components:** 80% do HTML renderizado no servidor
+2. **Semântica HTML5:** Uso correto de `<main>`, `<nav>`, `<article>`, etc.
+3. **Acessibilidade:** Componentes Radix UI com ARIA completo
+4. **Performance:** Fontes otimizadas, imagens com `next/image`, LCP otimizado
+5. **TypeScript Strict:** Sem uso de `any`, tipagem completa
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Design System
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+O projeto utiliza CSS Custom Properties para cores, espaçamentos, tipografia e outros tokens de design. Inspirado em comunidades de founders (Y Combinator, Indie Hackers) com estilo minimalista e profissional.
 
-## Deploy on Vercel
+## Scripts Disponíveis
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `npm run dev` - Inicia servidor de desenvolvimento
+- `npm run build` - Cria build de produção
+- `npm start` - Inicia servidor de produção
+- `npm run lint` - Executa ESLint
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Licença
+
+Privado - QDDO
