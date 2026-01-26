@@ -51,6 +51,14 @@
   flex-direction: column;
 }
 
+.cardCenter {
+  opacity: 1;
+}
+
+.cardSide {
+  opacity: 0.4;
+}
+
 .card:hover {
   transform: translateY(-4px);
 }

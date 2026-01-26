@@ -186,14 +186,16 @@ export function TestimonialsSection() {
       <div className={styles.carouselWrapper}>
         <div className={styles.carouselContainer} ref={scrollContainerRef}>
           <div className={styles.carouselTrack}>
-            {allCards.map((testimonial, index) => (
-              <div
-                key={`${testimonial.id}-${index}`}
-                ref={(el) => {
-                  cardRefs.current[index] = el;
-                }}
-                className={styles.card}
-              >
+            {allCards.map((testimonial, index) => {
+              const isCenter = index === currentIndex;
+              return (
+                <div
+                  key={`${testimonial.id}-${index}`}
+                  ref={(el) => {
+                    cardRefs.current[index] = el;
+                  }}
+                  className={`${styles.card} ${isCenter ? styles.cardCenter : styles.cardSide}`}
+                >
                 <div className={styles.imageWrapper}>
                   <Image
                     src={testimonial.image}
@@ -210,7 +212,8 @@ export function TestimonialsSection() {
                   </Button>
                 </div>
               </div>
-            ))}
+              );
+            })}
           </div>
         </div>
         
