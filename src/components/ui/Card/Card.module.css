@@ -1,0 +1,49 @@
+.card {
+  border-radius: var(--border-radius-lg);
+  border: var(--border-width) solid var(--border-color);
+  background-color: var(--color-gray-50);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-gray-200);
+}
+
+.cardHeader {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-6);
+  padding-bottom: var(--spacing-4);
+}
+
+.cardTitle {
+  font-family: var(--font-aileron), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  color: var(--color-white);
+  margin: 0;
+}
+
+.cardDescription {
+  font-family: var(--font-aileron), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-400);
+  margin-top: var(--spacing-2);
+  line-height: var(--line-height-normal);
+}
+
+.cardContent {
+  padding: var(--spacing-6);
+  padding-top: var(--spacing-4);
+}
+
+.cardFooter {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-6);
+  padding-top: var(--spacing-4);
+  border-top: var(--border-width) solid var(--border-color);
+}
