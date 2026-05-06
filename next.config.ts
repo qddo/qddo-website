@@ -1,6 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Desativa o Turbopack (usa Webpack estável)
+  experimental: {
+    turbopack: false,
+  },
   // Otimizações de performance
   images: {
     formats: ['image/avif', 'image/webp'],
