@@ -1,0 +1,217 @@
+.section {
+  padding: var(--spacing-2) 0 var(--spacing-20) 0;
+  background-color: var(--color-black);
+  overflow: hidden;
+  position: relative;
+}
+
+.carouselWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.carouselContainer {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-snap-type: x mandatory;
+  padding: var(--spacing-4) 0;
+  /* Permite scroll para ambos os lados - padding igual dos dois lados */
+  padding-left: calc(50vw - 475px);
+  padding-right: calc(50vw - 475px);
+}
+
+.carouselContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.carouselTrack {
+  display: flex;
+  gap: var(--spacing-8);
+  /* Adiciona padding à esquerda também para permitir scroll para trás */
+  padding-left: calc(50vw - 475px);
+  padding-right: calc(50vw - 475px);
+}
+
+.card {
+  flex: 0 0 auto;
+  width: calc((100vw - var(--spacing-6) * 2) / 3);
+  min-width: 900px;
+  max-width: 950px;
+  background-color: transparent;
+  border: none;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  transition: all var(--transition-base);
+  scroll-snap-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardCenter {
+  opacity: 1;
+}
+
+.cardSide {
+  opacity: 0.4;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.imageWrapper {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-gray-100);
+  border-radius: var(--border-radius-lg);
+  margin-bottom: var(--spacing-6);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.card:hover .image {
+  transform: scale(1.02);
+}
+
+.cardContent {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.quote {
+  font-family: var(--font-aileron), sans-serif;
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-white);
+  margin: 0;
+  font-weight: var(--font-weight-normal);
+}
+
+.readMoreButton {
+  margin-top: var(--spacing-2);
+  border-color: var(--color-gray-100);
+  color: var(--color-white);
+  background-color: transparent;
+  align-self: flex-start;
+  font-size: var(--font-size-sm);
+  padding: var(--spacing-2) var(--spacing-4);
+}
+
+.readMoreButton:hover {
+  border-color: var(--color-orange);
+  color: var(--color-orange);
+  background-color: transparent;
+}
+
+.navigation {
+  position: absolute;
+  right: var(--spacing-6);
+  bottom: var(--spacing-8);
+  display: flex;
+  gap: var(--spacing-2);
+  z-index: 10;
+}
+
+.navButton {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-gray-50);
+  border: 1px solid var(--color-gray-100);
+  border-radius: var(--border-radius-full);
+  color: var(--color-white);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.navButton:hover:not(:disabled) {
+  background-color: var(--color-orange);
+  border-color: var(--color-orange);
+  color: var(--color-white);
+}
+
+.navButton:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+@media (max-width: 1024px) {
+  .carouselContainer {
+    padding-left: calc(50vw - 325px);
+    padding-right: calc(50vw - 325px);
+  }
+
+  .carouselTrack {
+    gap: var(--spacing-6);
+    padding-left: calc(50vw - 325px);
+    padding-right: calc(50vw - 325px);
+  }
+
+  .card {
+    width: calc((100vw - var(--spacing-6) * 2) / 2);
+    min-width: 600px;
+    max-width: 650px;
+  }
+
+  .navigation {
+    right: var(--spacing-4);
+    bottom: var(--spacing-6);
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: var(--spacing-16) 0;
+  }
+
+  .carouselContainer {
+    padding-left: calc(50vw - 160px);
+    padding-right: calc(50vw - 160px);
+  }
+
+  .carouselTrack {
+    gap: var(--spacing-6);
+    padding-left: calc(50vw - 160px);
+    padding-right: calc(50vw - 160px);
+  }
+
+  .card {
+    width: calc(100vw - var(--spacing-4) * 2);
+    min-width: 320px;
+    max-width: 100%;
+  }
+
+  .imageWrapper {
+    aspect-ratio: 16 / 10;
+    margin-bottom: var(--spacing-4);
+  }
+
+  .quote {
+    font-size: var(--font-size-base);
+  }
+
+  .navigation {
+    right: var(--spacing-4);
+    bottom: var(--spacing-4);
+  }
+
+  .navButton {
+    width: 40px;
+    height: 40px;
+  }
+}

@@ -1,0 +1,55 @@
+@import '../styles/reset.css';
+@import '../styles/variables.css';
+
+body {
+  font-family: var(--font-aileron), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  color: var(--color-white);
+  background-color: var(--color-black);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Garantir que todos os textos usem Aileron por padrão */
+p, span, div, a, button, input, textarea, select, label, li, td, th {
+  font-family: var(--font-aileron), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Títulos secundários (h2, h3, h4, etc) também usam Aileron */
+h2, h3, h4, h5, h6 {
+  font-family: var(--font-aileron), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Apenas títulos principais (h1) podem usar Extenda - será aplicado explicitamente onde necessário */
+
+/* Scrollbar styling - adaptado para fundo escuro */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-gray-50);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gray-300);
+  border-radius: var(--border-radius-full);
+  }
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-orange);
+}
+
+/* Focus styles para acessibilidade */
+:focus-visible {
+  outline: 2px solid var(--color-orange);
+  outline-offset: 2px;
+}
+
+/* Seleção de texto - adaptado para fundo escuro */
+::selection {
+  background-color: var(--color-orange);
+  color: var(--color-white);
+}
