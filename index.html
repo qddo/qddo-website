@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>QDDO Central Hub · Comunidade de founders em Brasília</title>
+  <meta name="description" content="O Quadrado é a comunidade que destrava o crescimento de founders no Centro-Oeste: conexões com investidores, eventos e ajuda mútua." />
+
+  <!-- Open Graph / compartilhamento.
+       PENDENTE DE DOMÍNIO (ver PENDENCIAS.md): as três linhas abaixo estão
+       prontas, só falta trocar SEU-DOMINIO.com.br e descomentar. Sem URL
+       absoluta no og:image não existe prévia de link no WhatsApp/LinkedIn.
+  <meta property="og:url" content="https://SEU-DOMINIO.com.br/" />
+  <link rel="canonical" href="https://SEU-DOMINIO.com.br/" />
+  <meta property="og:image" content="https://SEU-DOMINIO.com.br/assets/media/og-cover.jpg" />
+  -->
+  <meta property="og:title" content="Founder não cresce sozinho. · QDDO Central Hub" />
+  <meta property="og:description" content="Comunidade curada, espaço gratuito no CCUG e desafios reais de empresas. Equity-free. Aplique." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:image" content="assets/media/og-cover.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#000000" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Rethink+Sans:ital,wght@0,400..800;1,400..800&family=Fraunces:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles/tokens.css" />
+  <link rel="stylesheet" href="styles/vorszk.css" />
+  <!-- SVG primeiro (troca de cor conforme o tema da aba); PNG fica de
+       reserva para browser sem favicon vetorial. -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="alternate icon" type="image/png" href="assets/icon-black.png" />
+  <link rel="apple-touch-icon" href="assets/icon-black.png" />
+</head>
+<body>
+  <!-- Primeiro foco do teclado: a página tem muito scroll e chrome fixo,
+       então pular direto para o conteúdo economiza dezenas de tabs. -->
+  <a class="qd-skip" href="#top">Pular para o conteúdo</a>
+  <div class="grain"></div>
+  <div id="root"></div>
+
+  <!-- Filtro de refração usado pelo botão de vidro líquido (LiquidButton).
+       Turbulência -> blur -> deslocamento do backdrop -> blur final.
+       Sem suporte (Safari), o botão cai para blur simples e continua legível. -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <filter id="qd-glass-distort" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.05 0.05" numOctaves="1" seed="1" result="turbulence" />
+      <feGaussianBlur in="turbulence" stdDeviation="2" result="blurredNoise" />
+      <feDisplacementMap in="SourceGraphic" in2="blurredNoise" scale="70" xChannelSelector="R" yChannelSelector="B" result="displaced" />
+      <feGaussianBlur in="displaced" stdDeviation="4" result="finalBlur" />
+      <feComposite in="finalBlur" in2="finalBlur" operator="over" />
+    </filter>
+  </svg>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <!-- Vorszk-style smooth scroll + animation stack -->
+  <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+  <script src="https://unpkg.com/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://unpkg.com/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+  <script type="text/babel" src="tweaks-panel.jsx"></script>
+  <script type="text/babel" src="components.jsx"></script>
+  <script type="text/babel" src="vorszk-core.jsx"></script>
+  <script type="text/babel" src="vorszk-sections.jsx"></script>
+  <script type="text/babel" src="vorszk-sections2.jsx"></script>
+  <script type="text/babel" src="app.jsx"></script>
+</body>
+</html>

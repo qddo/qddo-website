@@ -1,0 +1,8 @@
+# QDDO Central Hub
+# Site de uma página: tudo é indexável, menos o 404.
+User-agent: *
+Allow: /
+Disallow: /404.html
+
+# TROCAR pelo domínio real quando ele existir:
+Sitemap: https://SEU-DOMINIO.com.br/sitemap.xml

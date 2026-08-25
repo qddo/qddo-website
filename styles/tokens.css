@@ -1,0 +1,519 @@
+/* QDDO Central Hub — Design Tokens
+   Paleta 70/20/10: 70% preto, 20% branco/cinzas, 10% laranja
+   Editorial premium dark mode
+*/
+
+:root {
+  /* === PRIMITIVES === */
+  --black-1000: #000000;
+  --black-950:  #060606;
+  --black-900:  #0C0C0C;
+  --black-850:  #141414;
+  --black-800:  #1C1C1C;
+  --black-700:  #242424;
+
+  --white-000:  #FFFFFF;
+  --gray-050:   #F7F6F3;
+  --gray-100:   #EDECE7;
+  --gray-200:   #D6D5CF;
+  --gray-300:   #B6B5AE;
+  --gray-400:   #8C8B85;
+  --gray-500:   #6A6964;
+  --gray-600:   #4A4944;
+  --gray-700:   #32312D;
+  --gray-800:   #22211E;
+
+  /* Laranja QDDO — núcleo + tons clean (não puxa pra vermelho/amarelo) */
+  --orange-300: #FF8A4D;
+  --orange-400: #FF6D2A;
+  --orange-500: #E85420;   /* cor da marca */
+  --orange-600: #C84210;
+  --orange-700: #9E330A;
+  --orange-100: #FFE8D9;
+
+  /* === SEMANTIC (dark default) === */
+  --bg-canvas:    var(--black-1000);
+  --bg-subtle:    var(--black-900);
+  --bg-elevated:  var(--black-850);
+  --bg-card:      var(--black-850);
+  --bg-inverted:  var(--white-000);
+
+  --text-primary:    var(--white-000);
+  --text-secondary:  var(--gray-200);
+  --text-tertiary:   var(--gray-400);
+  --text-muted:      var(--gray-500);
+  --text-inverted:   var(--black-1000);
+  --text-brand:      var(--orange-500);
+
+  --border-faint:    rgba(255,255,255,0.06);
+  --border-subtle:   rgba(255,255,255,0.10);
+  --border-default:  rgba(255,255,255,0.16);
+  --border-strong:   rgba(255,255,255,0.28);
+
+  --accent:          var(--orange-500);
+  --accent-hover:    var(--orange-400);
+  --accent-press:    var(--orange-600);
+
+  /* === TYPE === */
+  --font-sans: "Geist", "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  /* Bastonada de display: usada nas palavras grandes (intro e fecho) */
+  --font-display: "Rethink Sans", "Geist", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Instrument Serif", "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "Geist Mono", "JetBrains Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+
+  /* Display sizes */
+  --text-display-2xl: clamp(3.5rem, 2rem + 7vw, 8.5rem);
+  --text-display-xl:  clamp(2.75rem, 1.6rem + 5vw, 6rem);
+  --text-display-lg:  clamp(2.25rem, 1.4rem + 3.6vw, 4.25rem);
+  --text-h1: clamp(2rem, 1.2rem + 2.6vw, 3.25rem);
+  --text-h2: clamp(1.5rem, 1.1rem + 1.6vw, 2.25rem);
+  --text-h3: clamp(1.25rem, 1rem + 1vw, 1.625rem);
+  --text-h4: 1.125rem;
+  --text-body-lg: 1.125rem;
+  --text-body: 1rem;
+  --text-sm: 0.9375rem;
+  --text-xs: 0.8125rem;
+  --text-overline: 0.75rem;
+
+  /* === SPACING (8pt) === */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 20px;
+  --s-6: 24px;
+  --s-8: 32px;
+  --s-10: 40px;
+  --s-12: 48px;
+  --s-16: 64px;
+  --s-20: 80px;
+  --s-24: 96px;
+  --s-32: 128px;
+  --s-40: 160px;
+
+  /* === RADIUS ===
+     Padrão Sight: quadrado com cantos arredondados. Nada de pílula.
+     --r-full sobrou só para pontos/dots redondos de verdade. */
+  --r-xs: 4px;
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 12px;
+  --r-xl: 16px;
+  --r-2xl: 20px;
+  --r-full: 9999px;
+  --r-btn: 10px;
+  --r-chip: 8px;
+
+  /* === MOTION === */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --d-fast: 180ms;
+  --d-base: 280ms;
+  --d-slow: 480ms;
+  /* Entrada de passo preso ao scroll (cascata, trilho, troca de estado).
+     0.7s é o tempo do Sight-2026 (.ps-step / .fs-carta). Cor e detalhe
+     acompanham em 0.4s. Não usar --d-slow nesses estados: fica curto. */
+  --d-beat: 700ms;
+  --d-beat-swap: 550ms;   /* troca de estado em cadência rápida (mídia, pilha) */
+  --d-beat-detail: 400ms;
+
+  /* Container */
+  --container: 1200px;
+  --container-narrow: 960px;
+  --gutter: clamp(20px, 4vw, 48px);
+}
+
+/* Light mode override */
+[data-theme="light"] {
+  --bg-canvas: var(--gray-050);
+  --bg-subtle: var(--white-000);
+  --bg-elevated: var(--white-000);
+  --bg-card: var(--white-000);
+  --bg-inverted: var(--black-1000);
+
+  --text-primary: var(--black-1000);
+  --text-secondary: var(--gray-700);
+  --text-tertiary: var(--gray-500);
+  --text-muted: var(--gray-400);
+  --text-inverted: var(--white-000);
+
+  --border-faint: rgba(0,0,0,0.06);
+  --border-subtle: rgba(0,0,0,0.10);
+  --border-default: rgba(0,0,0,0.16);
+  --border-strong: rgba(0,0,0,0.28);
+}
+
+/* === BASE === */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--bg-canvas);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "ss01", "cv11";
+  transition: background-color var(--d-base) var(--ease-out), color var(--d-base) var(--ease-out);
+}
+
+::selection { background: var(--orange-500); color: var(--black-1000); }
+
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+
+.serif { font-family: var(--font-serif); font-weight: 400; letter-spacing: -0.01em; }
+.mono { font-family: var(--font-mono); }
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+.container-narrow {
+  width: 100%;
+  max-width: var(--container-narrow);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--text-overline);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 22px;
+  border-radius: var(--r-btn);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  border: 1px solid transparent;
+  transition: background-color var(--d-fast) var(--ease-out),
+              border-color var(--d-fast) var(--ease-out),
+              color var(--d-fast) var(--ease-out),
+              transform var(--d-fast) var(--ease-out);
+  white-space: nowrap;
+  cursor: pointer;
+}
+/* CTA primário é BRANCO (pill) — laranja saiu dos botões;
+   fica só no número-herói, hovers e detalhes de marca. */
+.btn-primary {
+  background: var(--white-000);
+  color: var(--black-1000);
+  /* mesma mola do hover "growth": overshoot leve ao crescer */
+  transition: background-color var(--d-fast) var(--ease-out),
+              transform 0.22s cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+.btn-primary:hover { background: var(--gray-100); transform: scale(1.02); }
+.btn-primary:active { transform: scale(0.98); transition-duration: 0.1s; }
+.btn svg.arrow { width: 16px; height: 16px; }
+
+/* ---- BOTÃO DE VIDRO LÍQUIDO (CTA padrão do site) ----
+   Camadas: backdrop refratado (filtro SVG #qd-glass-distort no index.html)
+   + tint + anel de brilho (box-shadows empilhadas) + rótulo. */
+.btn-liquid {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 0;
+  color: var(--white-000);
+  background: transparent;
+  /* sombra externa: assentamento + halo suave de luz */
+  box-shadow: 0 0 6px rgba(0,0,0,0.03),
+              0 2px 6px rgba(0,0,0,0.08),
+              0 0 12px rgba(255,255,255,0.14);
+  transition: transform 0.22s cubic-bezier(0.34, 1.4, 0.64, 1),
+              box-shadow var(--d-base) var(--ease-out);
+}
+/* Camada de vidro: sangra 24px para fora (clipada pelo overflow do pai)
+   para o deslocamento ter conteúdo de onde puxar nas bordas. */
+.btn-liquid .lq-layer {
+  position: absolute; inset: -24px; z-index: 0;
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  filter: url(#qd-glass-distort);
+}
+.btn-liquid .lq-tint {
+  position: absolute; inset: 0; z-index: 1;
+  background: rgba(255, 255, 255, 0.06);
+  transition: background-color var(--d-base) var(--ease-out);
+}
+/* O anel: cantos superiores/inferiores acesos, borda fina e bloom interno.
+   É essa pilha que dá a leitura de "vidro grosso" do liquid glass. */
+.btn-liquid .lq-shine {
+  position: absolute; inset: 0; z-index: 2;
+  border-radius: inherit;
+  box-shadow: inset 3px 3px 0.5px -3.5px rgba(255,255,255,0.9),
+              inset -3px -3px 0.5px -3.5px rgba(255,255,255,0.85),
+              inset 1px 1px 1px -0.5px rgba(255,255,255,0.6),
+              inset -1px -1px 1px -0.5px rgba(255,255,255,0.6),
+              inset 0 0 6px 6px rgba(255,255,255,0.12),
+              inset 0 0 2px 2px rgba(255,255,255,0.06);
+  transition: box-shadow var(--d-base) var(--ease-out);
+}
+.btn-liquid .lq-label {
+  position: relative; z-index: 3;
+  display: inline-flex; align-items: center; gap: 10px;
+}
+.btn-liquid:hover { transform: scale(1.04); }
+.btn-liquid:hover {
+  box-shadow: 0 0 6px rgba(0,0,0,0.03),
+              0 2px 6px rgba(0,0,0,0.08),
+              0 0 18px rgba(255,255,255,0.22);
+}
+.btn-liquid:hover .lq-tint { background: rgba(255, 255, 255, 0.12); }
+.btn-liquid:hover .lq-shine {
+  box-shadow: inset 3px 3px 0.5px -3px rgba(255,255,255,1),
+              inset -3px -3px 0.5px -3px rgba(255,255,255,0.95),
+              inset 1px 1px 1px -0.5px rgba(255,255,255,0.8),
+              inset -1px -1px 1px -0.5px rgba(255,255,255,0.8),
+              inset 0 0 8px 8px rgba(255,255,255,0.18),
+              inset 0 0 3px 3px rgba(255,255,255,0.1);
+}
+.btn-liquid:active { transform: scale(0.98); transition-duration: 0.1s; }
+.btn-liquid[disabled] { opacity: 0.55; pointer-events: none; }
+.btn-liquid .arrow { transition: transform var(--d-fast) var(--ease-out); }
+.btn-liquid:hover .arrow { transform: translateX(3px); }
+/* Variante secundária: mesmo vidro, menos luz — preserva hierarquia
+   quando dois botões dividem a mesma linha. */
+.btn-liquid.lq-quiet {
+  box-shadow: 0 0 6px rgba(0,0,0,0.03), 0 2px 6px rgba(0,0,0,0.08);
+}
+.btn-liquid.lq-quiet .lq-tint { background: rgba(255,255,255,0.03); }
+.btn-liquid.lq-quiet .lq-shine {
+  box-shadow: inset 2px 2px 0.5px -3px rgba(255,255,255,0.5),
+              inset -2px -2px 0.5px -3px rgba(255,255,255,0.45),
+              inset 1px 1px 1px -0.5px rgba(255,255,255,0.3),
+              inset 0 0 4px 4px rgba(255,255,255,0.05);
+}
+.btn-liquid.lq-quiet:hover {
+  box-shadow: 0 0 6px rgba(0,0,0,0.03), 0 2px 6px rgba(0,0,0,0.08),
+              0 0 14px rgba(255,255,255,0.16);
+}
+/* Escala pequena: usado na topbar, onde o CTA é âncora fixa. */
+.btn-liquid.lq-sm { padding: 10px 16px; font-size: 13px; gap: 8px; }
+@media (prefers-reduced-motion: reduce) {
+  .btn-liquid, .btn-liquid:hover, .btn-liquid:active { transform: none; }
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--text-primary);
+  border-color: var(--border-default);
+}
+.btn-ghost:hover { border-color: var(--border-strong); background: color-mix(in oklab, var(--text-primary) 4%, transparent); }
+.btn-link {
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-default);
+  border-radius: 0;
+  padding-bottom: 4px;
+}
+.btn-link:hover { border-bottom-color: var(--accent); color: var(--accent); }
+
+.btn .arrow {
+  display: inline-block;
+  transition: transform var(--d-fast) var(--ease-out);
+}
+.btn:hover .arrow { transform: translateX(3px); }
+
+/* Section */
+section { padding-block: clamp(72px, 10vw, 144px); }
+.section-tight { padding-block: clamp(48px, 7vw, 96px); }
+
+/* Headings — editorial serif feel */
+/* Display headings: WHITE parts in Geist sans, ITALIC em parts in Instrument Serif italic + orange */
+.h-display {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--text-display-xl);
+  line-height: 1.04;
+  letter-spacing: -0.028em;
+  text-wrap: balance;
+  padding-bottom: 0.08em;
+  color: var(--text-primary);
+}
+.h-display em, .h-display i {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--accent);
+  letter-spacing: -0.012em;
+}
+.h1 {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--text-h1);
+  line-height: 1.08;
+  letter-spacing: -0.022em;
+  text-wrap: balance;
+  padding-bottom: 0.06em;
+}
+.h1 em, .h1 i {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--accent);
+  letter-spacing: -0.012em;
+}
+.h2 {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--text-h2);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  padding-bottom: 0.06em;
+}
+.h2 em, .h2 i {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--accent);
+  letter-spacing: -0.012em;
+}
+
+/* Manifesto / pull-quote serif blocks keep serif as base */
+.serif-quote {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.018em;
+}
+.serif-quote em, .serif-quote i { font-style: italic; color: var(--accent); }
+
+/* Audience switcher (PicPay-style pill) */
+.switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--text-primary) 8%, transparent);
+  border: 1px solid var(--border-subtle);
+  position: relative;
+}
+.switcher button {
+  position: relative;
+  z-index: 2;
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: color var(--d-fast) var(--ease-out);
+  white-space: nowrap;
+}
+.switcher button[data-active="true"] {
+  color: var(--white-000);
+}
+.switcher .pill {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  background: var(--accent);
+  border-radius: 999px;
+  z-index: 1;
+  transition: left var(--d-base) var(--ease-out-expo), width var(--d-base) var(--ease-out-expo);
+}
+.h3 {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: var(--text-h3);
+  line-height: 1.18;
+  letter-spacing: -0.014em;
+}
+
+.lede {
+  font-size: var(--text-body-lg);
+  line-height: 1.5;
+  color: var(--text-secondary);
+  /* padrão do site: subheadline quebra em linhas de largura parecida */
+  text-wrap: balance;
+  max-width: 60ch;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: var(--border-faint);
+}
+
+/* Logo dot pulse */
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.18); opacity: 0.92; }
+}
+.brand-dot { animation: pulse-dot 2.4s var(--ease-out) infinite; transform-origin: center; }
+
+/* Reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 700ms var(--ease-out), transform 700ms var(--ease-out);
+}
+.reveal.in { opacity: 1; transform: none; }
+
+/* Tag/chip */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--r-chip);
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  background: color-mix(in oklab, var(--bg-canvas) 60%, transparent);
+}
+.chip .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+
+/* Grain overlay */
+.grain {
+  position: fixed; inset: 0; pointer-events: none; z-index: 1;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.85'/></svg>");
+}
+
+/* Footer / utility */
+.fineprint {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+}
+
+/* Card base */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--r-lg);
+  padding: var(--s-8);
+  transition: border-color var(--d-fast) var(--ease-out), transform var(--d-fast) var(--ease-out), background-color var(--d-fast) var(--ease-out);
+}
+.card:hover { border-color: var(--border-default); }
+
+.card-flat {
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--r-lg);
+  padding: var(--s-8);
+}
+
+/* Hide on small screens */
+@media (max-width: 760px) {
+  .hide-sm { display: none !important; }
+}

@@ -1,0 +1,10 @@
+# Não vai para o servidor (63 MB que o visitante nunca pede):
+assets/media/_originais/
+_archive/
+
+# Claude Code (configurações locais)
+.claude/
+
+# Sistema
+Thumbs.db
+.DS_Store
