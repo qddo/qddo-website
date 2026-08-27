@@ -2,10 +2,10 @@
 assets/media/_originais/
 _archive/
 
-# Claude Code (configurações locais)
-.claude/
-
 # Sistema
 Thumbs.db
 .DS_Store
-.env*
+._*
+
+# Configuração local de assistentes
+.claude/
