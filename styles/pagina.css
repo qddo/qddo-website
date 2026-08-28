@@ -211,6 +211,24 @@
   background: color-mix(in oklab, var(--text-primary) 5%, transparent);
   transform: scale(1.03);
 }
+.pg-primary {
+  margin-top: 32px;
+  min-height: 52px;
+  padding: 14px 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  background: var(--text-primary);
+  border-color: var(--text-primary);
+  color: var(--bg);
+  font-weight: 500;
+}
+.pg-primary:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
 
 /* ─── rodapé ───────────────────────────────────────────────── */
 .pg-foot {
