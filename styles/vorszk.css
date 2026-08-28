@@ -26,28 +26,29 @@ body { cursor: none; }
 }
 
 /* Prova social da página do founder */
-.qd-testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  border-top: 1px solid var(--border-subtle);
-  border-left: 1px solid var(--border-subtle);
-}
+.qd-testimonials-window { max-height: 720px; overflow: hidden; mask-image: linear-gradient(to bottom, transparent, #000 14%, #000 86%, transparent); }
+.qd-testimonials-columns { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.qd-testimonials-column { display: grid; gap: 20px; animation: qd-testimonials-up var(--testimonial-duration) linear infinite; }
+.qd-testimonials-column:nth-child(2) { animation-direction: reverse; }
+@keyframes qd-testimonials-up { to { transform: translateY(calc(-50% - 10px)); } }
 .qd-testimonial {
-  height: 100%; min-height: 360px; margin: 0;
-  padding: clamp(26px, 3.4vw, 46px);
-  border-right: 1px solid var(--border-subtle);
-  border-bottom: 1px solid var(--border-subtle);
-  display: flex; flex-direction: column; justify-content: space-between; gap: 48px;
+  min-height: 250px; margin: 0; padding: clamp(24px, 2.6vw, 34px);
+  border: 1px solid var(--border-subtle); border-radius: var(--r-xl); background: var(--bg-card);
+  display: flex; flex-direction: column; justify-content: space-between; gap: 38px;
 }
 .qd-testimonial blockquote {
   margin: 0; font-family: var(--font-sans); font-style: normal; font-weight: 400;
   font-size: clamp(1.2rem, 1rem + .55vw, 1.7rem); line-height: 1.38;
   letter-spacing: -.018em; color: var(--text-primary);
 }
-.qd-testimonial figcaption { display: grid; gap: 4px; }
+.qd-testimonial figcaption { display: flex; align-items: center; gap: 12px; }
+.qd-testimonial figcaption .avatar { width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; background: var(--accent); color: #fff; font: 10px var(--font-mono); letter-spacing: .08em; }
+.qd-testimonial figcaption .person { display: grid; gap: 4px; }
 .qd-testimonial figcaption strong { font-size: 14px; font-weight: 500; }
-.qd-testimonial figcaption span { font: 10px var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
-@media (max-width: 820px) { .qd-testimonials-grid { grid-template-columns: 1fr; } .qd-testimonial { min-height: 0; } }
+.qd-testimonial figcaption .person > span { font: 10px var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+@media (max-width: 900px) { .qd-testimonials-columns { grid-template-columns: repeat(2, minmax(0, 1fr)); } .qd-testimonials-column:nth-child(3) { display: none; } }
+@media (max-width: 620px) { .qd-testimonials-columns { grid-template-columns: 1fr; } .qd-testimonials-column:nth-child(2) { display: none; } }
+@media (prefers-reduced-motion: reduce) { .qd-testimonials-column { animation-play-state: paused; } }
 .qd-maint-hero-media { position: absolute; inset: 0; }
 .qd-maint-hero-media .qd-media { width: 100%; height: 100%; border: 0; border-radius: 0; }
 .qd-maint-hero-media img { filter: saturate(0.7) contrast(1.08); }
@@ -1093,7 +1094,7 @@ a, button, [data-cursor] { cursor: none; }
      seção virava vazio no topo (284px de vão para 392px de conteúdo
      em 720p). Cortar a altura é o que tira o vão sem mexer na
      âncora de baixo. */
-  min-height: 88vh;
+  min-height: 112vh;
   display: flex;
   align-items: flex-end;
   overflow: hidden;
@@ -1208,6 +1209,21 @@ a, button, [data-cursor] { cursor: none; }
   width: 100%;
   max-width: 430px;
 }
+.qd-hero-trust {
+  align-self: end; margin-bottom: clamp(52px, 8vh, 96px); padding: clamp(24px, 3vw, 36px);
+  border: 1px solid rgba(255,255,255,.18); border-radius: 28px;
+  background: linear-gradient(145deg, rgba(255,255,255,.12), rgba(255,255,255,.035));
+  backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px);
+  box-shadow: inset 0 1px rgba(255,255,255,.2), 0 30px 90px rgba(0,0,0,.4);
+  color: #fff;
+}
+.qd-hero-trust-head { display: flex; align-items: center; gap: 9px; font: 10px var(--font-mono); letter-spacing: .13em; text-transform: uppercase; color: rgba(255,255,255,.62); }
+.qd-hero-trust-head .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 18px var(--accent); }
+.qd-hero-trust-main { padding-block: clamp(48px, 8vh, 78px); }
+.qd-hero-trust-main strong { display: block; max-width: 12ch; font: 400 clamp(1.8rem, 1.2rem + 2vw, 3.2rem)/1.02 var(--font-sans); letter-spacing: -.04em; }
+.qd-hero-trust-main p { max-width: 34ch; margin: 22px 0 0; color: rgba(255,255,255,.66); font-size: 14px; line-height: 1.55; }
+.qd-hero-trust-tags { display: flex; gap: 7px; flex-wrap: wrap; }
+.qd-hero-trust-tags span { padding: 7px 10px; border: 1px solid rgba(255,255,255,.14); border-radius: 999px; font-size: 10px; color: rgba(255,255,255,.7); }
 /* Grade 2x2 em vez de quatro linhas: a lista deixava um vão morto no
    meio de cada linha entre o número e o rótulo alinhado à direita. */
 .qd-hero3-meta {
@@ -1253,6 +1269,8 @@ a, button, [data-cursor] { cursor: none; }
   .qd-hero3 { margin-top: 0; }
   .qd-hero3 .container { grid-template-columns: 1fr; gap: clamp(32px, 5vh, 56px); }
   .qd-hero3-aside { justify-self: stretch; max-width: none; }
+  .qd-hero3 { min-height: 100vh; }
+  .qd-hero-trust { margin-bottom: clamp(44px, 7vh, 72px); }
 }
 @media (prefers-reduced-motion: reduce) {
   .qd-hero3 { margin-top: 0; }
@@ -1638,25 +1656,25 @@ a, button, [data-cursor] { cursor: none; }
 }
 
 /* ─── 27. Comunidade em quatro movimentos ────────────────── */
-.qd-community-grid {
-  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
-  margin-top: 18px;
-}
+.qd-life-pin { position: relative; height: 420vh; }
+.qd-life-stage { position: sticky; top: 0; min-height: 100vh; display: flex; align-items: center; padding-block: clamp(48px, 6vh, 72px); overflow: hidden; }
+.qd-life-stage .qd-section-head { margin-bottom: clamp(20px, 3vh, 36px); }
+.qd-community-grid { position: relative; margin-top: 18px; min-height: clamp(190px, 26vh, 280px); }
 .qd-community-progress { height: 2px; margin-top: clamp(48px, 7vw, 88px); background: var(--border-subtle); overflow: hidden; }
 .qd-community-progress span { display: block; width: 100%; height: 100%; background: var(--accent); transform: scaleX(0); transform-origin: left; will-change: transform; }
-.qd-community-step { opacity: .18; transform: translateY(16px); transition: opacity 480ms var(--ease-out), transform 560ms var(--ease-out-expo); }
+.qd-community-step { position: absolute; inset: 0; opacity: 0; transform: translateY(22px); pointer-events: none; transition: opacity 480ms var(--ease-out), transform 560ms var(--ease-out-expo); }
 .qd-community-step[data-on="true"] { opacity: 1; transform: none; }
 .qd-community-card {
-  min-height: 240px; padding: clamp(22px, 2.5vw, 34px);
-  display: flex; flex-direction: column; gap: 18px;
+  height: 100%; padding: clamp(22px, 2.5vw, 34px) 0;
+  display: grid; grid-template-columns: minmax(70px, .25fr) 1fr; gap: clamp(24px, 5vw, 80px); align-items: center;
 }
-.qd-community-card .freq { font: 11px var(--font-mono); letter-spacing: .16em; color: var(--accent); }
+.qd-community-card .freq { font: 400 clamp(2.5rem, 1.5rem + 5vw, 6rem)/1 var(--font-sans); letter-spacing: -.05em; color: var(--accent); }
 .qd-community-card h3 { margin: 0 0 10px !important; font-family: var(--font-sans) !important; font-style: normal !important; font-size: clamp(1.25rem, 1rem + .7vw, 1.7rem) !important; }
 .qd-community-card p { font-size: 14px !important; line-height: 1.55 !important; }
 .qd-territory-center { grid-template-columns: 1fr; justify-items: center; text-align: center; }
 .qd-territory-center .qd-divider-body { max-width: 760px; }
-@media (max-width: 900px) { .qd-community-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 560px) { .qd-community-grid { grid-template-columns: 1fr; } .qd-community-card { min-height: 0; } }
+@media (max-width: 700px) { .qd-life-pin { height: 400vh; } .qd-community-card { grid-template-columns: 1fr; align-content: center; gap: 14px; } .qd-territory-center { margin-top: 24px; } }
+@media (prefers-reduced-motion: reduce) { .qd-life-pin { height: auto; } .qd-life-stage { position: static; } .qd-community-grid { min-height: 0; display: grid; gap: 20px; } .qd-community-step { position: static; opacity: 1; transform: none; } }
 
 /* ─── 27b. Cadência legada ───────────────────────────────── */
 .qd-rhythm-row {
@@ -1926,6 +1944,7 @@ a, button, [data-cursor] { cursor: none; }
   object-fit: cover;
 }
 .qd-pillars-bg .qd-hero-grid { position: absolute; inset: 0; }
+.qd-pillars-bg .qd-hero-grid, .qd-pillars-paper { display: none; }
 /* Fundo em caracteres (AsciiArt), no lugar do vídeo enquanto o slot
    está vazio. Opacidade baixa de propósito: é textura de fundo, e é o
    preto que sobra dela que segura o contraste dos cards de vidro.

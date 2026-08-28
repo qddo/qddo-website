@@ -196,13 +196,14 @@ function VLife() {
     { f: "04", t: "Encontros do ecossistema", d: "Conversas com startups, empresas e investidores que podem abrir novas oportunidades." },
   ];
   useSectionProgress(secRef, (p) => {
-    const progress = Math.max(0, Math.min(1, (p - 0.08) / 0.72));
+    const progress = Math.max(0, Math.min(1, p));
     if (progressRef.current) progressRef.current.style.transform = `scaleX(${progress})`;
-    const visible = Math.max(1, Math.ceil(progress * rhythm.length));
-    cardRefs.current.forEach((el, i) => el && el.setAttribute("data-on", i < visible ? "true" : "false"));
+    const active = Math.min(rhythm.length - 1, Math.floor(progress * rhythm.length));
+    cardRefs.current.forEach((el, i) => el && el.setAttribute("data-on", i === active ? "true" : "false"));
   });
   return (
-    <section id="vida" className="qd-section" ref={secRef}>
+    <section id="vida" className="qd-life-pin" ref={secRef}>
+      <div className="qd-life-stage">
       <div className="container">
         <div className="qd-section-head qd-head-split">
           <div style={{display:"grid", gap: 24}}>
@@ -242,6 +243,7 @@ function VLife() {
         <DividerRow eyebrow="No centro do país" className="qd-territory-center">
           Brasília é a única capital com vocação de testar políticas, marcas e produtos em <em>escala nacional</em> desde o dia um.
         </DividerRow>
+      </div>
       </div>
     </section>
   );
@@ -333,6 +335,11 @@ function VTestimonials() {
       company: "Retem",
     },
   ];
+  const columns = [
+    testimonials,
+    [testimonials[1], testimonials[2], testimonials[0]],
+    [testimonials[2], testimonials[0], testimonials[1]],
+  ];
   return (
     <section id="depoimentos" className="qd-section">
       <div className="container">
@@ -348,15 +355,23 @@ function VTestimonials() {
             <p className="lede">O valor da comunidade aparece no que seus founders conseguem fazer depois de se conectar.</p>
           </FadeIn>
         </div>
-        <div className="qd-testimonials-grid">
-          {testimonials.map((item, i) => (
-            <FadeIn key={item.name} delay={i * 80}>
-              <figure className="qd-testimonial">
-                <blockquote>“{item.quote}”</blockquote>
-                <figcaption><strong>{item.name}</strong><span>{item.company}</span></figcaption>
-              </figure>
-            </FadeIn>
-          ))}
+        <div className="qd-testimonials-window">
+          <div className="qd-testimonials-columns">
+            {columns.map((column, columnIndex) => (
+              <div className="qd-testimonials-column" key={columnIndex}
+                style={{"--testimonial-duration": `${15 + columnIndex * 4}s`}}>
+                {[...column, ...column].map((item, i) => (
+                  <figure className="qd-testimonial" key={`${columnIndex}-${i}`}>
+                    <blockquote>“{item.quote}”</blockquote>
+                    <figcaption>
+                      <span className="avatar" aria-hidden="true">{item.name.split(" ").map(part => part[0]).slice(0,2).join("")}</span>
+                      <span className="person"><strong>{item.name}</strong><span>{item.company}</span></span>
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

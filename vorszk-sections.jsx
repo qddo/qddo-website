@@ -244,7 +244,19 @@ function VHero() {
             </div>
           </FadeIn>
         </div>
-
+        <FadeIn delay={650} className="qd-hero-trust">
+          <div className="qd-hero-trust-head">
+            <span className="dot"></span>
+            <span>Comunidade ativa em Brasília</span>
+          </div>
+          <div className="qd-hero-trust-main">
+            <strong>Construa perto de quem faz.</strong>
+            <p>Founders, operadores, especialistas e empresas reunidos para transformar conversa em próximo passo.</p>
+          </div>
+          <div className="qd-hero-trust-tags">
+            <span>Equity-free</span><span>Curadoria contínua</span><span>Desafios reais</span>
+          </div>
+        </FadeIn>
       </div>
     </section>
   );
@@ -371,7 +383,7 @@ function VPillars() {
 
   const cards = [
     { icon: icons.community, photo: "vida-01", focus: "61% 50%", t: ["Comunidade", "curada"], tags: ["Seleção", "Colaboração"], d: "Founders em movimento, selecionados pela capacidade de construir, colaborar e fazer a comunidade avançar." },
-    { icon: icons.builders, photo: "vida-02", focus: "30% 50%", t: ["Conexão com", "outros builders"], tags: ["Founders", "Operadores"], d: "Encontre pessoas que constroem, acesse operadores e especialistas e compartilhe desafios com quem entende a jornada." },
+    { icon: icons.builders, photo: "vida-02", focus: "30% 50%", t: ["Conexão entre", "founders"], tags: ["Founders", "Operadores"], d: "Encontre pessoas que constroem, acesse operadores e especialistas e compartilhe desafios com quem entende a jornada." },
     { icon: icons.events, photo: "vida-03", focus: "54% 50%", t: ["Rotina de", "eventos"], tags: ["Encontros", "Desafios"], d: "Consultoria coletiva, trocas de inovação, desafios de empresas e encontros com outras startups." },
     { icon: icons.community, photo: "vida-04", focus: "50% 9%", t: ["Espaço e", "infraestrutura"], tags: ["CCUG", "Equity-free"], d: "Um lugar para trabalhar, encontrar a comunidade e participar da rotina do ecossistema, sem abrir mão de equity." },
   ];
