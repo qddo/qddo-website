@@ -474,6 +474,7 @@ function BrandMark() {
 }
 
 function TopBar({ menuOpen, onMenuToggle }) {
+  const isMaintainerPage = document.body.dataset.page === "mantenedores";
   // Véu preto atrás do chrome, só a partir do hero: dali até o fim a
   // topbar corre sobre o preto do site, e o gradiente é o que segura o
   // contraste da logo e dos botões. Sobre a foto do intro ele fica
@@ -526,14 +527,14 @@ function TopBar({ menuOpen, onMenuToggle }) {
         position: fixed — o véu deixaria de medir a tela inteira. */}
     <div className="qd-topbar-scrim" data-on={scrim ? "true" : "false"} aria-hidden="true"></div>
     <div className="qd-topbar">
-      <a href="#top" className="qd-topbar-mark" data-cursor="hover" aria-label="Quadrado: voltar ao topo">
+      <a href={isMaintainerPage ? "index.html" : "#top"} className="qd-topbar-mark" data-cursor="hover" aria-label="Quadrado: voltar ao início">
         <BrandFull />
         <BrandMark />
       </a>
       <div className="qd-topbar-right">
-        <LiquidButton href="#aplicar" size="sm" className="qd-topbar-cta"
+        <LiquidButton href={isMaintainerPage ? "#contato" : "#aplicar"} size="sm" className="qd-topbar-cta"
           onClick={() => onMenuToggle && onMenuToggle(false)}>
-          Aplicar <ArrowUpRight />
+          {isMaintainerPage ? "Conversar" : "Aplicar"} <ArrowUpRight />
         </LiquidButton>
         <MenuToggle open={menuOpen} onOpenChange={onMenuToggle} strokeWidth={2} />
       </div>
@@ -553,13 +554,21 @@ function DropMenu({ open, onClose }) {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [open, onClose]);
-  const links = [
-    ["01", "Como funciona", "#como-funciona"],
-    ["02", "Vida no Quadrado", "#vida"],
+  const isMaintainerPage = document.body.dataset.page === "mantenedores";
+  const links = isMaintainerPage ? [
+    ["01", "Proposta de valor", "#valor"],
+    ["02", "Formas de atuação", "#atuacao"],
+    ["03", "Como trabalhamos", "#processo"],
+    ["04", "Resultados", "#resultados"],
+    ["05", "Conversar", "#contato"],
+    ["06", "Página do founder", "index.html"],
+  ] : [
+    ["01", "O que entregamos", "#destrava"],
+    ["02", "Como funciona", "#como-funciona"],
     ["03", "Para founders", "#founders"],
-    ["04", "Para sua empresa", "#mantenedores"],
-    ["05", "Manifesto", "#manifesto"],
-    ["06", "Plataforma", "#plataforma"],
+    ["04", "Vida no Quadrado", "#vida"],
+    ["05", "Portfólio", "#cases"],
+    ["06", "Para mantenedores", "mantenedores.html"],
     ["07", "Aplicar", "#aplicar"],
   ];
   return (

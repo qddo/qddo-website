@@ -237,11 +237,8 @@ function VHero() {
             lines={[["Founder", "não"], ["cresce", { w: "sozinho.", em: true }]]} />
           <FadeIn delay={900}>
             <p className="qd-hero3-lede">
-              {/* Duas linhas de 388px cada (46ch em 1280): "exclusivos" saiu
-                  para equilibrar a quebra, e adjetivo a menos é o que a regra
-                  de copy pede de qualquer forma. */}
-              O Quadrado destrava o crescimento: conexões com investidores,
-              eventos e ajuda mútua entre founders.
+              Comunidade curada, rotina presencial e conexões que ajudam você
+              a tomar decisões melhores e fazer a startup avançar.
             </p>
           </FadeIn>
           <FadeIn delay={1050}>
@@ -249,8 +246,8 @@ function VHero() {
               <LiquidButton href="#aplicar">
                 Aplicar para o Quadrado <ArrowUpRight className="arrow" />
               </LiquidButton>
-              <a href="#mantenedores" className="qd-link-plain" data-cursor="hover">
-                Para sua empresa <span aria-hidden="true">→</span>
+              <a href="mantenedores.html" className="qd-link-plain" data-cursor="hover">
+                Quero ser mantenedor <span aria-hidden="true">→</span>
               </a>
             </div>
           </FadeIn>
@@ -399,19 +396,19 @@ function VPillars() {
       icon: icons.investors,
       t: ["Portas para", "investidores"],
       tags: ["Demo Day", "Intros diretas", "Rede ativa", "Follow-up"],
-      d: "Acesso direto a quem investe no Centro-Oeste. Sem fila, sem frieza.",
+      d: "Conexões qualificadas com investidores, empresas e operadores, no momento certo da jornada.",
     },
     {
       icon: icons.events,
-      t: ["Eventos", "exclusivos"],
+      t: ["Rotina que", "gera progresso"],
       tags: ["Founders Night", "Workshops", "Office hours", "Setoriais"],
-      d: "Cadência mensal que mantém a comunidade viva e conectada.",
+      d: "Encontros, workshops e office hours que transformam conversa em decisão e próximo passo.",
     },
     {
       icon: icons.mutual,
       t: ["Ajuda", "mútua"],
       tags: ["Pares reais", "Mentoria", "Aprendizado", "Comunidade"],
-      d: "Founders que já passaram pelo seu problema, a uma mesa de distância.",
+      d: "Pares que compartilham contexto, experiência e ajuda prática sem teatro de networking.",
     },
   ];
 

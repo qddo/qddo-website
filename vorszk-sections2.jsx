@@ -73,8 +73,8 @@ function VForFounders() {
               ]} />
             <FadeIn delay={200}>
               <p className="lede" style={{maxWidth: "34ch"}}>
-                Espaço, comunidade e progresso.<br />
-                Entrar é gratuito. Ficar se conquista.
+                Estrutura para construir, pares para trocar e conexões para avançar.<br />
+                Entrar é gratuito. Permanecer exige presença e progresso.
               </p>
             </FadeIn>
             <FadeIn delay={300}>
@@ -1017,8 +1017,8 @@ function VFooter() {
             )}
           </div>
           {[
-            { t: "Navegar", l: [["Como funciona", "#como-funciona"], ["Vida no Quadrado", "#vida"], ["Portfólio", "#cases"], ["Manifesto", "#manifesto"]] },
-            { t: "Entrar", l: [["Para founders", "#founders"], ["Para empresas", "#mantenedores"], ["Aplicar", "#aplicar"]] },
+            { t: "Navegar", l: [["Como funciona", "index.html#como-funciona"], ["Vida no Quadrado", "index.html#vida"], ["Portfólio", "index.html#cases"], ["Manifesto", "index.html#manifesto"]] },
+            { t: "Entrar", l: [["Para founders", "index.html#founders"], ["Para mantenedores", "mantenedores.html"], ["Aplicar", "index.html#aplicar"]] },
             { t: "Contato", l: [["Imprensa", `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Imprensa · Quadrado")}`], ["Voltar ao topo", "#top"]] },
           ].map(c => (
             <div key={c.t}>

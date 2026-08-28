@@ -1,8 +1,9 @@
 # QDDO Central Hub
-# Site de uma página: tudo é indexável, menos o 404.
+# As páginas institucionais são indexáveis; confirmações e 404 não são.
 User-agent: *
 Allow: /
 Disallow: /404.html
+Disallow: /obrigado.html
+Disallow: /mantenedores-obrigado.html
 
-# TROCAR pelo domínio real quando ele existir:
-Sitemap: https://SEU-DOMINIO.com.br/sitemap.xml
+Sitemap: https://qddo.github.io/qddo-website/sitemap.xml
