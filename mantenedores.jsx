@@ -192,7 +192,7 @@ function MContact() {
           </div>
           <FadeIn delay={120}>
             <form className="qd-form-card" action={MAINTAINER_FORM_ENDPOINT} method="POST">
-              <input type="hidden" name="_subject" value="Novo contato de mantenedor — Quadrado Central" />
+              <input type="hidden" name="_subject" value="Novo contato de mantenedor: Quadrado Central" />
               <input type="hidden" name="_template" value="table" />
               <input type="hidden" name="_next" value={MAINTAINER_SUCCESS_URL} />
               <input type="hidden" name="_url" value={MAINTAINER_FORM_URL} />

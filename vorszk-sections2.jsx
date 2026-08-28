@@ -235,10 +235,19 @@ function VLife() {
               ))}
         </div>
 
+      </div>
+      </div>
+    </section>
+  );
+}
+
+function VTerritory() {
+  return (
+    <section id="territorio" className="qd-section qd-territory-section">
+      <div className="container">
         <DividerRow eyebrow="No centro do país" className="qd-territory-center">
           Brasília é a única capital com vocação de testar políticas, marcas e produtos em <em>escala nacional</em> desde o dia um.
         </DividerRow>
-      </div>
       </div>
     </section>
   );
@@ -815,7 +824,7 @@ function VApply() {
 
           <FadeIn delay={150}>
               <form className="qd-form-card" action={APPLY_ENDPOINT} method="POST">
-                <input type="hidden" name="_subject" value="Nova aplicação — Quadrado Central" />
+                <input type="hidden" name="_subject" value="Nova aplicação: Quadrado Central" />
                 <input type="hidden" name="_template" value="table" />
                 <input type="hidden" name="_next" value={APPLY_SUCCESS_URL} />
                 <input type="hidden" name="_url" value={APPLY_FORM_URL} />
@@ -988,7 +997,7 @@ function VFooter() {
 }
 
 Object.assign(window, {
-  VLife, VApply, VCases, VTestimonials,
+  VLife, VTerritory, VApply, VCases, VTestimonials,
   VForFounders, VForMaintainers, VCommunity, VEvents, VFounderPlatform,
   VNotThis, VBlog, VBigStatement, VFinalCTA, VFooter,
 });

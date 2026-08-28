@@ -1,7 +1,7 @@
 /* global React, ReactDOM, useTweaks, TweaksPanel, TweakSection, TweakRadio, TweakColor, TweakSelect,
    ScrollEngine, CustomCursor, Loader, TopBar, DropMenu,
    VIntro, VHero, VPillars, VLogos, VMarquee, VManifesto, VHowItWorks, VStats, VLife, VApply,
-   VCases, VTestimonials, VForFounders, VFounderPlatform, VFooter */
+   VCases, VTestimonials, VForFounders, VFounderPlatform, VTerritory, VFooter */
 
 const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "theme": "dark",
@@ -52,6 +52,7 @@ function App() {
         <VTestimonials />
         <VForFounders />
         <VLife />
+        <VTerritory />
         <VFounderPlatform />
         <VManifesto />
         <VHowItWorks />

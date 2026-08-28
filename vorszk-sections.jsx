@@ -212,7 +212,7 @@ function VHero() {
         {vid !== "ok" && <AsciiArt />}
         <div className="qd-hero3-scrim"></div>
       </div>
-      {vid !== "ok" && <span className="qd-hero3-slot-tag">▶ hero-bg.mp4 · 1080p · 10–20s · loop mudo</span>}
+      {vid !== "ok" && <span className="qd-hero3-slot-tag">▶ hero-bg.mp4 · 1080p · 10 a 20s · loop mudo</span>}
 
       <div className="container">
         <div className="qd-hero3-copy" ref={copyRef}>
@@ -251,7 +251,7 @@ function VHero() {
           <a className="qd-hero-benefit" href="#aplicar" data-cursor="hover">
             <span className="n">03</span><div><h2><span>Comunidade de</span><span>construtores</span></h2><p><span>Gente que testa, aprende</span><span>e coloca projetos para rodar.</span></p></div>
           </a>
-          <a className="qd-hero-benefit is-accent" href="#aplicar" data-cursor="hover">
+          <a className="qd-hero-benefit" href="#aplicar" data-cursor="hover">
             <span className="n">04</span><div><h2><span>Método</span><span>underdog</span></h2><p><span>Pouco recurso, muita execução</span><span>e progresso com consistência.</span></p></div>
           </a>
         </FadeIn>
@@ -486,7 +486,7 @@ function VManifesto() {
               Brasília. Os números vivem no hero e no #numeros. */}
           <FadeIn delay={150} className="qd-lede-right" style={{maxWidth: "48ch"}}>
             <p className="lede">
-              Para founders inquietos que querem construir ao lado de boas mentes, no coração de Brasília — fortalecendo o DF como polo de negócios, inovação e novas empresas.
+              Para founders inquietos que querem construir ao lado de boas mentes, no coração de Brasília. Juntos, fortalecem o DF como polo de negócios, inovação e novas empresas.
             </p>
           </FadeIn>
         </div>

@@ -1243,10 +1243,10 @@ a, button, [data-cursor] { cursor: none; }
 .qd-hero-benefit:hover { transform: translateY(-5px) scale(1.015); border-color: rgba(255,255,255,.3); background: linear-gradient(145deg, rgba(255,255,255,.16), rgba(255,255,255,.05)); }
 .qd-hero-benefit.is-primary { min-height: 230px; display: grid; grid-template-columns: auto 1fr auto; align-items: end; gap: 20px; }
 .qd-hero-benefits-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-.qd-hero-benefit.is-accent { background: linear-gradient(145deg, color-mix(in oklab, var(--accent) 34%, transparent), rgba(255,255,255,.04)); }
-.qd-hero-benefit .n { align-self: start; font: 10px var(--font-mono); letter-spacing: .16em; color: rgba(255,255,255,.5); }
-.qd-hero-benefit h2 { margin: 0; font: 400 clamp(1.25rem, .9rem + 1vw, 1.8rem)/1.05 var(--font-sans); letter-spacing: -.035em; }
-.qd-hero-benefit p { margin: 12px 0 0; font-size: 12.5px; line-height: 1.5; color: rgba(255,255,255,.62); }
+.qd-hero-benefit.is-accent { background: linear-gradient(145deg, rgba(255,255,255,.1), rgba(255,255,255,.025)); }
+.qd-hero-benefit .n { align-self: start; font: 10px var(--font-mono); letter-spacing: .16em; color: var(--accent); }
+.qd-hero-benefit h2 { margin: 0; font: 400 clamp(1.08rem, .86rem + .7vw, 1.5rem)/1.08 var(--font-sans); letter-spacing: -.03em; }
+.qd-hero-benefit p { margin: 12px 0 0; font-size: 12px; line-height: 1.5; color: rgba(255,255,255,.62); }
 .qd-hero-benefit h2 > span, .qd-hero-benefit p > span { display: block; }
 .qd-hero-benefit .go { align-self: start; color: var(--accent); font-size: 20px; }
 /* Grade 2x2 em vez de quatro linhas: a lista deixava um vão morto no
@@ -1704,6 +1704,7 @@ a, button, [data-cursor] { cursor: none; }
 .qd-community-card p { font-size: 14px !important; line-height: 1.55 !important; }
 .qd-territory-center { grid-template-columns: 1fr; justify-items: center; text-align: center; }
 .qd-territory-center .qd-divider-body { max-width: 760px; }
+.qd-territory-section { position: relative; background: var(--bg); }
 @media (max-width: 800px) { .qd-community-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .qd-life-stage { min-height: 100svh; } }
 @media (max-width: 560px) { .qd-life-pin { height: 400vh; } .qd-community-card { padding: 14px 8px; gap: 10px; } .qd-community-card .freq { font-size: 2rem; } .qd-community-card h3 { font-size: 1.05rem !important; } .qd-community-card p { font-size: 12px !important; } .qd-territory-center { margin-top: 24px; } }
 @media (prefers-reduced-motion: reduce) { .qd-life-pin { height: auto; } .qd-life-stage { position: static; } .qd-community-grid { min-height: 0; gap: 20px; } .qd-community-step { position: static; opacity: 1; transform: none; } }
