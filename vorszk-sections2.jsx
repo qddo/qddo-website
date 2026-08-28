@@ -26,15 +26,12 @@ function VForFounders() {
     // a mesma faixa da moldura, com o rosto posicionado no próprio corte
     // (originais 3:2 em assets/media/_originais/). Forçar object-position
     // por cima só empurraria o rosto para fora do centro já escolhido.
-    { t: "Espaço gratuito", d: "Sala no Centro de Convenções Ulysses Guimarães, sem custo.", slot: "founder-01", sl: "founder no palco" },
-    { t: "Equity-free", d: "Sua cap table não é o preço de entrada. Nunca foi.", slot: "founder-02", sl: "founder no palco" },
-    { t: "Curadoria séria", d: "Entra quem constrói, não quem comparece. O critério é progresso.", slot: "founder-03", sl: "founder no palco" },
-    { t: "Founders Night", d: "Encontro mensal com pares, operadores e convidados.", slot: "founder-04", sl: "founder no palco" },
-    { t: "Mentorias e office hours", d: "Acesso direto a quem já resolveu o seu problema.", slot: "founder-05", sl: "founder no palco" },
-    { t: "Workshops técnicos", d: "Produto, vendas, captação e narrativa, mão na massa.", slot: "founder-06", sl: "founder no palco" },
-    { t: "Plataforma do founder", d: "Agenda, benefícios e desafios num lugar só.", slot: "founder-07", sl: "founder no palco" },
-    // única do lote que é conversa de corredor, não palco: rótulo próprio
-    { t: "Desafios reais", d: "Problemas de empresas mantenedoras para você validar.", slot: "founder-08", sl: "founders · corredor" },
+    { t: "Encontre pessoas", d: "Conecte-se com founders que também estão construindo, testando e tomando decisões difíceis.", slot: "founder-01", sl: "founder no palco" },
+    { t: "Acesse operadores e especialistas", d: "Converse com quem já enfrentou problemas de produto, vendas, operação e captação.", slot: "founder-03", sl: "founder no palco" },
+    { t: "Abra conversas", d: "Aproxime-se de empresas, investidores e organizações quando houver contexto para a conexão.", slot: "founder-04", sl: "founder no palco" },
+    { t: "Valide desafios reais", d: "Leve sua tese para conversas, eventos e desafios com pessoas que podem testar, usar ou contratar.", slot: "founder-06", sl: "founder no palco" },
+    { t: "Conecte-se ao ecossistema", d: "Participe da agenda de inovação de Brasília e amplie as oportunidades ao redor da startup.", slot: "founder-07", sl: "founder no palco" },
+    { t: "Construa sem entregar equity", d: "A participação é gratuita. Sua evolução e colaboração mantêm você dentro.", slot: "founder-08", sl: "founders · corredor" },
   ];
   const secRef = React.useRef(null);
   const itemRefs = React.useRef([]);
@@ -73,13 +70,13 @@ function VForFounders() {
               ]} />
             <FadeIn delay={200}>
               <p className="lede" style={{maxWidth: "34ch"}}>
-                Estrutura para construir, pares para trocar e conexões para avançar.<br />
-                Entrar é gratuito. Permanecer exige presença e progresso.
+                Encontre pessoas, acesse experiência e abra conversas que ajudam sua startup a avançar.<br />
+                Entrar é gratuito. Permanecer exige presença, colaboração e progresso.
               </p>
             </FadeIn>
             <FadeIn delay={300}>
               <div style={{display:"flex", gap:12, flexWrap:"wrap"}}>
-                <LiquidButton href="#aplicar">Aplicar para o Quadrado <ArrowUpRight className="arrow" /></LiquidButton>
+                <LiquidButton href="#aplicar">Aplicar para o Quadrado Central <ArrowUpRight className="arrow" /></LiquidButton>
               </div>
             </FadeIn>
           </div>
@@ -200,9 +197,10 @@ function VLife() {
     { id: "vida-08", label: "dupla · mesa de trabalho", focus: "76% 50%" },
   ];
   const rhythm = [
-    { f: "Mensal",    t: "Founders Night", d: "A comunidade inteira, uma vez por mês." },
-    { f: "Semanal",   t: "Office hours",   d: "Mentoria aberta com operadores." },
-    { f: "Quinzenal", t: "Workshops",      d: "Produto, vendas, captação, narrativa." },
+    { f: "Coletiva", t: "Consultoria entre founders", d: "Um desafio na mesa e experiências diferentes ajudando a encontrar o próximo passo." },
+    { f: "Conexão", t: "Trocas de inovação", d: "Conversas com operadores, especialistas e pessoas do ecossistema." },
+    { f: "Mercado", t: "Desafios de empresas", d: "Problemas reais aproximados de startups capazes de investigar e validar caminhos." },
+    { f: "Comunidade", t: "Encontros com outras startups", d: "Experiências, indicações e oportunidades compartilhadas entre quem está construindo." },
   ];
   return (
     <section id="vida" className="qd-section">
@@ -281,7 +279,7 @@ function VLife() {
               <p style={{margin: 0, fontSize: 15, color: "var(--text-secondary)", lineHeight: 1.6}}>
                 Hackathons, Demo Day e encontros setoriais, ativados com as empresas.
               </p>
-              <a href="#mantenedores" className="qd-explore" style={{justifySelf: "start"}}>Ativar com sua empresa →</a>
+              <a href="mantenedores.html" className="qd-explore" style={{justifySelf: "start"}}>Ativar com sua empresa →</a>
             </div>
           </FadeIn>
         </div>
@@ -360,6 +358,57 @@ function VCases() {
 }
 
 // ============================================================
+// PROVA SOCIAL — relatos de founders da comunidade
+// ============================================================
+function VTestimonials() {
+  const testimonials = [
+    {
+      quote: "Participar do Quadrado Central nos proporcionou boas conexões, nos levou a eventos como o InnovaSummit e abriu portas para o Demo Day do Distrito Inovador.",
+      name: "Rodrigo Fregonasse",
+      company: "Cotia",
+    },
+    {
+      quote: "O Quadrado Central me conectou a outros founders e ajudou a criar relações que geraram novos contratos e parcerias estratégicas.",
+      name: "Gabriel Fiuza",
+      company: "Primora Inc",
+    },
+    {
+      quote: "Chegar aqui nos ajudou a desbloquear o MVP e nos colocou em eventos estratégicos. Hoje conseguimos validar nossa tese com clientes reais.",
+      name: "Matheus Martinez",
+      company: "Retem",
+    },
+  ];
+  return (
+    <section id="depoimentos" className="qd-section">
+      <div className="container">
+        <div className="qd-section-head qd-head-split">
+          <div style={{display:"grid", gap:24}}>
+            <FadeIn><span className="qd-eyebrow">Na prática</span></FadeIn>
+            <RevealText as="h2" className="qd-statement" stagger={110} lines={[
+              <>Conexões que viram</>,
+              <><em>próximos passos</em>.</>,
+            ]} />
+          </div>
+          <FadeIn delay={180} className="qd-lede-right">
+            <p className="lede">O valor da comunidade aparece no que seus founders conseguem fazer depois de se conectar.</p>
+          </FadeIn>
+        </div>
+        <div className="qd-testimonials-grid">
+          {testimonials.map((item, i) => (
+            <FadeIn key={item.name} delay={i * 80}>
+              <figure className="qd-testimonial">
+                <blockquote>“{item.quote}”</blockquote>
+                <figcaption><strong>{item.name}</strong><span>{item.company}</span></figcaption>
+              </figure>
+            </FadeIn>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ============================================================
 // COMMUNITY — filterable grid with photo cards
 // ============================================================
 function VCommunity() {
@@ -393,7 +442,7 @@ function VCommunity() {
           </div>
           <FadeIn delay={200}>
             <p className="lede" style={{maxWidth: "44ch"}}>
-              Founders e startups que fazem parte do QDDO, em oito verticais. Curadoria contínua: presença, contribuição e progresso.
+              Founders e startups que fazem parte do Quadrado Central, em oito verticais. Curadoria contínua: presença, colaboração e progresso.
             </p>
           </FadeIn>
         </div>
@@ -629,7 +678,7 @@ function VNotThis() {
             className="qd-statement"
             stagger={110}
             style={{fontSize: "clamp(2.4rem, 1.4rem + 4.8vw, 6rem)"}} lines={[
-              <>O que o QDDO</>,
+              <>O que o Quadrado Central</>,
               <><em>não</em> é.</>,
             ]} />
           <FadeIn delay={300}>
@@ -662,7 +711,7 @@ function VNotThis() {
             marginTop: 56, fontSize: "clamp(1.4rem, 1rem + 1vw, 1.875rem)", lineHeight: 1.3,
             letterSpacing:"-0.014em", maxWidth: "44ch", fontStyle: "italic",
           }}>
-            O QDDO é <span style={{color:"var(--accent)"}}>infraestrutura de longo prazo</span> para quem quer construir inovação com presença, comunidade e validação.
+            O Quadrado Central é <span style={{color:"var(--accent)"}}>infraestrutura de longo prazo</span> para quem quer construir inovação com presença, comunidade e validação.
           </p>
         </FadeIn>
       </div>
@@ -738,7 +787,7 @@ function VBigStatement() {
           ]} />
         <FadeIn delay={400}>
           <p className="lede" style={{maxWidth: "44ch", margin: "32px auto 0", textAlign:"center"}}>
-            Inovação real exige presença real. Veja como o QDDO pode caminhar com você.
+            Inovação real exige presença real. Veja como o Quadrado Central pode caminhar com você.
           </p>
         </FadeIn>
       </div>
@@ -752,19 +801,19 @@ function VBigStatement() {
 const APPLY_ENDPOINT = "https://formsubmit.co/ed.ribeiro@h4ndslab.com";
 const APPLY_SUCCESS_URL = "https://qddo.github.io/qddo-website/obrigado.html";
 const APPLY_FORM_URL = "https://qddo.github.io/qddo-website/#aplicar";
-const APPLY_AUTORESPONSE = `Olá! Recebemos sua aplicação para o QDDO Central Hub.
+const APPLY_AUTORESPONSE = `Olá! Recebemos sua aplicação para o Quadrado Central.
 
 Os ciclos de aprovação acontecem periodicamente. O prazo estimado para retorno é de 30 a 45 dias úteis, e a entrada será definida mediante avaliação da curadoria.
 
-Obrigado pelo interesse em fazer parte do Quadrado.
+Obrigado pelo interesse em fazer parte do Quadrado Central.
 
-Equipe QDDO Central Hub`;
+Equipe Quadrado Central`;
 
 function VApply() {
   const criteria = [
     { n: "01", t: "Founder em movimento", d: "Produto, validação ou operação ativos." },
     { n: "02", t: "Presença real", d: "Rotina presencial em Brasília / Centro-Oeste." },
-    { n: "03", t: "Contribuição", d: "Dar antes de receber." },
+    { n: "03", t: "Disposição para colaborar", d: "Compartilhar experiências, conexões e aprendizados com a comunidade." },
     { n: "04", t: "Progresso mensurável", d: "Permanência reavaliada pela evolução." },
   ];
 
@@ -803,7 +852,7 @@ function VApply() {
 
           <FadeIn delay={150}>
               <form className="qd-form-card" action={APPLY_ENDPOINT} method="POST">
-                <input type="hidden" name="_subject" value="Nova aplicação — QDDO Central Hub" />
+                <input type="hidden" name="_subject" value="Nova aplicação — Quadrado Central" />
                 <input type="hidden" name="_template" value="table" />
                 <input type="hidden" name="_next" value={APPLY_SUCCESS_URL} />
                 <input type="hidden" name="_url" value={APPLY_FORM_URL} />
@@ -897,7 +946,7 @@ function VApply() {
                 </div>
                 <div className="qd-field full">
                   <label htmlFor="ap-motivo">Por que o Quadrado, e o que você traz? *</label>
-                  <textarea id="ap-motivo" name="motivacao" required placeholder="Direto ao ponto: o que você busca e o que contribui." />
+                  <textarea id="ap-motivo" name="motivacao" required placeholder="Direto ao ponto: o que você busca e como pretende colaborar." />
                 </div>
                 <label className="qd-hp" aria-hidden="true">
                   Não preencher <input name="_honey" tabIndex={-1} autoComplete="off" />
@@ -1044,7 +1093,7 @@ function VFooter() {
 
       <div className="container">
         <div className="qd-footer-base">
-          <span className="fineprint">© 2026 QDDO Central Hub</span>
+          <span className="fineprint">© 2026 Quadrado Central</span>
           <span className="fineprint">Brasília · Centro-Oeste · Brasil</span>
         </div>
       </div>
@@ -1053,7 +1102,7 @@ function VFooter() {
 }
 
 Object.assign(window, {
-  VLife, VApply, VCases,
+  VLife, VApply, VCases, VTestimonials,
   VForFounders, VForMaintainers, VCommunity, VEvents, VFounderPlatform,
   VNotThis, VBlog, VBigStatement, VFinalCTA, VFooter,
 });

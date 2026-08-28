@@ -6,7 +6,7 @@ function QddoLogo({ width = 64 }) {
   return (
     <img
       src="assets/logo-horizontal-white.png"
-      alt="QDDO Central Hub"
+      alt="Quadrado Central"
       width={width}
       style={{
         width: width,

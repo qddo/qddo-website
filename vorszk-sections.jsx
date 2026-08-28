@@ -176,14 +176,13 @@ function VIntro() {
 // ============================================================
 function VHero() {
   const copyRef = vsR(null);
-  const metaRef = vsR(null);
   const bgRef = vsR(null);
   const [vid, setVid] = vsS("pending"); // pending | ok | missing
 
   vsE(() => {
     if (!window.gsap || !window.ScrollTrigger) return;
     if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const targets = [copyRef.current, metaRef.current].filter(Boolean);
+    const targets = [copyRef.current].filter(Boolean);
     const t1 = window.gsap.to(targets, {
       y: -60, opacity: 0, ease: "none",
       scrollTrigger: { trigger: "#top", start: "top top", end: "75% top", scrub: true },
@@ -196,13 +195,6 @@ function VHero() {
       [t1, t2].filter(Boolean).forEach(t => { if (t.scrollTrigger) t.scrollTrigger.kill(); t.kill(); });
     };
   }, []);
-
-  const numbers = [
-    ["+500", "conexões geradas"],
-    ["+20", "eventos realizados"],
-    ["+900", "pessoas movimentadas"],
-    ["+80", "founders ativos"],
-  ];
 
   return (
     <section id="top" className="qd-hero3">
@@ -237,14 +229,15 @@ function VHero() {
             lines={[["Founder", "não"], ["cresce", { w: "sozinho.", em: true }]]} />
           <FadeIn delay={900}>
             <p className="qd-hero3-lede">
-              Comunidade curada, rotina presencial e conexões que ajudam você
-              a tomar decisões melhores e fazer a startup avançar.
+              Encontre pessoas, acesse operadores e especialistas, abra conversas
+              com empresas e investidores, valide desafios com pessoas reais e
+              conecte-se ao ecossistema de inovação.
             </p>
           </FadeIn>
           <FadeIn delay={1050}>
             <div className="qd-hero3-ctas">
               <LiquidButton href="#aplicar">
-                Aplicar para o Quadrado <ArrowUpRight className="arrow" />
+                Aplicar para o Quadrado Central <ArrowUpRight className="arrow" />
               </LiquidButton>
               <a href="mantenedores.html" className="qd-link-plain" data-cursor="hover">
                 Quero ser mantenedor <span aria-hidden="true">→</span>
@@ -253,24 +246,6 @@ function VHero() {
           </FadeIn>
         </div>
 
-        {/* Números na coluna da direita, em grade 2x2 (padrão do hero
-            interno do Sight: copy à esquerda, coluna de apoio à direita).
-            Rótulo em cima, número embaixo, igual aos quadrantes do
-            #numeros; os dígitos rolam ao entrar. */}
-        <FadeIn delay={1200} className="qd-hero3-aside">
-          <div className="qd-solid qd-hero3-meta" ref={metaRef}>
-            {numbers.map(([v, l], i) => (
-              <div className="qd-hero3-stat" key={l}>
-                <span className="l">{l}</span>
-                {/* Mesma rolagem do #numeros: duração e stagger de dígito no
-                    padrão do SlidingNumber, e um número por vez (i * 90). O
-                    delay base é 1250 porque aqui o painel só chega depois da
-                    cascata de entrada do hero. */}
-                <span className="v"><SlidingNumber value={v} delay={1250 + i * 90} /></span>
-              </div>
-            ))}
-          </div>
-        </FadeIn>
       </div>
     </section>
   );
@@ -283,13 +258,13 @@ function VAudienceIntent({ audience }) {
   const copy = {
     founders: {
       headline: <>Uma comunidade <em>curada</em> de founders <em>em movimento</em>.</>,
-      lede: "Espaço gratuito no CCUG, programação recorrente, mentorias e acesso a desafios reais. Equity-free. A entrada é gratuita; a permanência exige presença, contribuição e progresso.",
-      cta: { primary: ["Aplicar para o QDDO", "#aplicar"], secondary: ["Conhecer a comunidade", "#comunidade"] },
+      lede: "Espaço gratuito no CCUG, programação recorrente, mentorias e acesso a desafios reais. Equity-free. A entrada é gratuita; a permanência exige presença, colaboração e progresso.",
+      cta: { primary: ["Aplicar para o Quadrado Central", "#aplicar"], secondary: ["Conhecer a comunidade", "#comunidade"] },
     },
     mantenedores: {
       headline: <>Você não <em>compra</em> espaço. Você <em>acessa</em> founders.</>,
       lede: "Empresas entram para ativar desafios, gerar relacionamento e participar da construção do ecossistema. Cinco caminhos de entrada: escolha o que conversa com sua tese.",
-      cta: { primary: ["Falar com o QDDO", "#mantenedores"], secondary: ["Ver planos", "#mantenedores"] },
+      cta: { primary: ["Falar com o Quadrado Central", "#mantenedores"], secondary: ["Ver planos", "#mantenedores"] },
     },
   }[audience];
   return (
@@ -322,11 +297,11 @@ function VAudienceIntent({ audience }) {
 function VMarquee() {
   const items = [
     "Comunidade <em>curada</em>",
-    "Espaço <em>físico</em>",
-    "Desafios <em>reais</em>",
+    "Outros <em>builders</em>",
+    "Eventos <em>recorrentes</em>",
+    "Espaço e <em>infraestrutura</em>",
     "<em>Equity-free</em>",
-    "Validação <em>real</em>",
-    "Centro-Oeste",
+    "Ecossistema de <em>inovação</em>",
   ];
   return <Marquee items={items} speed={80} />;
 }
@@ -345,7 +320,7 @@ function VPillars() {
   // que entrou. Cadência: 84vh de rolagem por card (o pin tem 200vh),
   // praticamente os 80vh do depth-columns do Sight.
   useSectionProgress(secRef, (p) => {
-    const n = 3;
+    const n = 4;
     const raw = qdBeat(p, n);                                  // 0..n-1
     // o card em foco é o que está entrando; raw sai de i-1 para i
     const active = raw <= 0 ? 0 : Math.min(n - 1, Math.ceil(raw - 1e-6));
@@ -369,19 +344,19 @@ function VPillars() {
   });
 
   const icons = {
-    investors: (
+    community: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M3 17l6-6 4 4 8-8" />
         <path d="M14 7h7v7" />
       </svg>
     ),
-    events: (
+    builders: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <rect x="3" y="4" width="18" height="18" rx="2" />
         <path d="M16 2v4M8 2v4M3 10h18" />
       </svg>
     ),
-    mutual: (
+    events: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
         <circle cx="9" cy="7" r="4" />
@@ -392,24 +367,10 @@ function VPillars() {
   };
 
   const cards = [
-    {
-      icon: icons.investors,
-      t: ["Portas para", "investidores"],
-      tags: ["Demo Day", "Intros diretas", "Rede ativa", "Follow-up"],
-      d: "Conexões qualificadas com investidores, empresas e operadores, no momento certo da jornada.",
-    },
-    {
-      icon: icons.events,
-      t: ["Rotina que", "gera progresso"],
-      tags: ["Founders Night", "Workshops", "Office hours", "Setoriais"],
-      d: "Encontros, workshops e office hours que transformam conversa em decisão e próximo passo.",
-    },
-    {
-      icon: icons.mutual,
-      t: ["Ajuda", "mútua"],
-      tags: ["Pares reais", "Mentoria", "Aprendizado", "Comunidade"],
-      d: "Pares que compartilham contexto, experiência e ajuda prática sem teatro de networking.",
-    },
+    { icon: icons.community, t: ["Comunidade", "curada"], tags: ["Seleção", "Colaboração"], d: "Founders em movimento, selecionados pela capacidade de construir, colaborar e fazer a comunidade avançar." },
+    { icon: icons.builders, t: ["Conexão com", "outros builders"], tags: ["Founders", "Operadores"], d: "Encontre pessoas que constroem, acesse operadores e especialistas e compartilhe desafios com quem entende a jornada." },
+    { icon: icons.events, t: ["Rotina de", "eventos"], tags: ["Encontros", "Desafios"], d: "Consultoria coletiva, trocas de inovação, desafios de empresas e encontros com outras startups." },
+    { icon: icons.community, t: ["Espaço e", "infraestrutura"], tags: ["CCUG", "Equity-free"], d: "Um lugar para trabalhar, encontrar a comunidade e participar da rotina do ecossistema, sem abrir mão de equity." },
   ];
 
   return (
@@ -430,15 +391,15 @@ function VPillars() {
         </div>
 
         <div className="container">
-          <FadeIn><span className="qd-eyebrow">O que o Quadrado destrava</span></FadeIn>
+          <FadeIn><span className="qd-eyebrow">O que entregamos</span></FadeIn>
           <div style={{marginTop: 24}}>
             <RevealText
               as="h2"
               className="qd-statement"
               stagger={110}
               lines={[
-                <>Crescimento não se</>,
-                <>promete. Se <em>destrava</em>.</>,
+                <>Estrutura, conexões</>,
+                <>e rotina para <em>avançar</em>.</>,
               ]} />
           </div>
 
@@ -592,7 +553,7 @@ function VMosaic() {
         </FadeIn>
         <FadeIn delay={300}>
           <p className="lede" style={{marginTop: 64, maxWidth: "58ch"}}>
-            O QDDO nasce com uma ambição territorial: fortalecer a economia de inovação do Centro-Oeste, gerar conexões qualificadas e ampliar a capacidade de empresas, founders e instituições testarem soluções reais.
+            O Quadrado Central nasce com uma ambição territorial: fortalecer a economia de inovação do Centro-Oeste, gerar conexões qualificadas e ampliar a capacidade de empresas, founders e instituições testarem soluções reais.
           </p>
         </FadeIn>
 

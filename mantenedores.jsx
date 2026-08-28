@@ -3,19 +3,19 @@
 const MAINTAINER_FORM_ENDPOINT = "https://formsubmit.co/ed.ribeiro@h4ndslab.com";
 const MAINTAINER_SUCCESS_URL = "https://qddo.github.io/qddo-website/mantenedores-obrigado.html";
 const MAINTAINER_FORM_URL = "https://qddo.github.io/qddo-website/mantenedores.html#contato";
-const MAINTAINER_AUTORESPONSE = `Olá! Recebemos seu contato sobre uma parceria com o QDDO Central Hub.
+const MAINTAINER_AUTORESPONSE = `Olá! Recebemos seu contato sobre uma parceria com o Quadrado Central.
 
 Nossa equipe vai analisar o contexto e retornar para entender os objetivos da sua organização e a forma de atuação mais adequada.
 
 Obrigado pelo interesse em construir o ecossistema junto com o Quadrado.
 
-Equipe QDDO Central Hub`;
+Equipe Quadrado Central`;
 
 function MHero() {
   return (
     <section id="top" className="qd-maint-hero">
       <div className="qd-maint-hero-media" aria-hidden="true">
-        <MediaSlot id="vida-02" label="comunidade QDDO" focus="30% 50%" />
+        <MediaSlot id="vida-02" label="comunidade Quadrado Central" focus="30% 50%" />
         <div className="qd-maint-hero-scrim"></div>
       </div>
       <div className="container qd-maint-hero-content">
@@ -26,7 +26,7 @@ function MHero() {
         ]} />
         <FadeIn delay={500}>
           <p className="qd-maint-lede">
-            O QDDO conecta empresas a founders, desafios e oportunidades reais.
+            O Quadrado Central conecta empresas a founders, desafios e oportunidades reais.
             Construímos parcerias que geram relacionamento, aprendizado e inovação aplicada no Centro-Oeste.
           </p>
         </FadeIn>
@@ -45,7 +45,7 @@ function MValue() {
   const outcomes = [
     { n: "01", t: "Acesso qualificado", d: "Relacionamento com founders curados, startups em movimento e atores relevantes do ecossistema." },
     { n: "02", t: "Inovação aplicada", d: "Desafios reais aproximados de soluções, testes, pilotos e novos aprendizados para a organização." },
-    { n: "03", t: "Presença com propósito", d: "Marca inserida na rotina da comunidade por meio de conteúdo, encontros e contribuição concreta." },
+    { n: "03", t: "Presença com propósito", d: "Marca inserida na rotina da comunidade por meio de conteúdo, encontros e colaboração concreta." },
     { n: "04", t: "Inteligência de ecossistema", d: "Contato próximo com novas tecnologias, modelos de negócio, talentos e movimentos do mercado." },
   ];
   return (
@@ -81,7 +81,7 @@ function MValue() {
 
 function MWays() {
   const ways = [
-    { n:"01", k:"Ecossistema", t:"Mantenedor institucional", d:"Presença contínua na comunidade, relacionamento com founders e participação na agenda do QDDO." },
+    { n:"01", k:"Ecossistema", t:"Mantenedor institucional", d:"Presença contínua na comunidade, relacionamento com founders e participação na agenda do Quadrado Central." },
     { n:"02", k:"Especialidade", t:"Vertical temática", d:"Uma frente de atuação conectada ao setor da sua empresa, com curadoria, conteúdo e conexões dedicadas." },
     { n:"03", k:"Relacionamento", t:"Eventos e experiências", d:"Founders Nights, workshops, encontros executivos e ativações desenhadas para gerar troca relevante." },
     { n:"04", k:"Inovação", t:"Desafios e pilotos", d:"Problemas reais da organização conectados a founders capazes de investigar, prototipar e validar caminhos." },
@@ -192,7 +192,7 @@ function MContact() {
           </div>
           <FadeIn delay={120}>
             <form className="qd-form-card" action={MAINTAINER_FORM_ENDPOINT} method="POST">
-              <input type="hidden" name="_subject" value="Novo contato de mantenedor — QDDO" />
+              <input type="hidden" name="_subject" value="Novo contato de mantenedor — Quadrado Central" />
               <input type="hidden" name="_template" value="table" />
               <input type="hidden" name="_next" value={MAINTAINER_SUCCESS_URL} />
               <input type="hidden" name="_url" value={MAINTAINER_FORM_URL} />

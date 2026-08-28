@@ -33,6 +33,10 @@
   transition: transform 0.22s cubic-bezier(0.34, 1.4, 0.64, 1);
 }
 .pg-mark img { height: 34px; width: auto; display: block; }
+.pg-mark span {
+  font-family: var(--font-sans); font-size: 18px; font-weight: 600;
+  letter-spacing: -0.035em; color: var(--text-primary); white-space: nowrap;
+}
 .pg-mark:hover { transform: scale(1.05); }
 .pg-back {
   font-family: var(--font-mono);

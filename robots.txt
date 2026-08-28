@@ -1,4 +1,4 @@
-# QDDO Central Hub
+# Quadrado Central
 # As páginas institucionais são indexáveis; confirmações e 404 não são.
 User-agent: *
 Allow: /

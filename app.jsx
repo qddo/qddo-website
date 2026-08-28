@@ -1,7 +1,7 @@
 /* global React, ReactDOM, useTweaks, TweaksPanel, TweakSection, TweakRadio, TweakColor, TweakSelect,
    ScrollEngine, CustomCursor, Loader, TopBar, DropMenu,
    VIntro, VHero, VPillars, VLogos, VMarquee, VManifesto, VHowItWorks, VStats, VLife, VApply,
-   VCases, VForFounders, VFounderPlatform, VFooter */
+   VCases, VTestimonials, VForFounders, VFounderPlatform, VFooter */
 
 const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "theme": "dark",
@@ -46,17 +46,16 @@ function App() {
       <DropMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
 
       <main>
-        <VIntro />
         <VHero />
         <VMarquee />
+        <VCases />
+        <VTestimonials />
         <VPillars />
-        <VHowItWorks />
         <VForFounders />
         <VLife />
-        <VCases />
-        <VStats />
         <VFounderPlatform />
         <VManifesto />
+        <VHowItWorks />
         <VApply />
       </main>
       <VFooter />
@@ -64,7 +63,7 @@ function App() {
           <VAudienceIntent /> <VCommunity /> <VEvents /> <VMosaic />
           <VNotThis /> <VBlog /> <VBigStatement /> */}
 
-      <TweaksPanel title="QDDO · Tweaks">
+      <TweaksPanel title="Quadrado Central · Tweaks">
         <TweakSection label="Tema" />
         <TweakRadio label="Modo" value={t.theme}
           options={["dark", "light"]}
