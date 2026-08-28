@@ -792,6 +792,10 @@ function VApply() {
       <div className="container">
         <div className="qd-split">
           <div className="qd-split-sticky">
+            <FadeIn>
+              <MediaSlot id="aplicar-01" label="founders reunidos no auditório"
+                className="qd-apply-side-photo" focus="50% 35%" />
+            </FadeIn>
             <FadeIn><span className="qd-eyebrow">Aplicação</span></FadeIn>
             <RevealText
               as="h2"
@@ -906,14 +910,6 @@ function VApply() {
           </FadeIn>
         </div>
 
-        {/* Fecha a seção com a sala cheia: é para essa comunidade que a
-            aplicação aponta. Fora do `.qd-split` de propósito — dentro da
-            coluna dos critérios ela passava dos 100vh e matava o `sticky`
-            da coluna em qualquer notebook. */}
-        <FadeIn delay={150}>
-          <MediaSlot id="aplicar-01" label="a comunidade no auditório"
-            className="qd-apply-photo" focus="50% 35%" />
-        </FadeIn>
       </div>
     </section>
   );

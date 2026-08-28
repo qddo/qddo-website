@@ -1077,13 +1077,15 @@ a, button, [data-cursor] { cursor: none; }
   border-bottom: 1px solid var(--border-subtle);
 }
 .qd-manifesto-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-.qd-manifesto-card { padding: clamp(24px, 3vw, 36px); border: 1px solid var(--border-subtle); border-radius: var(--r-xl); background: var(--bg-card); }
+.qd-manifesto-card { padding: clamp(24px, 3vw, 36px); border: 1px solid var(--border-subtle); border-radius: var(--r-xl); background: var(--bg-card); transform-origin: center; transition: transform 420ms var(--ease-out-expo), border-color 280ms var(--ease-out), box-shadow 420ms var(--ease-out); }
+.qd-manifesto-card.in:hover { transform: scale(1.035); border-color: var(--border-strong); box-shadow: 0 28px 70px rgba(0,0,0,.24); z-index: 2; }
 .qd-manifesto-card .icon { width: 42px; height: 42px; display: grid; place-items: center; border: 1px solid var(--border-default); border-radius: 50%; color: var(--accent); margin-bottom: 48px; font-size: 18px; }
 .qd-manifesto-card .ph-title { margin: 0; font: 400 clamp(1.35rem, 1rem + 1vw, 2rem)/1.08 var(--font-sans); letter-spacing: -.025em; }
 .qd-manifesto-card .ph-title > span { display: block; }
 .qd-manifesto-card .ph-title em { font-family: var(--font-serif); font-style: italic; }
 .qd-manifesto-card p { margin: 18px 0 0; color: var(--text-tertiary); font-size: 14px; line-height: 1.55; }
 @media (max-width: 800px) { .qd-manifesto-cards { grid-template-columns: 1fr; } .qd-manifesto-card .icon { margin-bottom: 28px; } }
+@media (prefers-reduced-motion: reduce) { .qd-manifesto-card.in:hover { transform: none; } }
 
 /* ─── 22. Hero 3.0 — vídeo full-bleed + scrim + copy mínima ─ */
 /* O hero é sempre cinematográfico-escuro, mesmo no tema claro:
@@ -1507,6 +1509,8 @@ a, button, [data-cursor] { cursor: none; }
   margin-top: clamp(40px, 6vw, 80px);
   height: clamp(220px, 34vh, 420px);
 }
+.qd-apply-side-photo { height: clamp(280px, 42vh, 380px); margin-bottom: 2px; border-radius: var(--r-xl); }
+.qd-apply-side-photo .qd-media, .qd-apply-side-photo img { border-radius: inherit; }
 
 /* ─── 26. Formulário de aplicação ─────────────────────────── */
 .qd-form {
