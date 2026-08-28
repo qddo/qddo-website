@@ -1079,6 +1079,8 @@ a, button, [data-cursor] { cursor: none; }
 .qd-manifesto-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 .qd-manifesto-card { padding: clamp(24px, 3vw, 36px); border: 1px solid var(--border-subtle); border-radius: var(--r-xl); background: var(--bg-card); transform-origin: center; transition: transform 420ms var(--ease-out-expo), border-color 280ms var(--ease-out), box-shadow 420ms var(--ease-out); }
 .qd-manifesto-card.in:hover { transform: scale(1.035); border-color: var(--border-strong); box-shadow: 0 28px 70px rgba(0,0,0,.24); z-index: 2; }
+.qd-showup-card { opacity: 0; transform: translateY(52px) scale(.96); }
+.qd-showup-card.in { opacity: 1; transform: none; }
 .qd-manifesto-card .icon { width: 42px; height: 42px; display: grid; place-items: center; border: 1px solid var(--border-default); border-radius: 50%; color: var(--accent); margin-bottom: 48px; font-size: 18px; }
 .qd-manifesto-card .ph-title { margin: 0; font: 400 clamp(1.35rem, 1rem + 1vw, 2rem)/1.08 var(--font-sans); letter-spacing: -.025em; }
 .qd-manifesto-card .ph-title > span { display: block; }
@@ -1686,22 +1688,23 @@ a, button, [data-cursor] { cursor: none; }
 .qd-life-pin { position: relative; height: 420vh; }
 .qd-life-stage { position: sticky; top: 0; min-height: 100vh; display: flex; align-items: center; padding-block: clamp(48px, 6vh, 72px); overflow: hidden; }
 .qd-life-stage .qd-section-head { margin-bottom: clamp(20px, 3vh, 36px); }
-.qd-community-grid { position: relative; margin-top: 18px; min-height: clamp(190px, 26vh, 280px); }
+.qd-community-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 18px; min-height: clamp(220px, 30vh, 300px); }
 .qd-community-progress { height: 2px; margin-top: clamp(48px, 7vw, 88px); background: var(--border-subtle); overflow: hidden; }
 .qd-community-progress span { display: block; width: 100%; height: 100%; background: var(--accent); transform: scaleX(0); transform-origin: left; will-change: transform; }
-.qd-community-step { position: absolute; inset: 0; opacity: 0; transform: translateY(22px); pointer-events: none; transition: opacity 480ms var(--ease-out), transform 560ms var(--ease-out-expo); }
+.qd-community-step { opacity: 0; transform: translateY(22px); pointer-events: none; transition: opacity 480ms var(--ease-out), transform 560ms var(--ease-out-expo); }
 .qd-community-step[data-on="true"] { opacity: 1; transform: none; }
 .qd-community-card {
-  height: 100%; padding: clamp(22px, 2.5vw, 34px) 0;
-  display: grid; grid-template-columns: minmax(70px, .25fr) 1fr; gap: clamp(24px, 5vw, 80px); align-items: center;
+  height: 100%; padding: clamp(22px, 2.5vw, 34px) clamp(12px, 1.8vw, 24px);
+  display: flex; flex-direction: column; justify-content: center; gap: clamp(20px, 4vh, 38px);
 }
 .qd-community-card .freq { font: 400 clamp(2.5rem, 1.5rem + 5vw, 6rem)/1 var(--font-sans); letter-spacing: -.05em; color: var(--accent); }
 .qd-community-card h3 { margin: 0 0 10px !important; font-family: var(--font-sans) !important; font-style: normal !important; font-size: clamp(1.25rem, 1rem + .7vw, 1.7rem) !important; }
 .qd-community-card p { font-size: 14px !important; line-height: 1.55 !important; }
 .qd-territory-center { grid-template-columns: 1fr; justify-items: center; text-align: center; }
 .qd-territory-center .qd-divider-body { max-width: 760px; }
-@media (max-width: 700px) { .qd-life-pin { height: 400vh; } .qd-community-card { grid-template-columns: 1fr; align-content: center; gap: 14px; } .qd-territory-center { margin-top: 24px; } }
-@media (prefers-reduced-motion: reduce) { .qd-life-pin { height: auto; } .qd-life-stage { position: static; } .qd-community-grid { min-height: 0; display: grid; gap: 20px; } .qd-community-step { position: static; opacity: 1; transform: none; } }
+@media (max-width: 800px) { .qd-community-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .qd-life-stage { min-height: 100svh; } }
+@media (max-width: 560px) { .qd-life-pin { height: 400vh; } .qd-community-card { padding: 14px 8px; gap: 10px; } .qd-community-card .freq { font-size: 2rem; } .qd-community-card h3 { font-size: 1.05rem !important; } .qd-community-card p { font-size: 12px !important; } .qd-territory-center { margin-top: 24px; } }
+@media (prefers-reduced-motion: reduce) { .qd-life-pin { height: auto; } .qd-life-stage { position: static; } .qd-community-grid { min-height: 0; gap: 20px; } .qd-community-step { position: static; opacity: 1; transform: none; } }
 
 /* ─── 27b. Cadência legada ───────────────────────────────── */
 .qd-rhythm-row {
@@ -2947,7 +2950,7 @@ a, button, [data-cursor] { cursor: none; }
   /* embaixo respira menos: a palavra do fecho vem logo em seguida */
   padding-block: clamp(56px, 7vw, 88px) clamp(28px, 3.4vw, 44px);
 }
-.qd-footer-contact { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+.qd-footer-contact { display: flex; align-items: flex-start; justify-content: flex-end; gap: clamp(24px, 5vw, 72px); flex-wrap: wrap; text-align: right; }
 .qd-footer-item {
   display: inline-flex; align-items: flex-start; gap: 11px; margin: 0;
   font-size: 14px; line-height: 1.55; color: var(--text-secondary);

@@ -529,7 +529,6 @@ function TopBar({ menuOpen, onMenuToggle }) {
           onClick={() => onMenuToggle && onMenuToggle(false)}>
           {isMaintainerPage ? "Conversar" : "Aplicar"} <ArrowUpRight />
         </LiquidButton>
-        <MenuToggle open={menuOpen} onOpenChange={onMenuToggle} strokeWidth={2} />
       </div>
     </div>
     </>

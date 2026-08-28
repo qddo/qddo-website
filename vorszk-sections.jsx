@@ -238,9 +238,6 @@ function VHero() {
               <LiquidButton href="#aplicar">
                 Aplicar para o Quadrado <ArrowUpRight className="arrow" />
               </LiquidButton>
-              <a href="mantenedores.html" className="qd-link-plain" data-cursor="hover">
-                Quero ser mantenedor <span aria-hidden="true">→</span>
-              </a>
             </div>
           </FadeIn>
         </div>
@@ -505,8 +502,8 @@ function VManifesto() {
             vem do margin-bottom padrão do .qd-section-head, igual ao
             #mantenedores. */}
         <div className="qd-manifesto-cards">
-          {principles.map((p) => (
-            <FadeIn key={p.icon} className="qd-manifesto-card">
+          {principles.map((p, i) => (
+            <FadeIn key={p.icon} delay={i * 150} className="qd-manifesto-card qd-showup-card">
               <span className="icon" aria-hidden="true">{p.icon}</span>
               <h3 className="ph-title">{p.h.map((line, i) => <span key={i}>{line}</span>)}</h3>
               <p>{p.d}</p>

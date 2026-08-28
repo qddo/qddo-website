@@ -68,11 +68,6 @@ function VForFounders() {
                 <>Gratuito e curado.</>,
                 <><em>Equity-free</em> sempre.</>,
               ]} />
-            <FadeIn delay={200}>
-              <p className="lede qd-founders-lede">
-                Cinco minutos de formulário. Uma conversa com a curadoria.
-              </p>
-            </FadeIn>
             <FadeIn delay={300}>
               <div style={{display:"flex", gap:12, flexWrap:"wrap"}}>
                 <LiquidButton href="#aplicar">Aplicar para o Quadrado Central <ArrowUpRight className="arrow" /></LiquidButton>
@@ -199,7 +194,7 @@ function VLife() {
     const progress = Math.max(0, Math.min(1, p));
     if (progressRef.current) progressRef.current.style.transform = `scaleX(${progress})`;
     const active = Math.min(rhythm.length - 1, Math.floor(progress * rhythm.length));
-    cardRefs.current.forEach((el, i) => el && el.setAttribute("data-on", i === active ? "true" : "false"));
+    cardRefs.current.forEach((el, i) => el && el.setAttribute("data-on", i <= active ? "true" : "false"));
   });
   return (
     <section id="vida" className="qd-life-pin" ref={secRef}>
@@ -981,11 +976,6 @@ function VFooter() {
               SDC Lote 5 · Brasília · DF
               </span>
             </p>
-            <a href={`mailto:${CONTACT_EMAIL}`} data-cursor="hover"
-              className="qd-footer-item">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-              <span>{CONTACT_EMAIL}</span>
-            </a>
             <a href={SOCIAL.instagram} target="_blank" rel="noreferrer" data-cursor="hover"
               className="qd-footer-item">
               <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg>
@@ -996,12 +986,6 @@ function VFooter() {
 
       </div>
 
-      <div className="container">
-        <div className="qd-footer-base">
-          <span className="fineprint">© 2026 Quadrado Central</span>
-          <span className="fineprint">Brasília · Centro-Oeste · Brasil</span>
-        </div>
-      </div>
     </footer>
   );
 }
