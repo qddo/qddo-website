@@ -47,10 +47,10 @@ function App() {
 
       <main>
         <VHero />
+        <VPillars />
         <VMarquee />
         <VCases />
         <VTestimonials />
-        <VPillars />
         <VForFounders />
         <VLife />
         <VFounderPlatform />

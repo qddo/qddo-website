@@ -10,7 +10,7 @@ const SOCIAL = {
   linkedin: "",
   youtube: "",
 };
-const CONTACT_EMAIL = "contato@qddo.com.br";
+const CONTACT_EMAIL = "ed.ribeiro@h4ndslab.com";
 // Termos e condições — página ainda não escrita. O link já está no
 // formulário; quando a página existir, trocar só esta constante.
 const TERMS_URL = "termos.html";
@@ -187,79 +187,35 @@ function VForMaintainers() {
 // clipes + cadência de eventos (fusão de VMosaic + VEvents)
 // ============================================================
 function VLife() {
-  // Galeria elástica: eram quatro slots de vídeo (clip-01..04) esperando
-  // aftermovie. Como o acervo é de foto, virou foto: quatro registros que
-  // o mosaico acima não cobre (palco, networking, coworking, dupla).
-  const clips = [
-    { id: "vida-05", label: "founders night · palco", focus: "37% 50%" },
-    { id: "vida-06", label: "networking · café",      focus: "63% 50%" },
-    { id: "vida-07", label: "coworking · rotina",     focus: "11% 50%" },
-    { id: "vida-08", label: "dupla · mesa de trabalho", focus: "76% 50%" },
-  ];
   const rhythm = [
-    { f: "Coletiva", t: "Consultoria entre founders", d: "Um desafio na mesa e experiências diferentes ajudando a encontrar o próximo passo." },
-    { f: "Conexão", t: "Trocas de inovação", d: "Conversas com operadores, especialistas e pessoas do ecossistema." },
-    { f: "Mercado", t: "Desafios de empresas", d: "Problemas reais aproximados de startups capazes de investigar e validar caminhos." },
-    { f: "Comunidade", t: "Encontros com outras startups", d: "Experiências, indicações e oportunidades compartilhadas entre quem está construindo." },
+    { f: "01", t: "Founders se ajudando", d: "Desafios colocados na mesa e experiências compartilhadas para encontrar o próximo passo." },
+    { f: "02", t: "Cultura de inovação", d: "Trocas com operadores, especialistas e pessoas que transformam ideias em execução." },
+    { f: "03", t: "Desafios entre membros", d: "Problemas reais discutidos por quem pode investigar, testar e validar novos caminhos." },
+    { f: "04", t: "Encontros do ecossistema", d: "Conversas com startups, empresas e investidores que podem abrir novas oportunidades." },
   ];
   return (
     <section id="vida" className="qd-section">
       <div className="container">
         <div className="qd-section-head qd-head-split">
           <div style={{display:"grid", gap: 24}}>
-            <FadeIn><span className="qd-eyebrow">Vida no Quadrado</span></FadeIn>
+            <FadeIn><span className="qd-eyebrow">A comunidade</span></FadeIn>
             <RevealText
               as="h2"
               className="qd-statement"
               stagger={110}
               lines={[
-                <>A comunidade</>,
-                <>acontece <em>ao vivo</em>.</>,
+                <>O que esperar</>,
+                <>do <em>Quadrado</em>.</>,
               ]} />
           </div>
           <FadeIn delay={200} className="qd-lede-right">
             <p className="lede">
-              O registro, não o discurso.
+              Uma rotina construída para gerar ajuda prática, repertório e conexões relevantes.
             </p>
           </FadeIn>
         </div>
 
-        {/* Mosaico assimétrico com parallax interno */}
-        <FadeIn>
-          <div className="qd-mosaic">
-            <div className="qd-mosaic-cell">
-              <Parallax speed={0.08} style={{height: "116%", marginTop: "-8%"}}>
-                <MediaSlot id="vida-01" label="founders night · palco" spec="retrato alto" focus="61% 50%" />
-              </Parallax>
-            </div>
-            <div className="qd-mosaic-cell">
-              <Parallax speed={0.11} style={{height: "116%", marginTop: "-8%"}}>
-                <MediaSlot id="vida-02" label="networking · plano aberto" spec="paisagem" focus="30% 50%" />
-              </Parallax>
-            </div>
-            <div className="qd-mosaic-cell">
-              <Parallax speed={0.09} style={{height: "116%", marginTop: "-8%"}}>
-                <MediaSlot id="vida-03" label="mentoria · mesa" spec="quadrado" focus="54% 50%" />
-              </Parallax>
-            </div>
-            <div className="qd-mosaic-cell">
-              <Parallax speed={0.13} style={{height: "116%", marginTop: "-8%"}}>
-                <MediaSlot id="vida-04" label="espaço · bastidores" spec="quadrado" focus="50% 9%" />
-              </Parallax>
-            </div>
-          </div>
-        </FadeIn>
-
-        {/* Galeria elástica: o painel sob o cursor abre, os vizinhos cedem */}
-        <FadeIn delay={150}>
-          <ElasticGallery items={clips} />
-        </FadeIn>
-
-        {/* Cadência de programação — sem datas que envelhecem */}
-        <div className="qd-split" style={{marginTop: "clamp(64px, 9vw, 120px)"}}>
-          <div>
-            <h3 className="mono" style={{fontSize: 11, letterSpacing:"0.18em", textTransform:"uppercase", color:"var(--text-tertiary)", margin: "0 0 8px"}}>A cadência</h3>
-            <div style={{borderTop: "1px solid var(--border-subtle)"}}>
+        <div style={{marginTop: "clamp(48px, 7vw, 88px)", borderTop: "1px solid var(--border-subtle)"}}>
               {rhythm.map((r, i) => (
                 <FadeIn key={r.t} delay={i * 60}>
                   <div className="qd-rhythm-row">
@@ -271,17 +227,6 @@ function VLife() {
                   </div>
                 </FadeIn>
               ))}
-            </div>
-          </div>
-          <FadeIn delay={200}>
-            <div style={{padding: 28, border: "1px dashed var(--border-default)", borderRadius: "var(--r-md)", display:"grid", gap: 12}}>
-              <span className="mono" style={{fontSize: 11, letterSpacing:"0.18em", textTransform:"uppercase", color:"var(--text-tertiary)"}}>Em expansão</span>
-              <p style={{margin: 0, fontSize: 15, color: "var(--text-secondary)", lineHeight: 1.6}}>
-                Hackathons, Demo Day e encontros setoriais, ativados com as empresas.
-              </p>
-              <a href="mantenedores.html" className="qd-explore" style={{justifySelf: "start"}}>Ativar com sua empresa →</a>
-            </div>
-          </FadeIn>
         </div>
 
         <DividerRow eyebrow="Território">
@@ -1040,7 +985,7 @@ function VFooter() {
     <footer className="qd-footer-min">
       <div className="container">
         <div className="qd-footer-top">
-          <div>
+          <div className="qd-footer-contact">
             <p style={{fontSize: 13.5, color:"var(--text-secondary)", maxWidth: "26ch", lineHeight: 1.6, margin: 0}}>
               Centro de Convenções Ulysses Guimarães<br/>
               SDC Lote 5 · Brasília · DF
@@ -1049,46 +994,13 @@ function VFooter() {
               style={{display:"inline-block", marginTop: 18, fontSize: 14, color:"var(--text-primary)", borderBottom:"1px solid var(--border-default)", paddingBottom: 3}}>
               {CONTACT_EMAIL}
             </a>
-            {[SOCIAL.instagram, SOCIAL.linkedin, SOCIAL.youtube].some(Boolean) && (
-              <div style={{display:"flex", gap: 10, marginTop: 22}}>
-                {[["IG", SOCIAL.instagram], ["LI", SOCIAL.linkedin], ["YT", SOCIAL.youtube]]
-                  .filter(([, u]) => u)
-                  .map(([s, u]) => (
-                    <a key={s} href={u} target="_blank" rel="noreferrer" data-cursor="hover" style={{
-                      width: 34, height: 34, borderRadius: "var(--r-chip)",
-                      border: "1px solid var(--border-default)",
-                      display:"inline-flex", alignItems:"center", justifyContent:"center",
-                      fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.1em",
-                      color:"var(--text-tertiary)",
-                    }}>{s}</a>
-                  ))}
-              </div>
-            )}
+            <a href={SOCIAL.instagram} target="_blank" rel="noreferrer" data-cursor="hover"
+              style={{display:"inline-block", marginTop: 18, fontSize: 14, color:"var(--text-primary)", borderBottom:"1px solid var(--border-default)", paddingBottom: 3}}>
+              @quadrado.central
+            </a>
           </div>
-          {[
-            { t: "Navegar", l: [["Como funciona", "index.html#como-funciona"], ["Vida no Quadrado", "index.html#vida"], ["Portfólio", "index.html#cases"], ["Manifesto", "index.html#manifesto"]] },
-            { t: "Entrar", l: [["Para founders", "index.html#founders"], ["Para mantenedores", "mantenedores.html"], ["Aplicar", "index.html#aplicar"]] },
-            { t: "Contato", l: [["Imprensa", `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Imprensa · Quadrado")}`], ["Voltar ao topo", "#top"]] },
-          ].map(c => (
-            <div key={c.t}>
-              {/* h3, não h4: com h4 a página saltava de h2 para h4, o
-                  único furo de hierarquia que a checagem encontrou. */}
-              <h3>{c.t}</h3>
-              <ul>
-                {c.l.map(([label, href]) => (
-                  <li key={label}><a href={href} data-cursor="hover">{label}</a></li>
-                ))}
-              </ul>
-            </div>
-          ))}
         </div>
 
-      </div>
-
-      {/* Fecho: fora do container, a palavra ocupa a largura da tela.
-          Sob o cursor cada letra recua e abre uma janela para a foto. */}
-      <div className="qd-footer-word">
-        <RevealWord text="QUADRADO" fit />
       </div>
 
       <div className="container">

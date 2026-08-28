@@ -1881,6 +1881,9 @@ a, button, [data-cursor] { cursor: none; }
   padding-block: clamp(88px, 10vw, 140px);
 }
 .qd-pillars-bg { position: absolute; inset: 0; }
+.qd-pillars-photo { position: absolute; inset: 0; opacity: 0; transition: opacity 700ms var(--ease-out); }
+.qd-pillars-photo[data-on="true"] { opacity: 1; }
+.qd-pillars-photo img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.78) contrast(1.04); }
 .qd-pillars-bg video {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
@@ -1907,10 +1910,9 @@ a, button, [data-cursor] { cursor: none; }
    estão e a textura sobra nos cantos. */
 .qd-pillars-scrim {
   position: absolute; inset: 0;
-  background: radial-gradient(ellipse 90% 75% at 50% 45%,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 0.55) 30%,
-    rgba(0, 0, 0, 0) 60%);
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.58) 0%, rgba(0,0,0,.72) 62%, rgba(0,0,0,.86) 100%),
+    radial-gradient(ellipse 80% 70% at 50% 45%, rgba(0,0,0,.12), rgba(0,0,0,.46));
 }
 /* Quadriculado industrial do #destrava (pedido do Ed, 20/08/2026):
    papel milimetrado atrás dos cards. Duas malhas em razão 1:4 — a
@@ -2856,11 +2858,12 @@ a, button, [data-cursor] { cursor: none; }
 .qd-footer-min { border-top: 1px solid var(--border-faint); }
 .qd-footer-top {
   display: grid;
-  grid-template-columns: minmax(0, 1.5fr) repeat(3, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: clamp(24px, 4vw, 56px);
   /* embaixo respira menos: a palavra do fecho vem logo em seguida */
   padding-block: clamp(56px, 7vw, 88px) clamp(28px, 3.4vw, 44px);
 }
+.qd-footer-contact { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
 .qd-footer-top h3 {
   margin: 0 0 16px;
   font-family: var(--font-mono);
@@ -2885,7 +2888,7 @@ a, button, [data-cursor] { cursor: none; }
   border-top: 1px solid var(--border-faint);
 }
 @media (max-width: 860px) {
-  .qd-footer-top { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .qd-footer-contact { display: grid; }
 }
 
 /* Big section opener with eyebrow on left + huge title on right */

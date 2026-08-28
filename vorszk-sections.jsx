@@ -229,15 +229,14 @@ function VHero() {
             lines={[["Founder", "não"], ["cresce", { w: "sozinho.", em: true }]]} />
           <FadeIn delay={900}>
             <p className="qd-hero3-lede">
-              Encontre pessoas, acesse operadores e especialistas, abra conversas
-              com empresas e investidores, valide desafios com pessoas reais e
-              conecte-se ao ecossistema de inovação.
+              Conecte-se a founders, operadores, empresas e investidores para
+              validar desafios e fazer sua startup avançar.
             </p>
           </FadeIn>
           <FadeIn delay={1050}>
             <div className="qd-hero3-ctas">
               <LiquidButton href="#aplicar">
-                Aplicar para o Quadrado Central <ArrowUpRight className="arrow" />
+                Aplicar para o Quadrado <ArrowUpRight className="arrow" />
               </LiquidButton>
               <a href="mantenedores.html" className="qd-link-plain" data-cursor="hover">
                 Quero ser mantenedor <span aria-hidden="true">→</span>
@@ -314,6 +313,7 @@ function VMarquee() {
 function VPillars() {
   const secRef = vsR(null);
   const cardRefs = vsR([]);
+  const bgRefs = vsR([]);
 
   // Entrada em cascata: o card 01 aparece, depois o 02 entra e desfoca
   // o 01, depois o 03 entra e desfoca os dois. O foco é sempre o último
@@ -341,6 +341,9 @@ function VPillars() {
       el.style.setProperty("--d", d.toFixed(3));
       el.setAttribute("data-in", e > 0.02 ? "true" : "false");
     });
+    bgRefs.current.forEach((el, i) => {
+      if (el) el.setAttribute("data-on", i === active ? "true" : "false");
+    });
   });
 
   const icons = {
@@ -367,16 +370,24 @@ function VPillars() {
   };
 
   const cards = [
-    { icon: icons.community, t: ["Comunidade", "curada"], tags: ["Seleção", "Colaboração"], d: "Founders em movimento, selecionados pela capacidade de construir, colaborar e fazer a comunidade avançar." },
-    { icon: icons.builders, t: ["Conexão com", "outros builders"], tags: ["Founders", "Operadores"], d: "Encontre pessoas que constroem, acesse operadores e especialistas e compartilhe desafios com quem entende a jornada." },
-    { icon: icons.events, t: ["Rotina de", "eventos"], tags: ["Encontros", "Desafios"], d: "Consultoria coletiva, trocas de inovação, desafios de empresas e encontros com outras startups." },
-    { icon: icons.community, t: ["Espaço e", "infraestrutura"], tags: ["CCUG", "Equity-free"], d: "Um lugar para trabalhar, encontrar a comunidade e participar da rotina do ecossistema, sem abrir mão de equity." },
+    { icon: icons.community, photo: "vida-01", focus: "61% 50%", t: ["Comunidade", "curada"], tags: ["Seleção", "Colaboração"], d: "Founders em movimento, selecionados pela capacidade de construir, colaborar e fazer a comunidade avançar." },
+    { icon: icons.builders, photo: "vida-02", focus: "30% 50%", t: ["Conexão com", "outros builders"], tags: ["Founders", "Operadores"], d: "Encontre pessoas que constroem, acesse operadores e especialistas e compartilhe desafios com quem entende a jornada." },
+    { icon: icons.events, photo: "vida-03", focus: "54% 50%", t: ["Rotina de", "eventos"], tags: ["Encontros", "Desafios"], d: "Consultoria coletiva, trocas de inovação, desafios de empresas e encontros com outras startups." },
+    { icon: icons.community, photo: "vida-04", focus: "50% 9%", t: ["Espaço e", "infraestrutura"], tags: ["CCUG", "Equity-free"], d: "Um lugar para trabalhar, encontrar a comunidade e participar da rotina do ecossistema, sem abrir mão de equity." },
   ];
 
   return (
     <section id="destrava" className="qd-pillars" ref={secRef}>
       <div className="qd-pillars-stage">
         <div className="qd-pillars-bg" aria-hidden="true">
+          {cards.map((card, i) => (
+            <div key={card.photo} className="qd-pillars-photo"
+              data-on={i === 0 ? "true" : "false"}
+              ref={(el) => { bgRefs.current[i] = el; }}>
+              <img src={`assets/media/${card.photo}.jpg`} alt=""
+                style={{objectPosition: card.focus}} />
+            </div>
+          ))}
           {/* Sem vídeo de fundo aqui (decisão do Ed, 24/08/2026): o slot
               bg-02.mp4 foi cancelado e o quadriculado é o fundo definitivo. */}
           {/* Fundo estático aqui (pedido do Ed, 20/08/2026): o campo de
@@ -484,41 +495,6 @@ function VManifesto() {
           ))}
         </div>
 
-        {/* O que não somos — clareza de posicionamento (ex-seção VNotThis) */}
-        <div style={{marginTop: "clamp(48px, 6vw, 80px)"}}>
-          <FadeIn><span className="qd-eyebrow">Para preservar a comunidade</span></FadeIn>
-          <div className="qd-nots-grid">
-            <RevealText
-              as="h3"
-              className="qd-statement"
-              stagger={110}
-              style={{fontSize: "clamp(1.5rem, 1rem + 1.6vw, 2.2rem)"}}
-              lines={[<>O que o <em>Quadrado</em></>, <>não é, e não será.</>]} />
-            <ul className="qd-nots-list">
-              {[
-                "Não somos apenas um coworking",
-                "Não somos consultoria tradicional",
-                "Não somos calendário de eventos",
-                "Não prometemos atalho",
-                "Não substituímos times de inovação",
-                "Não aceitamos founder para engordar número",
-              ].map((it, i) => (
-                <FadeIn key={i} delay={i * 50} as="li">
-                  <span className="x">×</span>
-                  <span>{it}</span>
-                </FadeIn>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        {/* Fecho: responde a objeção que a lista acima levanta, que é a
-            curadoria soar como exclusão. "Presença e progresso" saiu
-            daqui porque agora vive na citação do #founders; repetir
-            enfraquece as duas. Duas linhas de 360 e 373px. */}
-        <DividerRow eyebrow="Em resumo">
-          Curadoria aqui não é filtro<br />social. É <em>manutenção</em> da sala.
-        </DividerRow>
       </div>
     </section>
   );
