@@ -70,7 +70,7 @@ function VForFounders() {
               ]} />
             <FadeIn delay={200}>
               <p className="lede qd-founders-lede">
-                Encontre quem pode ajudar sua startup a avançar. A participação é gratuita; presença, colaboração e progresso mantêm a comunidade viva.
+                Cinco minutos de formulário. Uma conversa com a curadoria.
               </p>
             </FadeIn>
             <FadeIn delay={300}>
@@ -186,14 +186,23 @@ function VForMaintainers() {
 // clipes + cadência de eventos (fusão de VMosaic + VEvents)
 // ============================================================
 function VLife() {
+  const secRef = React.useRef(null);
+  const progressRef = React.useRef(null);
+  const cardRefs = React.useRef([]);
   const rhythm = [
     { f: "01", t: "Founders se ajudando", d: "Desafios colocados na mesa e experiências compartilhadas para encontrar o próximo passo." },
     { f: "02", t: "Cultura de inovação", d: "Trocas com operadores, especialistas e pessoas que transformam ideias em execução." },
     { f: "03", t: "Desafios entre membros", d: "Problemas reais discutidos por quem pode investigar, testar e validar novos caminhos." },
     { f: "04", t: "Encontros do ecossistema", d: "Conversas com startups, empresas e investidores que podem abrir novas oportunidades." },
   ];
+  useSectionProgress(secRef, (p) => {
+    const progress = Math.max(0, Math.min(1, (p - 0.08) / 0.72));
+    if (progressRef.current) progressRef.current.style.transform = `scaleX(${progress})`;
+    const visible = Math.max(1, Math.ceil(progress * rhythm.length));
+    cardRefs.current.forEach((el, i) => el && el.setAttribute("data-on", i < visible ? "true" : "false"));
+  });
   return (
-    <section id="vida" className="qd-section">
+    <section id="vida" className="qd-section" ref={secRef}>
       <div className="container">
         <div className="qd-section-head qd-head-split">
           <div style={{display:"grid", gap: 24}}>
@@ -214,9 +223,11 @@ function VLife() {
           </FadeIn>
         </div>
 
+        <div className="qd-community-progress" aria-hidden="true"><span ref={progressRef}></span></div>
         <div className="qd-community-grid">
               {rhythm.map((r, i) => (
-                <FadeIn key={r.t} delay={i * 60}>
+                <div key={r.t} className="qd-community-step" data-on={i === 0 ? "true" : "false"}
+                  ref={(el) => { cardRefs.current[i] = el; }}>
                   <div className="qd-community-card">
                     <span className="freq">{r.f}</span>
                     <div>
@@ -224,7 +235,7 @@ function VLife() {
                       <p style={{margin: 0, fontSize: 14, color: "var(--text-tertiary)", lineHeight: 1.5}}>{r.d}</p>
                     </div>
                   </div>
-                </FadeIn>
+                </div>
               ))}
         </div>
 

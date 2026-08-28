@@ -548,21 +548,9 @@ function DropMenu({ open, onClose }) {
     return () => window.removeEventListener("keydown", onKey);
   }, [open, onClose]);
   const isMaintainerPage = document.body.dataset.page === "mantenedores";
-  const links = isMaintainerPage ? [
-    ["01", "Proposta de valor", "#valor"],
-    ["02", "Formas de atuação", "#atuacao"],
-    ["03", "Como trabalhamos", "#processo"],
-    ["04", "Resultados", "#resultados"],
-    ["05", "Conversar", "#contato"],
-    ["06", "Página do founder", "index.html"],
-  ] : [
-    ["01", "O que entregamos", "#destrava"],
-    ["02", "Como funciona", "#como-funciona"],
-    ["03", "Para founders", "#founders"],
-    ["04", "Vida no Quadrado", "#vida"],
-    ["05", "Portfólio", "#cases"],
-    ["06", "Para mantenedores", "mantenedores.html"],
-    ["07", "Aplicar", "#aplicar"],
+  const links = [
+    ["01", "Para founders", isMaintainerPage ? "index.html#founders" : "#founders"],
+    ["02", "Para mantenedores", isMaintainerPage ? "#top" : "mantenedores.html"],
   ];
   return (
     <>

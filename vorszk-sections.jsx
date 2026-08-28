@@ -448,9 +448,9 @@ function VManifesto() {
   // algo que nenhuma outra seção diz: ajuda mútua, o modelo de duas
   // pontas, e evento como validação em vez de vitrine.
   const principles = [
-    { icon: "↗", h: <>Founder se conecta com <em>founder</em>.</>, d: "Boas mentes dividem contexto, abrem conversas e aceleram decisões." },
-    { icon: "◎", h: <>Ecossistema <em>gratuito</em>.</>, d: "Acesso sem equity para quem participa, colabora e faz o coletivo avançar." },
-    { icon: "▶", h: <>Menos palco. Mais <em>bastidores</em>.</>, d: "Ideias saem do discurso, encontram pessoas reais e começam a rodar." },
+    { icon: "↗", h: [<>Founder se conecta</>, <>com <em>founder</em>.</>], d: "Boas mentes dividem contexto, abrem conversas e aceleram decisões." },
+    { icon: "◎", h: [<>Ecossistema gratuito.</>, <>Acesso <em>sem equity</em>.</>], d: "Para quem participa, colabora e faz o coletivo avançar." },
+    { icon: "▶", h: [<>Menos palco.</>, <>Mais <em>bastidores</em>.</>], d: "Ideias saem do discurso, encontram pessoas reais e começam a rodar." },
   ];
   return (
     <section id="manifesto" className="qd-section">
@@ -488,7 +488,7 @@ function VManifesto() {
           {principles.map((p) => (
             <FadeIn key={p.icon} className="qd-manifesto-card">
               <span className="icon" aria-hidden="true">{p.icon}</span>
-              <h3 className="ph-title">{p.h}</h3>
+              <h3 className="ph-title">{p.h.map((line, i) => <span key={i}>{line}</span>)}</h3>
               <p>{p.d}</p>
             </FadeIn>
           ))}

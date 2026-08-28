@@ -1079,6 +1079,7 @@ a, button, [data-cursor] { cursor: none; }
 .qd-manifesto-card { padding: clamp(24px, 3vw, 36px); border: 1px solid var(--border-subtle); border-radius: var(--r-xl); background: var(--bg-card); }
 .qd-manifesto-card .icon { width: 42px; height: 42px; display: grid; place-items: center; border: 1px solid var(--border-default); border-radius: 50%; color: var(--accent); margin-bottom: 48px; font-size: 18px; }
 .qd-manifesto-card .ph-title { margin: 0; font: 400 clamp(1.35rem, 1rem + 1vw, 2rem)/1.08 var(--font-sans); letter-spacing: -.025em; }
+.qd-manifesto-card .ph-title > span { display: block; }
 .qd-manifesto-card .ph-title em { font-family: var(--font-serif); font-style: italic; }
 .qd-manifesto-card p { margin: 18px 0 0; color: var(--text-tertiary); font-size: 14px; line-height: 1.55; }
 @media (max-width: 800px) { .qd-manifesto-cards { grid-template-columns: 1fr; } .qd-manifesto-card .icon { margin-bottom: 28px; } }
@@ -1639,12 +1640,14 @@ a, button, [data-cursor] { cursor: none; }
 /* ─── 27. Comunidade em quatro movimentos ────────────────── */
 .qd-community-grid {
   display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
-  margin-top: clamp(48px, 7vw, 88px);
-  border-top: 1px solid var(--border-subtle); border-left: 1px solid var(--border-subtle);
+  margin-top: 18px;
 }
+.qd-community-progress { height: 2px; margin-top: clamp(48px, 7vw, 88px); background: var(--border-subtle); overflow: hidden; }
+.qd-community-progress span { display: block; width: 100%; height: 100%; background: var(--accent); transform: scaleX(0); transform-origin: left; will-change: transform; }
+.qd-community-step { opacity: .18; transform: translateY(16px); transition: opacity 480ms var(--ease-out), transform 560ms var(--ease-out-expo); }
+.qd-community-step[data-on="true"] { opacity: 1; transform: none; }
 .qd-community-card {
   min-height: 240px; padding: clamp(22px, 2.5vw, 34px);
-  border-right: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);
   display: flex; flex-direction: column; gap: 18px;
 }
 .qd-community-card .freq { font: 11px var(--font-mono); letter-spacing: .16em; color: var(--accent); }
