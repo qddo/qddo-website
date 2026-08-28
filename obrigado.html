@@ -7,7 +7,7 @@
   <title>Aplicação recebida · Quadrado Central</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="styles/tokens.css" />
-  <link rel="stylesheet" href="styles/pagina.css?v=20260828-12" />
+  <link rel="stylesheet" href="styles/pagina.css?v=20260828-13" />
 </head>
 <body>
   <div class="pg">
@@ -26,7 +26,12 @@
         periodicamente, com retorno estimado em 30 a 45 dias úteis e entrada mediante avaliação.
       </p>
       <p class="pg-meta">Obrigado pelo interesse em fazer parte do Quadrado Central.</p>
-      <a class="pg-chip pg-primary" href="index.html">Voltar para o site <span aria-hidden="true">→</span></a>
+      <a class="btn btn-liquid pg-home-cta" href="index.html">
+        <span class="lq-layer" aria-hidden="true"></span>
+        <span class="lq-tint" aria-hidden="true"></span>
+        <span class="lq-shine" aria-hidden="true"></span>
+        <span class="lq-label">Voltar para o site <span class="arrow" aria-hidden="true">→</span></span>
+      </a>
     </main>
 
     <footer class="pg-foot">
@@ -37,5 +42,14 @@
       </div>
     </footer>
   </div>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <filter id="qd-glass-distort" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.05 0.05" numOctaves="1" seed="1" result="turbulence" />
+      <feGaussianBlur in="turbulence" stdDeviation="2" result="blurredNoise" />
+      <feDisplacementMap in="SourceGraphic" in2="blurredNoise" scale="70" xChannelSelector="R" yChannelSelector="B" result="displaced" />
+      <feGaussianBlur in="displaced" stdDeviation="4" result="finalBlur" />
+      <feComposite in="finalBlur" in2="finalBlur" operator="over" />
+    </filter>
+  </svg>
 </body>
 </html>
