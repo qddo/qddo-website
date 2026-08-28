@@ -749,32 +749,18 @@ function VBigStatement() {
 // ============================================================
 // APLICAÇÃO — formulário real dentro do site + critérios
 // ============================================================
-// Cole aqui a URL do endpoint (Formspree, Tally, backend próprio).
-// Vazio = modo protótipo: valida, loga no console e mostra sucesso,
-// mas NÃO envia para lugar nenhum.
-const APPLY_ENDPOINT = "";
+const APPLY_ENDPOINT = "https://formsubmit.co/ed.ribeiro@h4ndslab.com";
+const APPLY_SUCCESS_URL = "https://qddo.github.io/qddo-website/obrigado.html";
+const APPLY_FORM_URL = "https://qddo.github.io/qddo-website/#aplicar";
+const APPLY_AUTORESPONSE = `Olá! Recebemos sua aplicação para o QDDO Central Hub.
+
+Os ciclos de aprovação acontecem periodicamente. O prazo estimado para retorno é de 30 a 45 dias úteis, e a entrada será definida mediante avaliação da curadoria.
+
+Obrigado pelo interesse em fazer parte do Quadrado.
+
+Equipe QDDO Central Hub`;
 
 function VApply() {
-  const [status, setStatus] = React.useState("idle"); // idle | sending | ok | error
-
-  const onSubmit = (e) => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    const fd = new FormData(form);
-    if (fd.get("website")) return; // honeypot anti-spam
-    setStatus("sending");
-    const done = () => setStatus("ok");
-    const fail = () => setStatus("error");
-    if (APPLY_ENDPOINT) {
-      fetch(APPLY_ENDPOINT, { method: "POST", body: fd, headers: { Accept: "application/json" } })
-        .then((r) => (r.ok ? done() : fail()))
-        .catch(fail);
-    } else {
-      console.log("[QDDO] Aplicação (modo protótipo):", Object.fromEntries(fd));
-      setTimeout(done, 700);
-    }
-  };
-
   const criteria = [
     { n: "01", t: "Founder em movimento", d: "Produto, validação ou operação ativos." },
     { n: "02", t: "Presença real", d: "Rotina presencial em Brasília / Centro-Oeste." },
@@ -816,19 +802,12 @@ function VApply() {
           </div>
 
           <FadeIn delay={150}>
-            {status === "ok" ? (
-              <div className="qd-form-ok">
-                <span className="qd-eyebrow">Aplicação recebida</span>
-                <h3 className="qd-statement" style={{fontSize: "clamp(1.8rem, 1.2rem + 2vw, 3rem)"}}>
-                  Agora é com a <em>curadoria</em>.
-                </h3>
-                <p className="lede" style={{maxWidth: "44ch"}}>
-                  Vamos olhar sua aplicação com atenção e retornar pelo e-mail ou
-                  WhatsApp informado. Enquanto isso, apareça em um Founders Night.
-                </p>
-              </div>
-            ) : (
-              <form className="qd-form-card" onSubmit={onSubmit}>
+              <form className="qd-form-card" action={APPLY_ENDPOINT} method="POST">
+                <input type="hidden" name="_subject" value="Nova aplicação — QDDO Central Hub" />
+                <input type="hidden" name="_template" value="table" />
+                <input type="hidden" name="_next" value={APPLY_SUCCESS_URL} />
+                <input type="hidden" name="_url" value={APPLY_FORM_URL} />
+                <input type="hidden" name="_autoresponse" value={APPLY_AUTORESPONSE} />
                 <div className="qd-form-head">
                   <span className="icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7"
@@ -921,13 +900,8 @@ function VApply() {
                   <textarea id="ap-motivo" name="motivacao" required placeholder="Direto ao ponto: o que você busca e o que contribui." />
                 </div>
                 <label className="qd-hp" aria-hidden="true">
-                  Não preencher <input name="website" tabIndex={-1} autoComplete="off" />
+                  Não preencher <input name="_honey" tabIndex={-1} autoComplete="off" />
                 </label>
-                {status === "error" && (
-                  <p className="full" style={{margin: 0, color: "var(--accent)", fontSize: 14}}>
-                    Algo falhou no envio. Tente de novo ou escreva para {CONTACT_EMAIL}.
-                  </p>
-                )}
                 </div>
 
                 {/* Rodapé do cartão: fio, aviso à esquerda, ação à direita.
@@ -938,12 +912,11 @@ function VApply() {
                     Ao aplicar, você concorda com os{" "}
                     <a href={TERMS_URL} data-cursor="hover">termos e condições</a>.
                   </span>
-                  <LiquidButton type="submit" disabled={status === "sending"}>
-                    {status === "sending" ? "Enviando…" : <>Enviar aplicação <ArrowUpRight className="arrow" /></>}
+                  <LiquidButton type="submit">
+                    Enviar aplicação <ArrowUpRight className="arrow" />
                   </LiquidButton>
                 </div>
               </form>
-            )}
           </FadeIn>
         </div>
 
