@@ -1228,11 +1228,11 @@ a, button, [data-cursor] { cursor: none; }
 .qd-hero-trust-main p { max-width: 34ch; margin: 22px 0 0; color: rgba(255,255,255,.66); font-size: 14px; line-height: 1.55; }
 .qd-hero-trust-tags { display: flex; gap: 7px; flex-wrap: wrap; }
 .qd-hero-trust-tags span { padding: 7px 10px; border: 1px solid rgba(255,255,255,.14); border-radius: 999px; font-size: 10px; color: rgba(255,255,255,.7); }
-.qd-hero-benefits { align-self: end; margin-bottom: clamp(52px, 8vh, 96px); display: grid; gap: 12px; color: #fff; }
+.qd-hero-benefits { align-self: end; margin-bottom: clamp(52px, 8vh, 96px); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; color: #fff; }
 .qd-hero-benefits-head { display: flex; align-items: center; gap: 9px; padding: 0 4px 4px; font: 10px var(--font-mono); letter-spacing: .13em; text-transform: uppercase; color: rgba(255,255,255,.62); }
 .qd-hero-benefits-head .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 18px var(--accent); }
 .qd-hero-benefit {
-  position: relative; min-height: 190px; padding: 22px;
+  position: relative; min-height: 220px; padding: 22px;
   display: flex; flex-direction: column; justify-content: space-between; gap: 28px;
   border: 1px solid rgba(255,255,255,.16); border-radius: 22px;
   background: linear-gradient(145deg, rgba(255,255,255,.10), rgba(255,255,255,.03));
@@ -1247,6 +1247,7 @@ a, button, [data-cursor] { cursor: none; }
 .qd-hero-benefit .n { align-self: start; font: 10px var(--font-mono); letter-spacing: .16em; color: rgba(255,255,255,.5); }
 .qd-hero-benefit h2 { margin: 0; font: 400 clamp(1.25rem, .9rem + 1vw, 1.8rem)/1.05 var(--font-sans); letter-spacing: -.035em; }
 .qd-hero-benefit p { margin: 12px 0 0; font-size: 12.5px; line-height: 1.5; color: rgba(255,255,255,.62); }
+.qd-hero-benefit h2 > span, .qd-hero-benefit p > span { display: block; }
 .qd-hero-benefit .go { align-self: start; color: var(--accent); font-size: 20px; }
 /* Grade 2x2 em vez de quatro linhas: a lista deixava um vão morto no
    meio de cada linha entre o número e o rótulo alinhado à direita. */
@@ -1297,7 +1298,7 @@ a, button, [data-cursor] { cursor: none; }
   .qd-hero-trust { margin-bottom: clamp(44px, 7vh, 72px); }
   .qd-hero-benefits { margin-bottom: clamp(44px, 7vh, 72px); }
 }
-@media (max-width: 560px) { .qd-hero-benefits-pair { grid-template-columns: 1fr; } .qd-hero-benefit.is-primary { grid-template-columns: auto 1fr; } .qd-hero-benefit .go { display: none; } }
+@media (max-width: 560px) { .qd-hero-benefits { grid-template-columns: 1fr; } .qd-hero-benefit { min-height: 180px; } }
 @media (prefers-reduced-motion: reduce) { .qd-hero-benefit:hover { transform: none; } }
 @media (prefers-reduced-motion: reduce) {
   .qd-hero3 { margin-top: 0; }
@@ -1699,6 +1700,7 @@ a, button, [data-cursor] { cursor: none; }
 }
 .qd-community-card .freq { font: 400 clamp(2.5rem, 1.5rem + 5vw, 6rem)/1 var(--font-sans); letter-spacing: -.05em; color: var(--accent); }
 .qd-community-card h3 { margin: 0 0 10px !important; font-family: var(--font-sans) !important; font-style: normal !important; font-size: clamp(1.25rem, 1rem + .7vw, 1.7rem) !important; }
+.qd-community-card h3 > span { display: block; }
 .qd-community-card p { font-size: 14px !important; line-height: 1.55 !important; }
 .qd-territory-center { grid-template-columns: 1fr; justify-items: center; text-align: center; }
 .qd-territory-center .qd-divider-body { max-width: 760px; }
@@ -2950,14 +2952,18 @@ a, button, [data-cursor] { cursor: none; }
   /* embaixo respira menos: a palavra do fecho vem logo em seguida */
   padding-block: clamp(56px, 7vw, 88px) clamp(28px, 3.4vw, 44px);
 }
-.qd-footer-contact { display: flex; align-items: flex-start; justify-content: flex-end; gap: clamp(24px, 5vw, 72px); flex-wrap: wrap; text-align: right; }
+.qd-footer-contact { display: flex; align-items: flex-start; justify-content: space-between; gap: clamp(24px, 5vw, 72px); flex-wrap: wrap; }
 .qd-footer-item {
   display: inline-flex; align-items: flex-start; gap: 11px; margin: 0;
   font-size: 14px; line-height: 1.55; color: var(--text-secondary);
 }
 .qd-footer-item svg { width: 18px; height: 18px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 .qd-footer-item span { border-bottom: 1px solid transparent; }
+.qd-footer-address { white-space: nowrap; }
 a.qd-footer-item:hover span { color: var(--accent); border-color: currentColor; }
+@media (max-width: 620px) { .qd-footer-contact { justify-content: space-between; gap: 16px; } .qd-footer-address { font-size: 10px; } .qd-footer-address svg { width: 15px; height: 15px; } }
+
+#cases { background: #000; }
 .qd-footer-top h3 {
   margin: 0 0 16px;
   font-family: var(--font-mono);

@@ -242,25 +242,18 @@ function VHero() {
           </FadeIn>
         </div>
         <FadeIn delay={650} className="qd-hero-benefits">
-          <div className="qd-hero-benefits-head">
-            <span className="dot"></span>
-            <span>Benefícios de estar na comunidade</span>
-          </div>
-          <article className="qd-hero-benefit is-primary">
-            <span className="n">01</span>
-            <div><h2>Decisões com contexto.</h2><p>Founders compartilham aprendizados reais para você avançar sem construir no escuro.</p></div>
-            <span className="go" aria-hidden="true">↗</span>
-          </article>
-          <div className="qd-hero-benefits-pair">
-            <article className="qd-hero-benefit">
-              <span className="n">02</span>
-              <div><h2>Acesso a quem executa.</h2><p>Operadores e especialistas próximos dos desafios.</p></div>
-            </article>
-            <article className="qd-hero-benefit is-accent">
-              <span className="n">03</span>
-              <div><h2>Oportunidades em movimento.</h2><p>Empresas, investidores e eventos com contexto.</p></div>
-            </article>
-          </div>
+          <a className="qd-hero-benefit" href="#aplicar" data-cursor="hover">
+            <span className="n">01</span><div><h2><span>Eventos</span><span>interessantes</span></h2><p><span>Encontros que ampliam repertório</span><span>e abrem novas conversas.</span></p></div>
+          </a>
+          <a className="qd-hero-benefit" href="#aplicar" data-cursor="hover">
+            <span className="n">02</span><div><h2><span>Parceria entre</span><span>founders</span></h2><p><span>Trocas práticas para destravar</span><span>decisões e oportunidades.</span></p></div>
+          </a>
+          <a className="qd-hero-benefit" href="#aplicar" data-cursor="hover">
+            <span className="n">03</span><div><h2><span>Comunidade de</span><span>construtores</span></h2><p><span>Gente que testa, aprende</span><span>e coloca projetos para rodar.</span></p></div>
+          </a>
+          <a className="qd-hero-benefit is-accent" href="#aplicar" data-cursor="hover">
+            <span className="n">04</span><div><h2><span>Método</span><span>underdog</span></h2><p><span>Pouco recurso, muita execução</span><span>e progresso com consistência.</span></p></div>
+          </a>
         </FadeIn>
       </div>
     </section>

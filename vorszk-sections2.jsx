@@ -186,7 +186,7 @@ function VLife() {
   const cardRefs = React.useRef([]);
   const rhythm = [
     { f: "01", t: "Founders se ajudando", d: "Desafios colocados na mesa e experiências compartilhadas para encontrar o próximo passo." },
-    { f: "02", t: "Cultura de inovação", d: "Trocas com operadores, especialistas e pessoas que transformam ideias em execução." },
+    { f: "02", t: ["Cultura de", "inovação"], d: "Trocas com operadores, especialistas e pessoas que transformam ideias em execução." },
     { f: "03", t: "Desafios entre membros", d: "Problemas reais discutidos por quem pode investigar, testar e validar novos caminhos." },
     { f: "04", t: "Encontros do ecossistema", d: "Conversas com startups, empresas e investidores que podem abrir novas oportunidades." },
   ];
@@ -222,12 +222,12 @@ function VLife() {
         <div className="qd-community-progress" aria-hidden="true"><span ref={progressRef}></span></div>
         <div className="qd-community-grid">
               {rhythm.map((r, i) => (
-                <div key={r.t} className="qd-community-step" data-on={i === 0 ? "true" : "false"}
+                <div key={Array.isArray(r.t) ? r.t.join(" ") : r.t} className="qd-community-step" data-on={i === 0 ? "true" : "false"}
                   ref={(el) => { cardRefs.current[i] = el; }}>
                   <div className="qd-community-card">
                     <span className="freq">{r.f}</span>
                     <div>
-                      <h3 className="serif" style={{margin: "0 0 4px", fontSize: 24, fontStyle: "italic", letterSpacing: "-0.014em"}}>{r.t}</h3>
+                      <h3 className="serif" style={{margin: "0 0 4px", fontSize: 24, fontStyle: "italic", letterSpacing: "-0.014em"}}>{Array.isArray(r.t) ? r.t.map(line => <span key={line}>{line}</span>) : r.t}</h3>
                       <p style={{margin: 0, fontSize: 14, color: "var(--text-tertiary)", lineHeight: 1.5}}>{r.d}</p>
                     </div>
                   </div>
@@ -289,7 +289,7 @@ function VCases() {
               as="h2"
               className="qd-statement"
               stagger={110}
-              lines={[<>O que <em>cresce</em> conosco.</>]} />
+              lines={[<><em>Orgulho</em> da casa.</>]} />
           </div>
           <FadeIn delay={200} className="qd-lede-right">
             {/* Era "Desafio de empresa, founder da casa, piloto rodando",
@@ -969,13 +969,10 @@ function VFooter() {
       <div className="container">
         <div className="qd-footer-top">
           <div className="qd-footer-contact">
-            <p className="qd-footer-item">
+            <a className="qd-footer-item qd-footer-address" href="https://www.google.com/maps/search/SDC%20-%20Ulysses%20Guimar%C3%A3es%2CBras%C3%ADlia%2CDistrito%20Federal%2CBrasil" target="_blank" rel="noreferrer" data-cursor="hover">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-              <span>
-              Centro de Convenções Ulysses Guimarães<br/>
-              SDC Lote 5 · Brasília · DF
-              </span>
-            </p>
+              <span>H4NDS · Centro de Convenções Ulysses Guimarães · Brasília · DF</span>
+            </a>
             <a href={SOCIAL.instagram} target="_blank" rel="noreferrer" data-cursor="hover"
               className="qd-footer-item">
               <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg>
