@@ -244,17 +244,25 @@ function VHero() {
             </div>
           </FadeIn>
         </div>
-        <FadeIn delay={650} className="qd-hero-trust">
-          <div className="qd-hero-trust-head">
+        <FadeIn delay={650} className="qd-hero-benefits">
+          <div className="qd-hero-benefits-head">
             <span className="dot"></span>
-            <span>Comunidade ativa em Brasília</span>
+            <span>Benefícios de estar na comunidade</span>
           </div>
-          <div className="qd-hero-trust-main">
-            <strong>Construa perto de quem faz.</strong>
-            <p>Founders, operadores, especialistas e empresas reunidos para transformar conversa em próximo passo.</p>
-          </div>
-          <div className="qd-hero-trust-tags">
-            <span>Equity-free</span><span>Curadoria contínua</span><span>Desafios reais</span>
+          <article className="qd-hero-benefit is-primary">
+            <span className="n">01</span>
+            <div><h2>Decisões com contexto.</h2><p>Founders compartilham aprendizados reais para você avançar sem construir no escuro.</p></div>
+            <span className="go" aria-hidden="true">↗</span>
+          </article>
+          <div className="qd-hero-benefits-pair">
+            <article className="qd-hero-benefit">
+              <span className="n">02</span>
+              <div><h2>Acesso a quem executa.</h2><p>Operadores e especialistas próximos dos desafios.</p></div>
+            </article>
+            <article className="qd-hero-benefit is-accent">
+              <span className="n">03</span>
+              <div><h2>Oportunidades em movimento.</h2><p>Empresas, investidores e eventos com contexto.</p></div>
+            </article>
           </div>
         </FadeIn>
       </div>
