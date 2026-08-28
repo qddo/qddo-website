@@ -452,7 +452,7 @@ function MenuWord({ text = "", center = true, className = "" }) {
 // Fonte: assets/logo-horizontal.svg e assets/favicon.svg.
 function BrandFull() {
   return (
-    <span className="qd-brand-full qd-brand-name">Quadrado Central</span>
+    <img className="qd-brand-full" src="assets/logo-horizontal.svg" alt="QDDO" />
   );
 }
 
@@ -623,11 +623,11 @@ function FadeIn({ children, delay = 0, as: Tag = "div", className = "", style, s
 // DIVIDER ROW — eyebrow left + body right with a horizontal rule
 // (the "EXCLUSIVITY | longer paragraph" pattern from Vorszk)
 // ============================================================
-function DividerRow({ eyebrow, children, align = "baseline", delay = 0, style }) {
+function DividerRow({ eyebrow, children, align = "baseline", delay = 0, style, className = "" }) {
   const ref = cuR(null);
   cuE(() => qdAttachTrigger(ref.current), []);
   return (
-    <div ref={ref} className="qd-fade qd-divider-row" style={{...style, "--qd-delay": delay + "ms", alignItems: align}}>
+    <div ref={ref} className={`qd-fade qd-divider-row ${className}`} style={{...style, "--qd-delay": delay + "ms", alignItems: align}}>
       <span className="qd-divider-eyebrow">{eyebrow}</span>
       <div className="qd-divider-body">{children}</div>
     </div>

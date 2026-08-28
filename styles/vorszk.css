@@ -40,8 +40,8 @@ body { cursor: none; }
   display: flex; flex-direction: column; justify-content: space-between; gap: 48px;
 }
 .qd-testimonial blockquote {
-  margin: 0; font-family: var(--font-serif); font-style: italic;
-  font-size: clamp(1.35rem, 1rem + .8vw, 2rem); line-height: 1.25;
+  margin: 0; font-family: var(--font-sans); font-style: normal; font-weight: 400;
+  font-size: clamp(1.2rem, 1rem + .55vw, 1.7rem); line-height: 1.38;
   letter-spacing: -.018em; color: var(--text-primary);
 }
 .qd-testimonial figcaption { display: grid; gap: 4px; }
@@ -1075,6 +1075,13 @@ a, button, [data-cursor] { cursor: none; }
 .qd-principle:last-child {
   border-bottom: 1px solid var(--border-subtle);
 }
+.qd-manifesto-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.qd-manifesto-card { padding: clamp(24px, 3vw, 36px); border: 1px solid var(--border-subtle); border-radius: var(--r-xl); background: var(--bg-card); }
+.qd-manifesto-card .icon { width: 42px; height: 42px; display: grid; place-items: center; border: 1px solid var(--border-default); border-radius: 50%; color: var(--accent); margin-bottom: 48px; font-size: 18px; }
+.qd-manifesto-card .ph-title { margin: 0; font: 400 clamp(1.35rem, 1rem + 1vw, 2rem)/1.08 var(--font-sans); letter-spacing: -.025em; }
+.qd-manifesto-card .ph-title em { font-family: var(--font-serif); font-style: italic; }
+.qd-manifesto-card p { margin: 18px 0 0; color: var(--text-tertiary); font-size: 14px; line-height: 1.55; }
+@media (max-width: 800px) { .qd-manifesto-cards { grid-template-columns: 1fr; } .qd-manifesto-card .icon { margin-bottom: 28px; } }
 
 /* ─── 22. Hero 3.0 — vídeo full-bleed + scrim + copy mínima ─ */
 /* O hero é sempre cinematográfico-escuro, mesmo no tema claro:
@@ -1131,10 +1138,9 @@ a, button, [data-cursor] { cursor: none; }
 .qd-hero3-scrim {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 0.55) 30%,
-    rgba(0, 0, 0, 0) 60%);
+  background:
+    linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,.55) 28%, rgba(0,0,0,0) 56%),
+    linear-gradient(180deg, transparent 58%, rgba(0,0,0,.35) 78%, rgba(0,0,0,1) 100%);
 }
 /* Marcação discreta de slot vazio: fica no rodapé, quase invisível,
    e só acende no hover. É nota de produção, não elemento de design. */
@@ -1544,14 +1550,14 @@ a, button, [data-cursor] { cursor: none; }
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: var(--r-xl);
-  padding: clamp(22px, 3vw, 34px);
+  padding: clamp(18px, 2.2vw, 28px);
 }
 .qd-form-head {
   display: grid;
   grid-template-columns: 44px minmax(0, 1fr);
   gap: 16px;
   align-items: start;
-  margin-bottom: clamp(20px, 2.8vh, 28px);
+  margin-bottom: clamp(16px, 2vh, 22px);
 }
 .qd-form-head .icon {
   width: 44px; height: 44px;
@@ -1587,8 +1593,11 @@ a, button, [data-cursor] { cursor: none; }
 .qd-field textarea {
   border-radius: var(--r-btn);
   padding: 14px 16px;
-  min-height: 118px;
+  min-height: 84px;
 }
+.qd-consent { display: flex; align-items: flex-start; gap: 10px; font-size: 12.5px; line-height: 1.45; color: var(--text-tertiary); cursor: pointer; }
+.qd-consent input { width: 17px; height: 17px; margin: 1px 0 0; accent-color: var(--accent); flex: none; }
+.qd-consent a { color: var(--text-secondary); text-decoration: underline; text-underline-offset: 3px; }
 /* seta do select desenhada em CSS (appearance: none tira a nativa) */
 .qd-field.is-select { position: relative; }
 .qd-field.is-select::after {
@@ -1617,8 +1626,8 @@ a, button, [data-cursor] { cursor: none; }
 .qd-form-foot {
   display: flex; align-items: center; justify-content: space-between;
   gap: 18px; flex-wrap: wrap;
-  margin-top: clamp(18px, 2.4vh, 26px);
-  padding-top: clamp(18px, 2.4vh, 26px);
+  margin-top: 14px;
+  padding-top: 14px;
   border-top: 1px solid var(--border-subtle);
 }
 .qd-form-foot .fineprint { max-width: 40ch; }
@@ -1627,7 +1636,26 @@ a, button, [data-cursor] { cursor: none; }
   .qd-form-foot .btn { width: 100%; }
 }
 
-/* ─── 27. Cadência de eventos (Vida no QDDO) ─────────────── */
+/* ─── 27. Comunidade em quatro movimentos ────────────────── */
+.qd-community-grid {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: clamp(48px, 7vw, 88px);
+  border-top: 1px solid var(--border-subtle); border-left: 1px solid var(--border-subtle);
+}
+.qd-community-card {
+  min-height: 240px; padding: clamp(22px, 2.5vw, 34px);
+  border-right: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);
+  display: flex; flex-direction: column; gap: 18px;
+}
+.qd-community-card .freq { font: 11px var(--font-mono); letter-spacing: .16em; color: var(--accent); }
+.qd-community-card h3 { margin: 0 0 10px !important; font-family: var(--font-sans) !important; font-style: normal !important; font-size: clamp(1.25rem, 1rem + .7vw, 1.7rem) !important; }
+.qd-community-card p { font-size: 14px !important; line-height: 1.55 !important; }
+.qd-territory-center { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+.qd-territory-center .qd-divider-body { max-width: 760px; }
+@media (max-width: 900px) { .qd-community-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .qd-community-grid { grid-template-columns: 1fr; } .qd-community-card { min-height: 0; } }
+
+/* ─── 27b. Cadência legada ───────────────────────────────── */
 .qd-rhythm-row {
   display: grid;
   grid-template-columns: 120px minmax(0, 1fr);
@@ -1884,6 +1912,11 @@ a, button, [data-cursor] { cursor: none; }
 .qd-pillars-photo { position: absolute; inset: 0; opacity: 0; transition: opacity 700ms var(--ease-out); }
 .qd-pillars-photo[data-on="true"] { opacity: 1; }
 .qd-pillars-photo img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.78) contrast(1.04); }
+.qd-pillars-stage::before {
+  content: ""; position: absolute; inset: 0 0 auto; height: clamp(72px, 12vh, 140px);
+  z-index: 1; pointer-events: none;
+  background: linear-gradient(180deg, #000 0%, rgba(0,0,0,.62) 38%, transparent 100%);
+}
 .qd-pillars-bg video {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
@@ -2498,6 +2531,7 @@ a, button, [data-cursor] { cursor: none; }
   box-shadow: 0 40px 90px rgba(0,0,0,0.6);
   z-index: 9 !important;
 }
+.qd-stack .panel:hover .qd-media img { filter: grayscale(0) contrast(1); transform: scale(1.06); }
 .qd-stack .panel .body {
   position: relative; z-index: 2;
   height: 100%;
@@ -2579,6 +2613,7 @@ a, button, [data-cursor] { cursor: none; }
   min-height: clamp(380px, 74vh, 640px);
 }
 .qd-benefits-copy { display: grid; gap: clamp(14px, 2vh, 24px); align-content: center; }
+.qd-founders-lede { max-width: 31ch; font-size: 15px; line-height: 1.55; }
 /* Coluna da direita: foto do passo em cima, texto embaixo, trilho no
    pé. Os três trocam no mesmo passo do scroll. */
 .qd-benefits-side {
@@ -2864,6 +2899,13 @@ a, button, [data-cursor] { cursor: none; }
   padding-block: clamp(56px, 7vw, 88px) clamp(28px, 3.4vw, 44px);
 }
 .qd-footer-contact { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+.qd-footer-item {
+  display: inline-flex; align-items: flex-start; gap: 11px; margin: 0;
+  font-size: 14px; line-height: 1.55; color: var(--text-secondary);
+}
+.qd-footer-item svg { width: 18px; height: 18px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.qd-footer-item span { border-bottom: 1px solid transparent; }
+a.qd-footer-item:hover span { color: var(--accent); border-color: currentColor; }
 .qd-footer-top h3 {
   margin: 0 0 16px;
   font-family: var(--font-mono);

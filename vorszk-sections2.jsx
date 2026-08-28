@@ -69,9 +69,8 @@ function VForFounders() {
                 <><em>Equity-free</em> sempre.</>,
               ]} />
             <FadeIn delay={200}>
-              <p className="lede" style={{maxWidth: "34ch"}}>
-                Encontre pessoas, acesse experiência e abra conversas que ajudam sua startup a avançar.<br />
-                Entrar é gratuito. Permanecer exige presença, colaboração e progresso.
+              <p className="lede qd-founders-lede">
+                Encontre quem pode ajudar sua startup a avançar. A participação é gratuita; presença, colaboração e progresso mantêm a comunidade viva.
               </p>
             </FadeIn>
             <FadeIn delay={300}>
@@ -215,10 +214,10 @@ function VLife() {
           </FadeIn>
         </div>
 
-        <div style={{marginTop: "clamp(48px, 7vw, 88px)", borderTop: "1px solid var(--border-subtle)"}}>
+        <div className="qd-community-grid">
               {rhythm.map((r, i) => (
                 <FadeIn key={r.t} delay={i * 60}>
-                  <div className="qd-rhythm-row">
+                  <div className="qd-community-card">
                     <span className="freq">{r.f}</span>
                     <div>
                       <h3 className="serif" style={{margin: "0 0 4px", fontSize: 24, fontStyle: "italic", letterSpacing: "-0.014em"}}>{r.t}</h3>
@@ -229,7 +228,7 @@ function VLife() {
               ))}
         </div>
 
-        <DividerRow eyebrow="Território">
+        <DividerRow eyebrow="No centro do país" className="qd-territory-center">
           Brasília é a única capital com vocação de testar políticas, marcas e produtos em <em>escala nacional</em> desde o dia um.
         </DividerRow>
       </div>
@@ -756,10 +755,10 @@ Equipe Quadrado Central`;
 
 function VApply() {
   const criteria = [
-    { n: "01", t: "Founder em movimento", d: "Produto, validação ou operação ativos." },
-    { n: "02", t: "Presença real", d: "Rotina presencial em Brasília / Centro-Oeste." },
-    { n: "03", t: "Disposição para colaborar", d: "Compartilhar experiências, conexões e aprendizados com a comunidade." },
-    { n: "04", t: "Progresso mensurável", d: "Permanência reavaliada pela evolução." },
+    { n: "01", t: "Founder em movimento" },
+    { n: "02", t: "Presença real" },
+    { n: "03", t: "Disposição para colaborar" },
+    { n: "04", t: "Progresso mensurável" },
   ];
 
   return (
@@ -775,19 +774,13 @@ function VApply() {
               lines={[
                 <>Destrave o <em>crescimento</em>.</>,
               ]} />
-            <FadeIn delay={200}>
-              <p className="lede" style={{maxWidth: "40ch"}}>
-                Cinco minutos de formulário. Uma conversa com a curadoria.
-              </p>
-            </FadeIn>
             <FadeIn delay={300}>
               <div id="criterios" style={{display:"grid", gap: 0, borderTop: "1px solid var(--border-subtle)"}}>
                 {criteria.map((c) => (
                   <div key={c.n} style={{display:"grid", gridTemplateColumns:"48px 1fr", gap: 16, padding: "18px 0", borderBottom: "1px solid var(--border-subtle)"}}>
                     <span className="mono" style={{fontSize: 11, letterSpacing:"0.16em", color:"var(--text-tertiary)"}}>{c.n}</span>
                     <div>
-                      <h3 style={{margin: "0 0 4px", fontFamily:"var(--font-sans)", fontWeight: 500, fontSize: 15.5, letterSpacing:"-0.01em"}}>{c.t}</h3>
-                      <p style={{margin: 0, fontSize: 13.5, color:"var(--text-tertiary)", lineHeight: 1.5}}>{c.d}</p>
+                      <h3 style={{margin: 0, fontFamily:"var(--font-sans)", fontWeight: 500, fontSize: 15.5, letterSpacing:"-0.01em"}}>{c.t}</h3>
                     </div>
                   </div>
                 ))}
@@ -861,33 +854,6 @@ function VApply() {
                 <div className="qd-field full">
                   <label htmlFor="ap-link">Link (site, deck ou LinkedIn)</label>
                   <input id="ap-link" name="link" placeholder="https://…" />
-                  {/* o que aceitamos, no padrão dos chips do card de referência */}
-                  <div className="qd-form-chips" aria-hidden="true">
-                    <span>
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                        <circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18" />
-                      </svg>
-                      Site
-                    </span>
-                    <span>
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6" />
-                      </svg>
-                      Deck
-                    </span>
-                    <span>
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                        <rect x="3" y="3" width="18" height="18" rx="2" /><path d="M7 10v7M7 7v.01M12 17v-4a2 2 0 0 1 4 0v4" />
-                      </svg>
-                      LinkedIn
-                    </span>
-                    <span>
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                        <rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><path d="M17 7v.01" />
-                      </svg>
-                      Instagram
-                    </span>
-                  </div>
                 </div>
                 <div className="qd-field full">
                   <label htmlFor="ap-motivo">Por que o Quadrado, e o que você traz? *</label>
@@ -896,16 +862,16 @@ function VApply() {
                 <label className="qd-hp" aria-hidden="true">
                   Não preencher <input name="_honey" tabIndex={-1} autoComplete="off" />
                 </label>
+                <label className="qd-consent full">
+                  <input type="checkbox" name="consentimento_comunicacoes" value="Aceito" required />
+                  <span>Concordo com os <a href={TERMS_URL} data-cursor="hover">termos e condições</a> e aceito receber mensagens sobre minha aplicação, a comunidade e seus eventos.</span>
+                </label>
                 </div>
 
                 {/* Rodapé do cartão: fio, aviso à esquerda, ação à direita.
                     TERMS_URL: a página ainda não existe. Quando existir,
                     é só apontar a constante no topo do arquivo. */}
                 <div className="qd-form-foot">
-                  <span className="fineprint">
-                    Ao aplicar, você concorda com os{" "}
-                    <a href={TERMS_URL} data-cursor="hover">termos e condições</a>.
-                  </span>
                   <LiquidButton type="submit">
                     Enviar aplicação <ArrowUpRight className="arrow" />
                   </LiquidButton>
@@ -986,17 +952,22 @@ function VFooter() {
       <div className="container">
         <div className="qd-footer-top">
           <div className="qd-footer-contact">
-            <p style={{fontSize: 13.5, color:"var(--text-secondary)", maxWidth: "26ch", lineHeight: 1.6, margin: 0}}>
+            <p className="qd-footer-item">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>
               Centro de Convenções Ulysses Guimarães<br/>
               SDC Lote 5 · Brasília · DF
+              </span>
             </p>
             <a href={`mailto:${CONTACT_EMAIL}`} data-cursor="hover"
-              style={{display:"inline-block", marginTop: 18, fontSize: 14, color:"var(--text-primary)", borderBottom:"1px solid var(--border-default)", paddingBottom: 3}}>
-              {CONTACT_EMAIL}
+              className="qd-footer-item">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+              <span>{CONTACT_EMAIL}</span>
             </a>
             <a href={SOCIAL.instagram} target="_blank" rel="noreferrer" data-cursor="hover"
-              style={{display:"inline-block", marginTop: 18, fontSize: 14, color:"var(--text-primary)", borderBottom:"1px solid var(--border-default)", paddingBottom: 3}}>
-              @quadrado.central
+              className="qd-footer-item">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg>
+              <span>@quadrado.central</span>
             </a>
           </div>
         </div>

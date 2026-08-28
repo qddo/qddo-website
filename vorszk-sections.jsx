@@ -448,9 +448,9 @@ function VManifesto() {
   // algo que nenhuma outra seção diz: ajuda mútua, o modelo de duas
   // pontas, e evento como validação em vez de vitrine.
   const principles = [
-    { n: "01", h: <>Problema de founder se resolve <em>entre founders</em>.</> },
-    { n: "02", h: <>Gratuito para founders. <em>Valioso</em> para o ecossistema.</> },
-    { n: "03", h: <>Menos palco. Mais <em>validação</em>.</> },
+    { icon: "↗", h: <>Founder se conecta com <em>founder</em>.</>, d: "Boas mentes dividem contexto, abrem conversas e aceleram decisões." },
+    { icon: "◎", h: <>Ecossistema <em>gratuito</em>.</>, d: "Acesso sem equity para quem participa, colabora e faz o coletivo avançar." },
+    { icon: "▶", h: <>Menos palco. Mais <em>bastidores</em>.</>, d: "Ideias saem do discurso, encontram pessoas reais e começam a rodar." },
   ];
   return (
     <section id="manifesto" className="qd-section">
@@ -467,8 +467,8 @@ function VManifesto() {
               className="qd-statement"
               stagger={120}
               lines={[
-                <>Não é um lugar.</>,
-                <>É um <em>chamado</em>.</>,
+                <>Para quem cansou</>,
+                <>de construir <em>sozinho</em>.</>,
               ]} />
           </div>
           {/* O manifesto inteiro condensado em três linhas: quem é o
@@ -476,9 +476,7 @@ function VManifesto() {
               Brasília. Os números vivem no hero e no #numeros. */}
           <FadeIn delay={150} className="qd-lede-right" style={{maxWidth: "48ch"}}>
             <p className="lede">
-              Para quem trocou o edital pela ideia e o roteiro pelo risco.
-              A inquietação virou projeto e o projeto virou movimento.
-              Brasília deixa de ser só o centro do poder.
+              Para founders inquietos que querem construir ao lado de boas mentes, no coração de Brasília — fortalecendo o DF como polo de negócios, inovação e novas empresas.
             </p>
           </FadeIn>
         </div>
@@ -486,11 +484,12 @@ function VManifesto() {
         {/* Princípios em uma linha cada. Sem marginTop próprio: o respiro
             vem do margin-bottom padrão do .qd-section-head, igual ao
             #mantenedores. */}
-        <div>
+        <div className="qd-manifesto-cards">
           {principles.map((p) => (
-            <FadeIn key={p.n} className="qd-principle">
-              <span className="num">{p.n}</span>
+            <FadeIn key={p.icon} className="qd-manifesto-card">
+              <span className="icon" aria-hidden="true">{p.icon}</span>
               <h3 className="ph-title">{p.h}</h3>
+              <p>{p.d}</p>
             </FadeIn>
           ))}
         </div>
