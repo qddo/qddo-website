@@ -106,7 +106,7 @@
 }
 
 /* ─── seções de texto legal ────────────────────────────────── */
-.pg-body { margin-top: clamp(44px, 7vh, 76px); display: grid; gap: clamp(34px, 5vh, 52px); }
+.pg-body { margin-top: clamp(36px, 5vh, 56px); display: grid; gap: clamp(22px, 3vh, 32px); }
 .pg-sec { display: grid; gap: 14px; }
 .pg-sec h2 {
   font-family: var(--font-sans);

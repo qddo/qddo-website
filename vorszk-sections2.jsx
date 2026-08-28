@@ -246,7 +246,8 @@ function VTerritory() {
     <section id="territorio" className="qd-section qd-territory-section">
       <div className="container">
         <DividerRow eyebrow="No centro do país" className="qd-territory-center">
-          Brasília é a única capital com vocação de testar políticas, marcas e produtos em <em>escala nacional</em> desde o dia um.
+          <span>Brasília é a única capital com vocação de testar políticas,</span>
+          <span>marcas e produtos em <em>escala nacional</em> desde o dia um.</span>
         </DividerRow>
       </div>
     </section>
