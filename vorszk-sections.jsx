@@ -569,8 +569,8 @@ function VHowItWorks() {
   const steps = [
     { n:"01", t:<>Aplique em <em>5 minutos</em></>, slot:"hero-01", sl:"founders · close", focus:"50% 16%" },
     { n:"02", t:<>Passe pela <em>curadoria</em></>, slot:"hero-03", sl:"ccug · espaço", focus:"50% 100%" },
-    { n:"03", t:<>Entre na <em>comunidade</em></>, slot:"vida-03", sl:"mentoria · mesa", focus:"64% 50%" },
-    { n:"04", t:<>Viva a <em>rotina</em></>, slot:"vida-04", sl:"espaço · bastidores", focus:"50% 33%" },
+    { n:"03", t:<>Entre na <em>comunidade</em></>, slot:"founder-02", sl:"mentoria · mesa", focus:"50% 50%" },
+    { n:"04", t:<>Viva a <em>rotina</em></>, slot:"founder-05", sl:"espaço · bastidores", focus:"50% 50%" },
     { n:"05", t:<>Resolva <em>desafios reais</em></>, slot:"hero-02", sl:"evento · plano aberto", focus:"50% 50%" },
   ];
 
@@ -607,6 +607,11 @@ function VHowItWorks() {
                   ref={(el) => { stepRefs.current[i] = el; }}>
                   <span className="n">{s.n} / 05</span>
                   <h3>{s.t}</h3>
+                  {(i === 1 || i === 3) && (
+                    <div className="qd-step-mobile-media" aria-hidden="true">
+                      <MediaSlot id={s.slot} label={s.sl} focus={s.focus} />
+                    </div>
+                  )}
                 </div>
               ))}
             </div>

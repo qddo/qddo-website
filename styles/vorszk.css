@@ -1298,7 +1298,10 @@ a, button, [data-cursor] { cursor: none; }
   .qd-hero-trust { margin-bottom: clamp(44px, 7vh, 72px); }
   .qd-hero-benefits { margin-bottom: clamp(44px, 7vh, 72px); }
 }
-@media (max-width: 560px) { .qd-hero-benefits { grid-template-columns: 1fr; } .qd-hero-benefit { min-height: 180px; } }
+@media (max-width: 560px) {
+  .qd-hero-benefits { grid-template-columns: 1fr; }
+  .qd-hero-benefit { min-height: 180px; }
+}
 @media (prefers-reduced-motion: reduce) { .qd-hero-benefit:hover { transform: none; } }
 @media (prefers-reduced-motion: reduce) {
   .qd-hero3 { margin-top: 0; }
@@ -1702,12 +1705,26 @@ a, button, [data-cursor] { cursor: none; }
 .qd-community-card h3 { margin: 0 0 10px !important; font-family: var(--font-sans) !important; font-style: normal !important; font-size: clamp(1.25rem, 1rem + .7vw, 1.7rem) !important; }
 .qd-community-card h3 > span { display: block; }
 .qd-community-card p { font-size: 14px !important; line-height: 1.55 !important; }
+.qd-community-photo { display: none; }
 .qd-territory-center { grid-template-columns: 1fr; justify-items: center; text-align: center; }
 .qd-territory-center .qd-divider-body { max-width: 760px; }
 .qd-territory-center .qd-divider-body > span { display: block; }
 .qd-territory-section { position: relative; background: var(--bg); }
 @media (max-width: 800px) { .qd-community-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .qd-life-stage { min-height: 100svh; } }
-@media (max-width: 560px) { .qd-life-pin { height: 400vh; } .qd-community-card { padding: 14px 8px; gap: 10px; } .qd-community-card .freq { font-size: 2rem; } .qd-community-card h3 { font-size: 1.05rem !important; } .qd-community-card p { font-size: 12px !important; } .qd-territory-center { margin-top: 24px; } }
+@media (max-width: 560px) {
+  .qd-life-pin { height: auto; }
+  .qd-life-stage { position: static; min-height: 0; overflow: visible; }
+  .qd-community-progress { display: none; }
+  .qd-community-grid { grid-template-columns: 1fr; gap: 18px; min-height: 0; }
+  .qd-community-step { opacity: 1; transform: none; pointer-events: auto; }
+  .qd-community-card { padding: 0 0 24px; gap: 14px; border-bottom: 1px solid var(--border-subtle); }
+  .qd-community-photo { display: block; width: 100%; aspect-ratio: 4 / 3; overflow: hidden; border-radius: var(--r-xl); }
+  .qd-community-photo .qd-media { height: 100%; border: 0; border-radius: 0; }
+  .qd-community-card .freq { font-size: 2rem; }
+  .qd-community-card h3 { font-size: 1.35rem !important; }
+  .qd-community-card p { font-size: 14px !important; }
+  .qd-territory-center { margin-top: 24px; }
+}
 @media (prefers-reduced-motion: reduce) { .qd-life-pin { height: auto; } .qd-life-stage { position: static; } .qd-community-grid { min-height: 0; gap: 20px; } .qd-community-step { position: static; opacity: 1; transform: none; } }
 
 /* ─── 27b. Cadência legada ───────────────────────────────── */
@@ -2234,6 +2251,7 @@ a, button, [data-cursor] { cursor: none; }
   color: var(--text-primary);
 }
 .qd-step h3 em { font-family: var(--font-serif); font-style: italic; color: inherit; }
+.qd-step-mobile-media { display: none; }
 .qd-steps-media { position: relative; min-height: clamp(240px, 40vh, 460px); }
 .qd-steps-frame {
   position: absolute; inset: 0;
@@ -2257,6 +2275,12 @@ a, button, [data-cursor] { cursor: none; }
   .qd-steps-body { grid-template-columns: 1fr; }
   .qd-steps-media { display: none; }
   .qd-step { opacity: 1; }
+}
+@media (max-width: 560px) {
+  .qd-steps-list { padding-left: 28px; }
+  .qd-step { padding-block: 18px; }
+  .qd-step-mobile-media { display: block; margin-top: 18px; width: calc(100% + 4px); aspect-ratio: 4 / 3; overflow: hidden; border-radius: var(--r-xl); }
+  .qd-step-mobile-media .qd-media { height: 100%; border: 0; border-radius: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
   .qd-steps { height: auto; }
@@ -2633,14 +2657,24 @@ a, button, [data-cursor] { cursor: none; }
   border: 0; border-radius: 0;
 }
 @media (max-width: 760px) {
-  .qd-stack { height: auto; display: grid; gap: 14px; }
+  .qd-stack {
+    height: auto; display: flex; gap: 14px;
+    overflow-x: auto; overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    margin-inline: calc(-1 * var(--gutter));
+    padding-inline: var(--gutter);
+    padding-bottom: 8px;
+  }
+  .qd-stack::-webkit-scrollbar { display: none; }
   .qd-stack .panel {
     /* Retrato também no mobile (pedido do Ed, 20/08/2026): as cinco fotos
        são recortes verticais, e 16/10 aqui obrigava um segundo corte, em
        orientação contrária ao arquivo. 4/5 em vez de 3/4 para a coluna
        empilhada não virar uma fita alta demais no telefone. */
-    position: static; width: 100%; aspect-ratio: 4 / 5;
+    position: static; flex: 0 0 min(84vw, 340px); width: auto; aspect-ratio: 4 / 5;
     transform: none !important;
+    scroll-snap-align: center;
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -2735,6 +2769,7 @@ a, button, [data-cursor] { cursor: none; }
   max-width: 40ch;
   text-wrap: balance;
 }
+.qd-benefit-mobile-media { display: none; }
 .qd-benefits-rail {
   display: flex; gap: 6px;
   margin-top: clamp(18px, 2.6vh, 28px);
@@ -2760,6 +2795,12 @@ a, button, [data-cursor] { cursor: none; }
   /* sem o efeito de scroll a foto ficaria presa no passo 01 */
   .qd-benefits-media { display: none; }
   .qd-benefits-rail { display: none; }
+}
+@media (max-width: 560px) {
+  .qd-benefits-stack { gap: 18px; }
+  .qd-benefit { padding-bottom: 28px; gap: 12px; }
+  .qd-benefit-mobile-media { display: block; order: -1; width: 100%; aspect-ratio: 16 / 10; margin-bottom: 4px; overflow: hidden; border-radius: var(--r-xl); }
+  .qd-benefit-mobile-media .qd-media { height: 100%; border: 0; border-radius: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
   .qd-benefits { height: auto; }

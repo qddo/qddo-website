@@ -88,6 +88,9 @@ function VForFounders() {
               {benefits.map((b, i) => (
                 <div key={b.t} className="qd-benefit" data-on={i === 0 ? "true" : "false"}
                   ref={(el) => { itemRefs.current[i] = el; }}>
+                  <div className="qd-benefit-mobile-media" aria-hidden="true">
+                    <MediaSlot id={b.slot} label={b.sl} focus={b.focus} />
+                  </div>
                   <span className="n">{String(i + 1).padStart(2, "0")} / {String(benefits.length).padStart(2, "0")}</span>
                   <h3>{b.t}</h3>
                   <p>{b.d}</p>
@@ -185,10 +188,10 @@ function VLife() {
   const progressRef = React.useRef(null);
   const cardRefs = React.useRef([]);
   const rhythm = [
-    { f: "01", t: "Founders se ajudando", d: "Desafios colocados na mesa e experiências compartilhadas para encontrar o próximo passo." },
-    { f: "02", t: ["Cultura de", "inovação"], d: "Trocas com operadores, especialistas e pessoas que transformam ideias em execução." },
-    { f: "03", t: "Desafios entre membros", d: "Problemas reais discutidos por quem pode investigar, testar e validar novos caminhos." },
-    { f: "04", t: "Encontros do ecossistema", d: "Conversas com startups, empresas e investidores que podem abrir novas oportunidades." },
+    { f: "01", t: "Founders se ajudando", d: "Desafios colocados na mesa e experiências compartilhadas para encontrar o próximo passo.", slot: "vida-05", sl: "founders em conversa" },
+    { f: "02", t: ["Cultura de", "inovação"], d: "Trocas com operadores, especialistas e pessoas que transformam ideias em execução.", slot: "vida-06", sl: "comunidade em atividade" },
+    { f: "03", t: "Desafios entre membros", d: "Problemas reais discutidos por quem pode investigar, testar e validar novos caminhos.", slot: "vida-07", sl: "founders trabalhando juntos" },
+    { f: "04", t: "Encontros do ecossistema", d: "Conversas com startups, empresas e investidores que podem abrir novas oportunidades.", slot: "vida-08", sl: "encontro da comunidade" },
   ];
   useSectionProgress(secRef, (p) => {
     const progress = Math.max(0, Math.min(1, p));
@@ -225,6 +228,9 @@ function VLife() {
                 <div key={Array.isArray(r.t) ? r.t.join(" ") : r.t} className="qd-community-step" data-on={i === 0 ? "true" : "false"}
                   ref={(el) => { cardRefs.current[i] = el; }}>
                   <div className="qd-community-card">
+                    <div className="qd-community-photo" aria-hidden="true">
+                      <MediaSlot id={r.slot} label={r.sl} />
+                    </div>
                     <span className="freq">{r.f}</span>
                     <div>
                       <h3 className="serif" style={{margin: "0 0 4px", fontSize: 24, fontStyle: "italic", letterSpacing: "-0.014em"}}>{Array.isArray(r.t) ? r.t.map(line => <span key={line}>{line}</span>) : r.t}</h3>
