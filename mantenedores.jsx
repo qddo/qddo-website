@@ -21,19 +21,18 @@ function MHero() {
       <div className="container qd-maint-hero-content">
         <FadeIn delay={180}><span className="qd-eyebrow">Para mantenedores</span></FadeIn>
         <RevealText as="h1" className="qd-maint-title" stagger={100} lines={[
-          <>Sua empresa dentro</>,
-          <>do ecossistema que <em>constrói</em>.</>,
+          <>Sua empresa não assiste</>,
+          <>ao ecossistema. <em>Constrói com ele.</em></>,
         ]} />
         <FadeIn delay={500}>
           <p className="qd-maint-lede">
-            O Quadrado Central conecta empresas a founders, desafios e oportunidades reais.
-            Construímos parcerias que geram relacionamento, aprendizado e inovação aplicada no Centro-Oeste.
+            Aproxime sua organização de founders selecionados, desafios reais e novas oportunidades de negócio em Brasília.
           </p>
         </FadeIn>
         <FadeIn delay={650}>
           <div className="qd-maint-actions">
-            <LiquidButton href="#contato">Construir uma parceria <ArrowUpRight className="arrow" /></LiquidButton>
-            <a href="#atuacao" className="qd-link-plain" data-cursor="hover">Ver formas de atuação <span>↓</span></a>
+            <LiquidButton href="#contato">Quero ser mantenedor <ArrowUpRight className="arrow" /></LiquidButton>
+            <a href="#valor" className="qd-link-plain" data-cursor="hover">Entender a parceria <span>↓</span></a>
           </div>
         </FadeIn>
       </div>
@@ -43,10 +42,10 @@ function MHero() {
 
 function MValue() {
   const outcomes = [
-    { n: "01", t: "Acesso qualificado", d: "Relacionamento com founders curados, startups em movimento e atores relevantes do ecossistema." },
-    { n: "02", t: "Inovação aplicada", d: "Desafios reais aproximados de soluções, testes, pilotos e novos aprendizados para a organização." },
-    { n: "03", t: "Presença com propósito", d: "Marca inserida na rotina da comunidade por meio de conteúdo, encontros e colaboração concreta." },
-    { n: "04", t: "Inteligência de ecossistema", d: "Contato próximo com novas tecnologias, modelos de negócio, talentos e movimentos do mercado." },
+    { n: "01", t: "Encontre quem constrói", d: "Acesse founders selecionados e startups em movimento — com contexto para a conversa acontecer." },
+    { n: "02", t: "Leve desafios à mesa", d: "Conecte problemas da organização a quem pode investigar, testar e propor novos caminhos." },
+    { n: "03", t: "Crie relações úteis", d: "Gere conversas com potencial para virar piloto, parceria, cliente, fornecedor ou aprendizado." },
+    { n: "04", t: "Ocupe um papel relevante", d: "Esteja presente na rotina da comunidade por meio de encontros, conteúdo e colaboração." },
   ];
   return (
     <section id="valor" className="qd-section qd-section-dark">
@@ -55,12 +54,12 @@ function MValue() {
           <div style={{display:"grid", gap:24}}>
             <FadeIn><span className="qd-eyebrow">Proposta de valor</span></FadeIn>
             <RevealText as="h2" className="qd-statement" stagger={110} lines={[
-              <>Mais que exposição.</>,
-              <>Uma posição <em>ativa</em>.</>,
+              <>Presença que abre</>,
+              <>conversas e gera <em>movimento</em>.</>,
             ]} />
           </div>
           <FadeIn delay={180} className="qd-lede-right">
-            <p className="lede">Sua empresa não entra para assistir ao ecossistema. Entra para construir valor com ele.</p>
+            <p className="lede">O valor não está em exibir uma marca. Está no que a sua empresa consegue construir com as pessoas certas.</p>
           </FadeIn>
         </div>
         <div className="qd-maint-value-grid">
@@ -81,11 +80,10 @@ function MValue() {
 
 function MWays() {
   const ways = [
-    { n:"01", k:"Ecossistema", t:"Mantenedor institucional", d:"Presença contínua na comunidade, relacionamento com founders e participação na agenda do Quadrado Central." },
-    { n:"02", k:"Especialidade", t:"Vertical temática", d:"Uma frente de atuação conectada ao setor da sua empresa, com curadoria, conteúdo e conexões dedicadas." },
-    { n:"03", k:"Relacionamento", t:"Eventos e experiências", d:"Founders Nights, workshops, encontros executivos e ativações desenhadas para gerar troca relevante." },
-    { n:"04", k:"Inovação", t:"Desafios e pilotos", d:"Problemas reais da organização conectados a founders capazes de investigar, prototipar e validar caminhos." },
-    { n:"05", k:"Longo prazo", t:"Programa co-criado", d:"Uma jornada própria com objetivos, agenda, seleção, mentorias e indicadores construídos em conjunto." },
+    { n:"01", k:"Presença", t:"Mantenedor institucional", d:"Relacionamento contínuo com a comunidade e participação na agenda do Quadrado Central." },
+    { n:"02", k:"Conexão", t:"Encontros e conteúdo", d:"Conversas, workshops e experiências desenhadas em torno de um objetivo claro." },
+    { n:"03", k:"Execução", t:"Desafios e pilotos", d:"Um problema real conectado a founders capazes de investigar, prototipar e validar soluções." },
+    { n:"04", k:"Estratégia", t:"Programa co-criado", d:"Uma jornada própria, com público, agenda, entregas e indicadores definidos em conjunto." },
   ];
   return (
     <section id="atuacao" className="qd-section">
@@ -94,19 +92,19 @@ function MWays() {
           <div style={{display:"grid", gap:24}}>
             <FadeIn><span className="qd-eyebrow">Formas de atuação</span></FadeIn>
             <RevealText as="h2" className="qd-statement" stagger={110} lines={[
-              <>Um ponto de entrada.</>,
-              <>Uma parceria feita <em>junto</em>.</>,
+              <>Quatro formas de</>,
+              <>começar a <em>construir</em>.</>,
             ]} />
           </div>
           <FadeIn delay={180} className="qd-lede-right">
-            <p className="lede">Partimos do objetivo da organização. O formato vem depois.</p>
+            <p className="lede">O formato acompanha o objetivo — de uma presença contínua a um desafio com começo, meio e resultado.</p>
           </FadeIn>
         </div>
         <div className="qd-maint-way-list">
           {ways.map((item, i) => (
             <FadeIn key={item.n} delay={i * 55}>
               <article className="qd-maint-way-row">
-                <span className="n">{item.n} / 05</span>
+                <span className="n">{item.n} / 04</span>
                 <span className="k">{item.k}</span>
                 <div><h3>{item.t}</h3><p>{item.d}</p></div>
               </article>
@@ -130,8 +128,8 @@ function MProcess() {
       <div className="container">
         <FadeIn><span className="qd-eyebrow">Como trabalhamos</span></FadeIn>
         <RevealText as="h2" className="qd-statement" stagger={110} lines={[
-          <>Clareza antes da ativação.</>,
-          <>Relação antes da <em>exposição</em>.</>,
+          <>Objetivo claro.</>,
+          <>Ativação com <em>contexto</em>.</>,
         ]} />
         <div className="qd-maint-process">
           {steps.map(([n,t,d], i) => (
@@ -164,7 +162,7 @@ function MResults() {
             ]} />
           </div>
           <FadeIn delay={180} className="qd-lede-right">
-            <p className="lede">Ela já existe, se encontra e gera conexões. A parceria amplia essa capacidade.</p>
+            <p className="lede">A comunidade já existe, se encontra e gera conexões. O mantenedor entra para ampliar o que ela pode realizar.</p>
           </FadeIn>
         </div>
         <div className="qd-maint-stats">
@@ -185,10 +183,10 @@ function MContact() {
           <div className="qd-split-sticky">
             <FadeIn><span className="qd-eyebrow">Vamos conversar</span></FadeIn>
             <RevealText as="h2" className="qd-statement" stagger={110} lines={[
-              <>Que papel sua empresa</>,
-              <>quer ocupar no <em>ecossistema</em>?</>,
+              <>O que sua empresa quer</>,
+              <>construir com o <em>ecossistema</em>?</>,
             ]} />
-            <FadeIn delay={180}><p className="lede" style={{maxWidth:"38ch"}}>Conte o objetivo. Nós ajudamos a desenhar a forma de atuação.</p></FadeIn>
+            <FadeIn delay={180}><p className="lede" style={{maxWidth:"38ch"}}>Conte o objetivo. Nós desenhamos o primeiro movimento juntos.</p></FadeIn>
           </div>
           <FadeIn delay={120}>
             <form className="qd-form-card" action={MAINTAINER_FORM_ENDPOINT} method="POST">
@@ -197,7 +195,7 @@ function MContact() {
               <input type="hidden" name="_next" value={MAINTAINER_SUCCESS_URL} />
               <input type="hidden" name="_url" value={MAINTAINER_FORM_URL} />
               <input type="hidden" name="_autoresponse" value={MAINTAINER_AUTORESPONSE} />
-              <div className="qd-form-head"><div><h3>Contato de parceria</h3><p>Retornaremos para entender o contexto da sua organização.</p></div></div>
+              <div className="qd-form-head"><div><h3>Conversa de parceria</h3><p>Retornaremos para entender o contexto e o objetivo da sua organização.</p></div></div>
               <div className="qd-form">
                 <div className="qd-field"><label htmlFor="mt-nome">Nome completo *</label><input id="mt-nome" name="nome" required /></div>
                 <div className="qd-field"><label htmlFor="mt-email">E-mail corporativo *</label><input id="mt-email" name="email" type="email" required /></div>
@@ -220,7 +218,7 @@ function MContact() {
               </div>
               <div className="qd-form-foot">
                 <span className="fineprint">Ao enviar, você concorda com os <a href="termos.html">termos e condições</a>.</span>
-                <LiquidButton type="submit">Enviar contato <ArrowUpRight className="arrow" /></LiquidButton>
+                <LiquidButton type="submit">Iniciar conversa <ArrowUpRight className="arrow" /></LiquidButton>
               </div>
             </form>
           </FadeIn>

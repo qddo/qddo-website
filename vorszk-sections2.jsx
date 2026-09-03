@@ -26,12 +26,12 @@ function VForFounders() {
     // a mesma faixa da moldura, com o rosto posicionado no próprio corte
     // (originais 3:2 em assets/media/_originais/). Forçar object-position
     // por cima só empurraria o rosto para fora do centro já escolhido.
-    { t: "Encontre pessoas", d: "Conecte-se com founders que também estão construindo, testando e tomando decisões difíceis.", slot: "founder-01", sl: "founder no palco" },
-    { t: "Acesse operadores e especialistas", d: "Converse com quem já enfrentou problemas de produto, vendas, operação e captação.", slot: "founder-03", sl: "founder no palco" },
-    { t: "Abra conversas", d: "Aproxime-se de empresas, investidores e organizações quando houver contexto para a conexão.", slot: "founder-04", sl: "founder no palco" },
-    { t: "Valide desafios reais", d: "Leve sua tese para conversas, eventos e desafios com pessoas que podem testar, usar ou contratar.", slot: "founder-06", sl: "founder no palco" },
-    { t: "Conecte-se ao ecossistema", d: "Participe da agenda de inovação de Brasília e amplie as oportunidades ao redor da startup.", slot: "founder-07", sl: "founder no palco" },
-    { t: "Construa sem entregar equity", d: "A participação é gratuita. Sua evolução e colaboração mantêm você dentro.", slot: "founder-08", sl: "founders · corredor" },
+    { t: "Founders que dividem desafios", d: "Converse com quem também está construindo, testando caminhos e tomando decisões difíceis.", slot: "founder-01", sl: "founder no palco" },
+    { t: "Operadores que encurtam o caminho", d: "Acesse experiência prática em produto, vendas, operação, tecnologia e captação.", slot: "founder-03", sl: "founder no palco" },
+    { t: "Conexões com intenção", d: "Chegue a empresas, especialistas e investidores quando existir uma razão concreta para a conversa.", slot: "founder-04", sl: "founder no palco" },
+    { t: "Métodos para testar e executar", d: "Transforme hipóteses em conversas, experimentos e próximos passos que você consegue medir.", slot: "founder-06", sl: "founder no palco" },
+    { t: "Pontes com quem já apoia startups", d: "Aproxime-se de incubadoras e aceleradoras parceiras para complementar o apoio que sua empresa precisa.", slot: "founder-07", sl: "founder no palco" },
+    { t: "Espaço sem custo e sem equity", d: "Use a estrutura, viva a rotina e preserve sua participação na empresa. Sua evolução e colaboração mantêm você dentro.", slot: "founder-08", sl: "founders · corredor" },
   ];
   const secRef = React.useRef(null);
   const itemRefs = React.useRef([]);
@@ -56,7 +56,6 @@ function VForFounders() {
       <div className="qd-benefits-stage">
         <div className="container qd-benefits-grid">
           <div className="qd-benefits-copy">
-            <FadeIn><span className="qd-eyebrow">Para founders</span></FadeIn>
             {/* Duas linhas de largura parecida (391 e 383px em 1440):
                 as três afirmações couberam em duas linhas com o itálico
                 serif só no "Equity-free". */}
@@ -65,8 +64,8 @@ function VForFounders() {
               className="qd-statement"
               stagger={110}
               lines={[
-                <>Gratuito e curado.</>,
-                <><em>Equity-free</em> sempre.</>,
+                <>Não prometemos investimento.</>,
+                <>Entregamos a <em>ambiência</em>.</>,
               ]} />
             <FadeIn delay={300}>
               <div style={{display:"flex", gap:12, flexWrap:"wrap"}}>
@@ -126,7 +125,6 @@ function VForMaintainers() {
       <div className="container">
         <div className="qd-section-head qd-head-split">
           <div style={{display:"grid", gap: 24}}>
-            <FadeIn><span className="qd-eyebrow">Para sua empresa</span></FadeIn>
             <RevealText
               as="h2"
               className="qd-statement"
@@ -205,7 +203,6 @@ function VLife() {
       <div className="container">
         <div className="qd-section-head qd-head-split">
           <div style={{display:"grid", gap: 24}}>
-            <FadeIn><span className="qd-eyebrow">A comunidade</span></FadeIn>
             <RevealText
               as="h2"
               className="qd-statement"
@@ -251,9 +248,10 @@ function VTerritory() {
   return (
     <section id="territorio" className="qd-section qd-territory-section">
       <div className="container">
-        <DividerRow eyebrow="No centro do país" className="qd-territory-center">
-          <span>Brasília é a única capital com vocação de testar políticas,</span>
-          <span>marcas e produtos em <em>escala nacional</em> desde o dia um.</span>
+        <DividerRow className="qd-territory-center">
+          <span>Brasília é a única capital com vocação</span>
+          <span>de testar políticas, marcas e produtos</span>
+          <span>em <em>escala nacional</em> desde o dia um.</span>
         </DividerRow>
       </div>
     </section>
@@ -300,12 +298,11 @@ function VCases() {
       <div className="container">
         <div className="qd-section-head qd-head-split">
           <div style={{display:"grid", gap: 24}}>
-            <FadeIn><span className="qd-eyebrow">Portfólio</span></FadeIn>
             <RevealText
               as="h2"
               className="qd-statement"
               stagger={110}
-              lines={[<><em>Orgulho</em> da casa.</>]} />
+              lines={[<>Founders que constroem <em>aqui</em>.</>]} />
           </div>
           <FadeIn delay={200} className="qd-lede-right">
             {/* Era "Desafio de empresa, founder da casa, piloto rodando",
@@ -356,14 +353,13 @@ function VTestimonials() {
       <div className="container">
         <div className="qd-section-head qd-head-split">
           <div style={{display:"grid", gap:24}}>
-            <FadeIn><span className="qd-eyebrow">Na prática</span></FadeIn>
             <RevealText as="h2" className="qd-statement" stagger={110} lines={[
               <>Conexões que viram</>,
               <><em>próximos passos</em>.</>,
             ]} />
           </div>
           <FadeIn delay={180} className="qd-lede-right">
-            <p className="lede">O valor da comunidade aparece no que seus founders conseguem fazer depois de se conectar.</p>
+            <p className="lede">O valor da comunidade aparece no que os founders conseguem fazer depois de se conectar.</p>
           </FadeIn>
         </div>
         <div className="qd-testimonials-window">
@@ -411,7 +407,6 @@ function VCommunity() {
       <div className="container">
         <div className="qd-section-head" style={{display:"grid", gridTemplateColumns:"minmax(0, 1fr) minmax(0, 1.2fr)", gap: 48, alignItems:"end"}}>
           <div style={{display:"grid", gap: 24}}>
-            <FadeIn><span className="qd-eyebrow">Comunidade</span></FadeIn>
             <RevealText
               as="h2"
               className="qd-statement"
@@ -500,26 +495,25 @@ function VEvents() {
       <div className="container">
         <div className="qd-section-head" style={{display:"grid", gridTemplateColumns:"minmax(0, 1fr) minmax(0, 1.2fr)", gap: 48, alignItems:"end"}}>
           <div style={{display:"grid", gap: 24}}>
-            <FadeIn><span className="qd-eyebrow">Programação</span></FadeIn>
             <RevealText
               as="h2"
               className="qd-statement"
               stagger={110}
               style={{fontSize: "clamp(2.2rem, 1.2rem + 4vw, 5rem)"}} lines={[
-                <>Encontros <em>recorrentes</em>.</>,
-                <>Comunidade com <em>cadência</em>.</>,
+                <>Você não precisa</>,
+                <>resolver tudo <em>sozinho</em>.</>,
               ]} />
           </div>
           <FadeIn delay={200}>
             <p className="lede" style={{maxWidth: "42ch"}}>
-              Eventos não são fim. São o ritmo que mantém a comunidade conectada, e o canal por onde mantenedores ativam relacionamento.
+              Traga uma decisão, uma dúvida ou um desafio da sua startup. Encontre pessoas capazes de ajudar você a enxergar o próximo passo.
             </p>
           </FadeIn>
         </div>
 
         <div style={{display:"grid", gridTemplateColumns:"minmax(0, 1.4fr) minmax(0, 1fr)", gap: 80}}>
           <div>
-            <h3 className="mono" style={{fontSize: 11, letterSpacing:"0.18em", textTransform:"uppercase", color:"var(--text-tertiary)", margin: "0 0 24px"}}>Em operação</h3>
+            <h3 className="mono" style={{fontSize: 11, letterSpacing:"0.18em", textTransform:"uppercase", color:"var(--text-tertiary)", margin: "0 0 24px"}}>Agenda confirmada</h3>
             <div style={{borderTop: "1px solid var(--border-subtle)"}}>
               {active.map((e, i) => (
                 <FadeIn key={i} delay={i*60}>
@@ -538,10 +532,10 @@ function VEvents() {
                 </FadeIn>
               ))}
             </div>
-            <a href="#agenda" className="qd-explore" style={{marginTop: 28, display:"inline-flex"}}>Agenda completa →</a>
+            <a href="#agenda" className="qd-explore" style={{marginTop: 28, display:"inline-flex"}}>Encontrar o próximo encontro →</a>
           </div>
           <div>
-            <h3 className="mono" style={{fontSize: 11, letterSpacing:"0.18em", textTransform:"uppercase", color:"var(--text-tertiary)", margin: "0 0 24px"}}>Em expansão</h3>
+            <h3 className="mono" style={{fontSize: 11, letterSpacing:"0.18em", textTransform:"uppercase", color:"var(--text-tertiary)", margin: "0 0 24px"}}>Novos formatos em construção</h3>
             <div style={{display:"grid", gap: 14}}>
               {upcoming.map((u, i) => (
                 <FadeIn key={i} delay={i*60}>
@@ -588,13 +582,12 @@ function VFounderPlatform() {
               background: "radial-gradient(circle, var(--accent) 0%, transparent 60%)", opacity: 0.18,
             }}></div>
             <div style={{position:"relative", display: "grid", gap: 24}}>
-              <span className="qd-eyebrow">Plataforma do Founder</span>
               {/* Duas linhas de largura parecida (325 e 335px em 1440).
                   O <br /> fixa a quebra: solto, o texto caía em
                   275/416px, porque "membros aprovados." sozinho já mede
                   416 e nenhuma primeira linha curta empata com isso. */}
               <h2 className="qd-statement">
-                A plataforma é<br />de quem <em>passou</em>.
+                A oportunidade é para<br /><em>os qualificados</em>.
               </h2>
               <p className="lede" style={{maxWidth: 520}}>
                 Agenda, oportunidades, desafios e conexões. Acesso após curadoria.
@@ -653,7 +646,6 @@ function VNotThis() {
     <section className="qd-section">
       <div className="container-narrow">
         <div className="qd-section-head" style={{display:"grid", gap: 28}}>
-          <FadeIn><span className="qd-eyebrow">Para preservar a comunidade</span></FadeIn>
           <RevealText
             as="h2"
             className="qd-statement"
@@ -714,7 +706,6 @@ function VBlog() {
       <div className="container">
         <div style={{display:"flex", justifyContent:"space-between", alignItems:"end", marginBottom: 64, gap: 24, flexWrap:"wrap"}}>
           <div style={{display:"grid", gap: 24}}>
-            <FadeIn><span className="qd-eyebrow">Blog · Notícias</span></FadeIn>
             <FadeIn delay={100}>
               <h2 className="qd-statement" style={{fontSize: "clamp(2rem, 1.2rem + 3vw, 4.2rem)"}}>
                 Conteúdo <em>vivo</em> do ecossistema.
@@ -757,7 +748,6 @@ function VBigStatement() {
   return (
     <section className="qd-section">
       <div className="container-narrow" style={{textAlign:"center"}}>
-        <FadeIn><span className="qd-eyebrow" style={{justifyContent:"center"}}>O futuro</span></FadeIn>
         <RevealText
           as="h2"
           className="qd-statement"
@@ -807,7 +797,6 @@ function VApply() {
               <MediaSlot id="aplicar-01" label="founders reunidos no auditório"
                 className="qd-apply-side-photo" focus="50% 35%" />
             </FadeIn>
-            <FadeIn><span className="qd-eyebrow">Aplicação</span></FadeIn>
             <RevealText
               as="h2"
               className="qd-statement"
@@ -945,7 +934,6 @@ function VFinalCTA() {
     <section id="caminhos" className="qd-section">
       <div className="container">
         <div className="qd-section-head" style={{textAlign:"center", marginInline:"auto", justifyItems: "center"}}>
-          <FadeIn><span className="qd-eyebrow">Caminhos</span></FadeIn>
           <RevealText
             as="h2"
             className="qd-statement"
@@ -987,7 +975,7 @@ function VFooter() {
           <div className="qd-footer-contact">
             <a className="qd-footer-item qd-footer-address" href="https://www.google.com/maps/search/SDC%20-%20Ulysses%20Guimar%C3%A3es%2CBras%C3%ADlia%2CDistrito%20Federal%2CBrasil" target="_blank" rel="noreferrer" data-cursor="hover">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-              <span>H4NDS · Centro de Convenções Ulysses Guimarães · Brasília · DF</span>
+              <span>H4NDS · Centro de Convenções Ulysses Guimarães</span>
             </a>
             <a href={SOCIAL.instagram} target="_blank" rel="noreferrer" data-cursor="hover"
               className="qd-footer-item">

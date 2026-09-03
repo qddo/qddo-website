@@ -608,6 +608,9 @@ a, button, [data-cursor] { cursor: none; }
   color: var(--text-primary);
   margin: 0;
 }
+.qd-statement.qd-statement-compact {
+  font-size: clamp(1.7rem, 1.05rem + 2vw, 2.8rem);
+}
 /* Budget de acento: itálico é contraste suficiente — fica branco */
 .qd-statement em, .qd-statement i {
   font-family: var(--font-serif);
@@ -1185,7 +1188,7 @@ a, button, [data-cursor] { cursor: none; }
   margin: 0;
   font-family: var(--font-sans);
   font-weight: 400;
-  font-size: clamp(2.3rem, 1rem + 3.9vw, 4.6rem);
+  font-size: clamp(2.15rem, 0.95rem + 3.5vw, 4.2rem);
   line-height: 1.02;
   letter-spacing: -0.035em;
   color: #fff;
@@ -1691,15 +1694,15 @@ a, button, [data-cursor] { cursor: none; }
 /* ─── 27. Comunidade em quatro movimentos ────────────────── */
 .qd-life-pin { position: relative; height: 420vh; }
 .qd-life-stage { position: sticky; top: 0; min-height: 100vh; display: flex; align-items: center; padding-block: clamp(48px, 6vh, 72px); overflow: hidden; }
-.qd-life-stage .qd-section-head { margin-bottom: clamp(20px, 3vh, 36px); }
-.qd-community-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 18px; min-height: clamp(220px, 30vh, 300px); }
+.qd-life-stage .qd-section-head { margin-bottom: clamp(8px, 1.5vh, 16px); }
+.qd-community-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 8px; min-height: clamp(220px, 30vh, 300px); }
 .qd-community-progress { height: 2px; margin-top: clamp(48px, 7vw, 88px); background: var(--border-subtle); overflow: hidden; }
 .qd-community-progress span { display: block; width: 100%; height: 100%; background: var(--accent); transform: scaleX(0); transform-origin: left; will-change: transform; }
 .qd-community-step { opacity: 0; transform: translateY(22px); pointer-events: none; transition: opacity 480ms var(--ease-out), transform 560ms var(--ease-out-expo); }
 .qd-community-step[data-on="true"] { opacity: 1; transform: none; }
 .qd-community-card {
-  height: 100%; padding: clamp(22px, 2.5vw, 34px) clamp(12px, 1.8vw, 24px);
-  display: flex; flex-direction: column; justify-content: center; gap: clamp(20px, 4vh, 38px);
+  height: 100%; padding: clamp(18px, 2vw, 28px) clamp(12px, 1.8vw, 24px);
+  display: flex; flex-direction: column; justify-content: center; gap: clamp(12px, 2vh, 20px);
 }
 .qd-community-card .freq { font: 400 clamp(2.5rem, 1.5rem + 5vw, 6rem)/1 var(--font-sans); letter-spacing: -.05em; color: var(--accent); }
 .qd-community-card h3 { margin: 0 0 10px !important; font-family: var(--font-sans) !important; font-style: normal !important; font-size: clamp(1.25rem, 1rem + .7vw, 1.7rem) !important; }
@@ -2170,6 +2173,25 @@ a, button, [data-cursor] { cursor: none; }
   .qd-pillars-grid.is-depth .qd-pillar-card {
     filter: none; opacity: 1; scale: 1; translate: none;
     pointer-events: auto;
+  }
+}
+@media (max-width: 560px) {
+  .qd-pillars-stage { padding-block: 64px; overflow: hidden; }
+  .qd-pillars .qd-pillars-grid {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    margin-inline: calc(-1 * var(--gutter));
+    padding-inline: var(--gutter);
+    padding-bottom: 8px;
+  }
+  .qd-pillars .qd-pillars-grid::-webkit-scrollbar { display: none; }
+  .qd-pillars .qd-pillar-card {
+    flex: 0 0 min(82vw, 330px);
+    min-height: 360px;
+    scroll-snap-align: center;
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -3032,6 +3054,19 @@ a.qd-footer-item:hover span { color: var(--accent); border-color: currentColor; 
 }
 @media (max-width: 860px) {
   .qd-footer-contact { display: grid; }
+}
+@media (max-width: 620px) {
+  .qd-footer-contact {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 10px;
+  }
+  .qd-footer-item { align-items: center; gap: 7px; white-space: nowrap; }
+  .qd-footer-top .qd-footer-address { min-width: 0; flex: 1 1 auto; font-size: clamp(7.5px, 2.05vw, 9px); letter-spacing: -.015em; }
+  .qd-footer-address svg { width: 14px; height: 14px; }
+  .qd-footer-top .qd-footer-contact > a:last-child { flex: none; font-size: clamp(8px, 2.2vw, 10px); }
+  .qd-footer-contact > a:last-child svg { width: 14px; height: 14px; }
 }
 
 /* Big section opener with eyebrow on left + huge title on right */

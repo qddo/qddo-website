@@ -615,7 +615,7 @@ function DividerRow({ eyebrow, children, align = "baseline", delay = 0, style, c
   cuE(() => qdAttachTrigger(ref.current), []);
   return (
     <div ref={ref} className={`qd-fade qd-divider-row ${className}`} style={{...style, "--qd-delay": delay + "ms", alignItems: align}}>
-      <span className="qd-divider-eyebrow">{eyebrow}</span>
+      {eyebrow && <span className="qd-divider-eyebrow">{eyebrow}</span>}
       <div className="qd-divider-body">{children}</div>
     </div>
   );

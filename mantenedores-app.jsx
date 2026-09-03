@@ -12,10 +12,10 @@ function MaintainersApp() {
       <DropMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
       <main>
         <MHero />
+        <MResults />
         <MValue />
         <MWays />
         <MProcess />
-        <MResults />
         <MContact />
       </main>
       <VFooter />

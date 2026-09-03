@@ -218,7 +218,7 @@ function VHero() {
         <div className="qd-hero3-copy" ref={copyRef}>
           <FadeIn delay={200}>
             <div className="qd-solid qd-badge">
-              <span>Aplicações abertas · Brasília · 2026</span>
+              <span>Para founders underdog que vivem a execução</span>
             </div>
           </FadeIn>
           <BlurText
@@ -226,11 +226,11 @@ function VHero() {
             className="qd-hero3-title"
             delayBase={400}
             stagger={100}
-            lines={[["Founder", "não"], ["cresce", { w: "sozinho.", em: true }]]} />
+            lines={[["Founder", "com", "conexão"], ["encurta", "o"], [{ w: "caminho.", em: true }]]} />
           <FadeIn delay={900}>
             <p className="qd-hero3-lede">
-              Conecte-se a founders, operadores, empresas e investidores para
-              validar desafios e fazer sua startup avançar.
+              O Quadrado ajuda founders em bootstrapping que constroem com recursos próprios
+              antes dos grandes aportes.
             </p>
           </FadeIn>
           <FadeIn delay={1050}>
@@ -243,16 +243,16 @@ function VHero() {
         </div>
         <FadeIn delay={650} className="qd-hero-benefits">
           <a className="qd-hero-benefit" href="#aplicar" data-cursor="hover">
-            <span className="n">01</span><div><h2><span>Eventos</span><span>interessantes</span></h2><p><span>Encontros que ampliam repertório</span><span>e abrem novas conversas.</span></p></div>
+            <span className="n">01</span><div><h2><span>Acesso, não</span><span>promessa</span></h2><p><span>Não prometemos investimento.</span><span>Abrimos acesso a quem pode ajudar.</span></p></div>
           </a>
           <a className="qd-hero-benefit" href="#aplicar" data-cursor="hover">
-            <span className="n">02</span><div><h2><span>Parceria entre</span><span>founders</span></h2><p><span>Trocas práticas para destravar</span><span>decisões e oportunidades.</span></p></div>
+            <span className="n">02</span><div><h2><span>Ambiência para</span><span>avançar</span></h2><p><span>Cerque-se de founders que entendem</span><span>a urgência de fazer acontecer.</span></p></div>
           </a>
           <a className="qd-hero-benefit" href="#aplicar" data-cursor="hover">
-            <span className="n">03</span><div><h2><span>Comunidade de</span><span>construtores</span></h2><p><span>Gente que testa, aprende</span><span>e coloca projetos para rodar.</span></p></div>
+            <span className="n">03</span><div><h2><span>Método que</span><span>encurta</span></h2><p><span>Acesse práticas e experiências</span><span>para testar e decidir mais rápido.</span></p></div>
           </a>
           <a className="qd-hero-benefit" href="#aplicar" data-cursor="hover">
-            <span className="n">04</span><div><h2><span>Método</span><span>underdog</span></h2><p><span>Pouco recurso, muita execução</span><span>e progresso com consistência.</span></p></div>
+            <span className="n">04</span><div><h2><span>Rede que</span><span>constrói</span></h2><p><span>Conecte-se a empresas, incubadoras</span><span>e aceleradoras. Sem entregar equity.</span></p></div>
           </a>
         </FadeIn>
       </div>
@@ -267,7 +267,7 @@ function VAudienceIntent({ audience }) {
   const copy = {
     founders: {
       headline: <>Uma comunidade <em>curada</em> de founders <em>em movimento</em>.</>,
-      lede: "Espaço gratuito no CCUG, programação recorrente, mentorias e acesso a desafios reais. Equity-free. A entrada é gratuita; a permanência exige presença, colaboração e progresso.",
+      lede: "Espaço gratuito no CCUG, programação recorrente, mentorias e acesso a desafios reais. Equity-free. A entrada é gratuita. Para permanecer, é preciso presença, colaboração e progresso.",
       cta: { primary: ["Aplicar para o Quadrado Central", "#aplicar"], secondary: ["Conhecer a comunidade", "#comunidade"] },
     },
     mantenedores: {
@@ -380,10 +380,10 @@ function VPillars() {
   };
 
   const cards = [
-    { icon: icons.community, photo: "vida-01", focus: "61% 50%", t: ["Comunidade", "curada"], tags: ["Seleção", "Colaboração"], d: "Founders em movimento, selecionados pela capacidade de construir, colaborar e fazer a comunidade avançar." },
-    { icon: icons.builders, photo: "vida-02", focus: "30% 50%", t: ["Conexão entre", "founders"], tags: ["Founders", "Operadores"], d: "Encontre pessoas que constroem, acesse operadores e especialistas e compartilhe desafios com quem entende a jornada." },
-    { icon: icons.events, photo: "vida-03", focus: "54% 50%", t: ["Rotina de", "eventos"], tags: ["Encontros", "Desafios"], d: "Consultoria coletiva, trocas de inovação, desafios de empresas e encontros com outras startups." },
-    { icon: icons.community, photo: "vida-04", focus: "50% 9%", t: ["Espaço e", "infraestrutura"], tags: ["CCUG", "Equity-free"], d: "Um lugar para trabalhar, encontrar a comunidade e participar da rotina do ecossistema, sem abrir mão de equity." },
+    { icon: icons.community, photo: "vida-01", focus: "61% 50%", t: ["Founders para", "construir"], tags: ["Confiança", "Contexto"], d: "Divida decisões difíceis com quem conhece a pressão de construir com pouco recurso e muita urgência." },
+    { icon: icons.builders, photo: "vida-02", focus: "30% 50%", t: ["Repertório de", "executores"], tags: ["Produto", "Vendas"], d: "Acesse repertório prático para validar hipóteses, conversar com clientes e evitar caminhos já testados." },
+    { icon: icons.events, photo: "vida-03", focus: "54% 50%", t: ["Ambiência em", "movimento"], tags: ["Rotina", "Encontros"], d: "Trabalhe perto de pessoas que compartilham contexto, cobram progresso e ajudam a manter a execução viva." },
+    { icon: icons.community, photo: "vida-04", focus: "50% 9%", t: ["Pontes para", "crescer"], tags: ["Parceiros", "Ecossistema"], d: "Aproxime-se de empresas, especialistas, incubadoras e aceleradoras quando sua startup estiver pronta para o próximo passo." },
   ];
 
   return (
@@ -412,15 +412,15 @@ function VPillars() {
         </div>
 
         <div className="container">
-          <FadeIn><span className="qd-eyebrow">O que entregamos</span></FadeIn>
           <div style={{marginTop: 24}}>
             <RevealText
               as="h2"
-              className="qd-statement"
+              className="qd-statement qd-statement-compact"
               stagger={110}
               lines={[
-                <>Estrutura, conexões</>,
-                <>e rotina para <em>avançar</em>.</>,
+                <>Em Brasília, as ideias viram passos</>,
+                <>com conexões curadas, método prático</>,
+                <>e uma comunidade que <em>faz acontecer</em>.</>,
               ]} />
           </div>
 
@@ -469,7 +469,6 @@ function VManifesto() {
             texto complementar encostado na margem direita. */}
         <div className="qd-section-head qd-head-split">
           <div style={{display:"grid", gap: 24}}>
-            <FadeIn><span className="qd-eyebrow">Manifesto</span></FadeIn>
             {/* O chamado de abertura do manifesto original, palavra por
                 palavra. Duas linhas de largura parecida. */}
             <RevealText
@@ -517,7 +516,6 @@ function VMosaic() {
     <section className="qd-section">
       <div className="container">
         <div className="qd-section-head">
-          <FadeIn><span className="qd-eyebrow">Centro-Oeste · Tese territorial</span></FadeIn>
           <RevealText
             as="h2"
             className="qd-statement"
@@ -589,7 +587,6 @@ function VHowItWorks() {
       <div className="qd-steps-stage">
         <div className="container">
           <div className="qd-steps-head">
-            <FadeIn><span className="qd-eyebrow">Como funciona</span></FadeIn>
             <RevealText
               as="h2"
               className="qd-statement"
@@ -652,7 +649,6 @@ function VStats() {
       <div className="container">
         <div className="qd-section-head" style={{display:"flex", justifyContent:"space-between", alignItems:"end", gap: 24, flexWrap:"wrap", marginBottom: 0}}>
           <div style={{display:"grid", gap: 24}}>
-            <FadeIn><span className="qd-eyebrow">Prova de ecossistema</span></FadeIn>
             <RevealText
               as="h2"
               className="qd-statement"
@@ -716,7 +712,6 @@ function VLogos() {
     <section id="parceiros" className="qd-section-tight">
       <div className="container">
         <FadeIn>
-          <span className="qd-eyebrow">Quem constrói junto</span>
         </FadeIn>
         <FadeIn delay={100}>
           <div className="qd-logos-row">
